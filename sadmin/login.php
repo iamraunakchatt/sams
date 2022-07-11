@@ -1,3 +1,14 @@
+<?php
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+session_start();
+if(isset($_SESSION['SAMSSuperadminLogin'])){
+	header("location: index.php");
+}else{
+    
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,10 +51,10 @@
 <h3 class="account-title">स्मार्ट उपस्थिति अंकन प्रणाली</h3>
 <p class="account-subtitle">Welcome Superadmin<br/>Please Signin to proceed</p>
 
-<form action="admin-dashboard.html">
+<form method="post" action="action/login_action.php">
 <div class="form-group">
 <label>Email Address</label>
-<input class="form-control" type="text" value="admin@dreamguys.in">
+<input class="form-control" name="username" type="text" placeholder="Enter Super Admin Email" required>
 </div>
 <div class="form-group">
 <div class="row">
@@ -53,7 +64,7 @@
 
 </div>
 <div class="position-relative">
-<input class="form-control" type="password" value="123456" id="password">
+<input class="form-control" type="password" name="password" Placeholder="Enter Super Admin Password" id="password" required>
 <span class="fa fa-eye-slash" id="toggle-password"></span>
 </div>
 </div>
@@ -77,5 +88,40 @@
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 
 <script src="assets/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<?php
+$status=$_GET['status'];
+if($status=="passwordwrong"){
+?>
+<script>
+    Swal.fire({
+  icon: 'error',
+  title: 'Oops!!',
+  text: 'Wrong Password',
+})
+</script>
+<?php
+}else if($status=="usernamewrong"){
+	?>
+<script>
+    Swal.fire({
+  icon: 'error',
+  title: 'Oops!!',
+  text: 'Wrong Username',
+})
+</script>
+	<?php
+}else if($status=="loggedout"){
+	?>
+<script>
+    Swal.fire({
+  icon: 'success',
+  title: 'Successfully',
+  text: 'Logged Out',
+})
+</script>
+	<?php
+}
+?>
 </body>
 </html>

@@ -898,9 +898,9 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
   color: #757575 !important;
 }
 
-.btn-primary {
+.btn-primary,.swal2-styled.swal2-confirm {
   background-color: #ff9b44;
-  background: linear-gradient(to right, #273596 0%, #0975C5 100%);
+  background: linear-gradient(to right, #273596 0%, #0975C5 100%)!important;
   /*border: 1px solid #ff9b44;*/
   color: #ffffff !important;
 }
@@ -1280,6 +1280,9 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 .btn-outline-danger:not(:disabled):not(.disabled).active:focus, .btn-outline-danger:not(:disabled):not(.disabled):active:focus {
   box-shadow: none;
 }
+.dataTables_filter label{
+  width:100%;
+}
 
 .btn-outline-light {
   color: #ababab;
@@ -1308,8 +1311,8 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .page-item.active .page-link {
-  background-color: #ff9b44;
-  border-color: #ff9b44;
+  background: linear-gradient(to right, #273596 0%, #0975C5 100%)!important;
+  /*border-color: #ff9b44;*/
 }
 
 .dropdown-menu {
