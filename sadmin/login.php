@@ -7,7 +7,7 @@
 <meta name="keywords" content="">
 <meta name="author" content="">
 <meta name="robots" content="noindex, nofollow">
-<title>Super Admin | SMART ATTENDANCE MARKING SYSTEMS</title>
+<title>Super Admin | SMART ATTENDANCE MARKING SYSTEMS Solution</title>
 
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
