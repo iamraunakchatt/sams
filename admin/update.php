@@ -14,7 +14,7 @@
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Update successfully.";
-        header("Location: department-management.php");    
+        header("Location: department-management.php?status=editsuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -36,7 +36,7 @@
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Update successfully.";
-        header("Location: designation-managment.php");    
+        header("Location: designation-managment.php?status=editsuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -58,7 +58,7 @@
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Update successfully.";
-        header("Location: employee-type-managment.php");    
+        header("Location: employee-type-managment.php?status=editsuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -79,7 +79,7 @@
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Update successfully.";
-        header("Location: leave-management.php");    
+        header("Location: leave-management.php?status=editsuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -100,7 +100,7 @@
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Update successfully.";
-        header("Location: deactive-reason.php");    
+        header("Location: deactive-reason.php?status=editsuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -122,7 +122,7 @@
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Update successfully.";
-        header("Location: public-holiday-managment.php");    
+        header("Location: public-holiday-managment.php?status=editsuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -143,7 +143,7 @@
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Update successfully.";
-        header("Location: user-type.php");    
+        header("Location: user-type.php?status=editsuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -170,7 +170,7 @@
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Update successfully.";
-        header("Location: shift-managment.php");    
+        header("Location: shift-managment.php?status=editsuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "

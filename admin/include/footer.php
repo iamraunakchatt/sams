@@ -372,5 +372,55 @@ $(document).ready(function(){
 </form>
   </div>
 </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<?php
+$status=$_GET['status'];
+if($status=="success"){
+?>
+<script>
+    Swal.fire({
+  icon: 'success',
+  title: 'Congratulations',
+  text: 'Successfully Submitted',
+})
+</script>
+<?php
+}else if($status=="failed"){
+  ?>
+<script>
+    Swal.fire({
+  icon: 'error',
+  title: 'Oops!!',
+  text: 'An Error Occured!',
+})
+</script>
+  <?php
+}else if($status=="editsuccess"){
+  ?>
+<script>
+    Swal.fire({
+  icon: 'success',
+  title: 'Congratulations!!',
+  text: 'Successfully Updated',
+})
+</script>
+  <?php
+}else if($status=="deletesuccess"){
+  ?>
+<script>
+    Swal.fire({
+  icon: 'success',
+  title: 'Congratulations!!',
+  text: 'Successfully Deleted',
+})
+</script>
+  <?php
+}
+?>
+?>
+
 </body>
 </html>

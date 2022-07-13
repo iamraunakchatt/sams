@@ -11,11 +11,10 @@ if (isset($_POST['save']))
         // here our table name is college
         $sql = "INSERT INTO  10_user_type(user_type) VALUES ('$user_type')";
         if(mysqli_query($conn, $sql)){
-          $_SESSION['add_message'] = "Data Insert successfully.";
+          header("location: user-type.php?status=success");
                
         } else{
-          echo "<script>alert('Data Not insert.')</script> $sql. "
-          . mysqli_error($conn);
+          header("location: user-type.php?status=failed");
         }
          
         // Close connection
@@ -31,7 +30,7 @@ if (isset($_POST['save']))
 <h3 class="page-title"></h3>
 <ul class="breadcrumb">
 <li class="breadcrumb-item"><a href="#">Home</a></li>
-<li class="breadcrumb-item"><a href="#">Master</a></li>
+
 <li class="breadcrumb-item active">User Type</li>
 </ul>
 </div>
@@ -57,18 +56,7 @@ if (isset($_POST['save']))
 <div class="card-body">
 <div class="table-responsive">
 <input type="hidden"value="user_type"id="anchor_value">
-<?php if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) { ?>
-                        <div class="success-message " style="margin-bottom: 20px;font-size: 20px;color: green;"><?php echo $_SESSION['success_message']; ?></div>
-                        <?php
-                        unset($_SESSION['success_message']);
-                    }
-                    ?>
-<?php if (isset($_SESSION['add_message']) && !empty($_SESSION['add_message'])) { ?>
-                        <div class="success-message " style="margin-bottom: 20px;font-size: 20px;color: green;"><?php echo $_SESSION['add_message']; ?></div>
-                        <?php
-                        unset($_SESSION['add_message']);
-                    }
-?>
+
 <table class="datatable table table-stripped mb-0">
 <thead>
 <tr>
@@ -87,8 +75,8 @@ if (isset($_POST['save']))
 <td>'.$i.'</td>
 <td>'.$row['user_type'].'</td>
 <td width="10%">
-    <a href="javascript:void(0)" data-id="'.$row['id'].'"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>|
-    <a href="delete.php?action=user-type&id='.$row['id'].'"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+    <a class="btn btn-success" href="javascript:void(0)" data-id="'.$row['id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+    <a class="btn btn-danger" href="delete.php?action=user-type&id='.$row['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
     </td>
 </tr>';
 $i++;

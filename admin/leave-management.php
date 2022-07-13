@@ -7,26 +7,15 @@ if (isset($_POST['save']))
 {
     $name=stripslashes(mysqli_real_escape_string($conn,$_POST['leave']));
    // Performing insert query execution
-        // here our table name is college
-        // $sql = "INSERT INTO  07_leave_management(leave) VALUES ('$name')";
-         
-        // if(mysqli_query($conn, $sql)){
-        //   $_SESSION['add_message'] = "Data Insert successfully.";
-               
-        // } else{
-        //    echo "<script>alert('Data Not insert.')</script> $sql. "
-        //         . mysqli_error($conn);
-        // }
 
 
         $sql = "INSERT INTO  07_leave_management(leave_data) VALUES ('$name')";
          
         if(mysqli_query($conn, $sql)){
-          $_SESSION['add_message'] = "Data Insert successfully.";
+          header("location: leave-management.php?status=success");
                
         } else{
-          echo "<script>alert('Data Not insert.')</script> $sql. "
-          . mysqli_error($conn);
+          header("location: leave-management.php?status=failed");
         }
       
        
@@ -44,7 +33,7 @@ if (isset($_POST['save']))
 <h3 class="page-title"></h3>
 <ul class="breadcrumb">
 <li class="breadcrumb-item"><a href="#">Home</a></li>
-<li class="breadcrumb-item"><a href="#">Master</a></li>
+
 <li class="breadcrumb-item active">Leave Type Management</li>
 </ul>
 </div>
@@ -70,19 +59,7 @@ if (isset($_POST['save']))
 <div class="card-body">
 <div class="table-responsive">
 <input type="hidden"value="leave-management"id="anchor_value">
-<?php if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) { ?>
-                        <div class="success-message " style="margin-bottom: 20px;font-size: 20px;color: green;"><?php echo $_SESSION['success_message']; ?></div>
-                        <?php
-                        unset($_SESSION['success_message']);
-                    }
-                    ?>
 
-<?php if (isset($_SESSION['add_message']) && !empty($_SESSION['add_message'])) { ?>
-                        <div class="success-message " style="margin-bottom: 20px;font-size: 20px;color: green;"><?php echo $_SESSION['add_message']; ?></div>
-                        <?php
-                        unset($_SESSION['add_message']);
-                    }
-?>
 <table class="datatable table table-stripped mb-0">
 <thead>
 <tr>
@@ -101,8 +78,8 @@ if (isset($_POST['save']))
 <td>'.$i.'</td>
 <td>'.$row['leave_data'].'</td>
 <td width="10%">
-    <a href="javascript:void(0)" data-id="'.$row['id'].'"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>!
-    <a href="delete.php?action=leave&id='.$row['id'].'"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+    <a class="btn btn-success" href="javascript:void(0)" data-id="'.$row['id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+    <a class="btn btn-danger" href="delete.php?action=leave&id='.$row['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
 </td>
 </tr>';
 $i++;

@@ -55,7 +55,7 @@ require('../config/webconfig.php');
 <h3 class="account-title"><?php echo $row["cname"]; ?></h3>
 <p class="account-subtitle">Welcome Admin<br/>Please Signin to proceed</p>
 
-<form method="post" action="#">
+<form method="post" action="login_exec.php">
 <div class="form-group">
 <label>Email Address</label>
 <input class="form-control" name="username" type="text" placeholder="Enter Admin Email" required>
@@ -96,5 +96,40 @@ require('../config/webconfig.php');
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 
 <script src="assets/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<?php
+$status=$_GET['status'];
+if($status=="passwordwrong"){
+?>
+<script>
+    Swal.fire({
+  icon: 'error',
+  title: 'Oops!!',
+  text: 'Wrong Password',
+})
+</script>
+<?php
+}else if($status=="usernamewrong"){
+	?>
+<script>
+    Swal.fire({
+  icon: 'error',
+  title: 'Oops!!',
+  text: 'Wrong Username',
+})
+</script>
+	<?php
+}else if($status=="loggedout"){
+	?>
+<script>
+    Swal.fire({
+  icon: 'success',
+  title: 'Successfully',
+  text: 'Logged Out',
+})
+</script>
+	<?php
+}
+?>
 </body>
 </html>

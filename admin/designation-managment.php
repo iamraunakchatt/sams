@@ -13,11 +13,10 @@ if (isset($_POST['save']))
         $sql = "INSERT INTO  06_designation_management(designation_name) VALUES ('$name')";
          
         if(mysqli_query($conn, $sql)){
-          $_SESSION['add_message'] = "Data Insert successfully.";
+          header("location: designation-managment.php?status=success");
                
         } else{
-           echo "<script>alert('Data Not insert.')</script> $sql. "
-                . mysqli_error($conn);
+          header("location: designation-managment.php?status=success");
         }
          
         // Close connection
@@ -33,7 +32,7 @@ if (isset($_POST['save']))
 <h3 class="page-title"></h3>
 <ul class="breadcrumb">
 <li class="breadcrumb-item"><a href="#">Home</a></li>
-<li class="breadcrumb-item"><a href="#">Master</a></li>
+
 <li class="breadcrumb-item active">Designation Management</li>
 </ul>
 </div>
@@ -59,18 +58,7 @@ if (isset($_POST['save']))
 <div class="card-body">
 <div class="table-responsive">
 <input type="hidden"value="designation"id="anchor_value">
-<?php if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) { ?>
-                        <div class="success-message " style="margin-bottom: 20px;font-size: 20px;color: green;"><?php echo $_SESSION['success_message']; ?></div>
-                        <?php
-                        unset($_SESSION['success_message']);
-                    }
-                    ?>
-<?php if (isset($_SESSION['add_message']) && !empty($_SESSION['add_message'])) { ?>
-                        <div class="success-message " style="margin-bottom: 20px;font-size: 20px;color: green;"><?php echo $_SESSION['add_message']; ?></div>
-                        <?php
-                        unset($_SESSION['add_message']);
-                    }
-?>
+
 <table class="datatable table table-stripped mb-0">
 <thead>
 <tr>
@@ -89,8 +77,8 @@ if (isset($_POST['save']))
 <td>'.$i.'</td>
 <td>'.$row['designation_name'].'</td>
 <td width="10%">
-    <a href="javascript:void(0)" data-id="'.$row['id'].'"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>|
-    <a href="delete.php?action=designation&id='.$row['id'].'"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+    <a class="btn btn-success" href="javascript:void(0)" data-id="'.$row['id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+    <a class="btn btn-danger" href="delete.php?action=designation&id='.$row['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
     
     </td>
 </tr>';

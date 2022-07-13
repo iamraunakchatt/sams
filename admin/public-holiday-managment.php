@@ -13,11 +13,10 @@ if (isset($_POST['save']))
         $sql = "INSERT INTO   09_public_holiday_ocassion(datee,ocassion) VALUES ('$date','$ocassion')";
          
         if(mysqli_query($conn, $sql)){
-          $_SESSION['add_message'] = "Data Insert successfully.";
+          header("location: public-holiday-managment.php?status=success");
                
         } else{
-           echo "<script>alert('Data Not insert.')</script> $sql. "
-                . mysqli_error($conn);
+          header("location: public-holiday-managment.php?status=failed");
         }
 }
 ?>
@@ -30,7 +29,7 @@ if (isset($_POST['save']))
 <h3 class="page-title"></h3>
 <ul class="breadcrumb">
 <li class="breadcrumb-item"><a href="#">Home</a></li>
-<li class="breadcrumb-item"><a href="#">Master</a></li>
+
 <li class="breadcrumb-item active">Public Holiday Management</li>
 </ul>
 </div>
@@ -43,7 +42,7 @@ if (isset($_POST['save']))
 <div class="card-header">
 	<div class="row">
 		<div class="col-md-8">
-		<h4 class="card-title mb-0">Public Holiday Ocassion</h4>
+		<h4 class="card-title mb-0">Public Holiday Occasion</h4>
 
 		</div>
 		<div class="col-md-4">
@@ -56,23 +55,12 @@ if (isset($_POST['save']))
 <div class="card-body">
 <div class="table-responsive">
 <input type="hidden"value="public_holiday"id="anchor_value">
-<?php if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) { ?>
-                        <div class="success-message " style="margin-bottom: 20px;font-size: 20px;color: green;"><?php echo $_SESSION['success_message']; ?></div>
-                        <?php
-                        unset($_SESSION['success_message']);
-                    }
-                    ?>
-<?php if (isset($_SESSION['add_message']) && !empty($_SESSION['add_message'])) { ?>
-                        <div class="success-message " style="margin-bottom: 20px;font-size: 20px;color: green;"><?php echo $_SESSION['add_message']; ?></div>
-                        <?php
-                        unset($_SESSION['add_message']);
-                    }
-?>
+
 <table class="datatable table table-stripped mb-0">
 <thead>
 <tr>
 <th>S.No.</th>
-<th>Ocassion</th>
+<th>Occasion</th>
 <th>Date</th>
 <th>Action</th>
 </tr>
@@ -88,8 +76,8 @@ if (isset($_POST['save']))
 <td>'.$row['ocassion'].'</td>
 <td>'.$row['datee'].'</td>
 <td width="10%">
-    <a href="javascript:void(0)" data-id="'.$row['id'].'"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>|
-    <a href="delete.php?action=public-holiday&id='.$row['id'].'"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+    <a class="btn btn-success" href="javascript:void(0)" data-id="'.$row['id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+    <a class="btn btn-danger" href="delete.php?action=public-holiday&id='.$row['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
     </td>
 </tr>';
 $i++;

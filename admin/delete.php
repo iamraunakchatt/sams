@@ -15,7 +15,7 @@ if($action=='department')
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Delete successfully.";
-        header("Location: department-management.php");    
+        header("Location: department-management.php?status=deletesuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -35,7 +35,7 @@ if($action=='designation')
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Delete successfully.";
-        header("Location: designation-managment.php");    
+        header("Location: designation-managment.php?status=deletesuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -55,7 +55,7 @@ if($action=='employee')
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Delete successfully.";
-        header("Location: employee-type-managment.php");    
+        header("Location: employee-type-managment.php?status=deletesuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -73,7 +73,7 @@ if($action=='leave')
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Delete successfully.";
-        header("Location: leave-management.php");    
+        header("Location: leave-management.php?status=deletesuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -91,7 +91,7 @@ if($action=='deactive')
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Delete successfully.";
-        header("Location: deactive-reason.php");    
+        header("Location: deactive-reason.php?status=deletesuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -109,7 +109,7 @@ if($action=='public-holiday')
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Delete successfully.";
-        header("Location: public-holiday-managment.php");    
+        header("Location: public-holiday-managment.php?status=deletesuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -127,7 +127,7 @@ if($action=='user-type')
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Delete successfully.";
-        header("Location: user-type.php");    
+        header("Location: user-type.php?status=deletesuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "
@@ -145,7 +145,7 @@ if($action=='shift-managment')
     if(mysqli_query($conn, $sql)){
         session_start();
         $_SESSION['success_message'] = "Data Delete successfully.";
-        header("Location: shift-managment.php");    
+        header("Location: shift-managment.php?status=deletesuccess");    
                
     } else{
         echo "ERROR: Data! Not Update $sql. "

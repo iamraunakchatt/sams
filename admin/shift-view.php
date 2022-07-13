@@ -25,7 +25,7 @@ $grace_period=$data['grace_period'];
 <h3 class="page-title"></h3>
 <ul class="breadcrumb">
 <li class="breadcrumb-item"><a href="#">Home</a></li>
-<li class="breadcrumb-item"><a href="#">Master</a></li>
+
 <li class="breadcrumb-item active">Shift Management</li>
 </ul>
 </div>
@@ -76,7 +76,7 @@ $grace_period=$data['grace_period'];
     <div class="col-md-4">
         <label>Grace Period</label>
         <div class="">
-         <?php echo $grace_period; ?>
+         <?php echo $grace_period; ?> Minutes
         </div>
     </div>
 </div>

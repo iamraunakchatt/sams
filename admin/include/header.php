@@ -1,3 +1,13 @@
+<?php
+session_start();
+require('../config/webconfig.php');
+if(isset($_SESSION['SAMSAdminLogin'])){
+
+}else{
+    header("location: login.php");
+}
+$activePage = basename($_SERVER['PHP_SELF'], ".php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +17,7 @@
 <meta name="keywords" content="">
 <meta name="author" content="">
 <meta name="robots" content="noindex, nofollow">
-<title>Super Admin | SMART ATTENDANCE MARKING SYSTEMS</title>
+<title>Admin | SMART ATTENDANCE MARKING SYSTEMS</title>
 
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
@@ -33,8 +43,17 @@
 <div class="header">
 
 <div class="header-left">
-<a href="admin-dashboard.html" class="logo">
-<img src="assets/img/logo2.png" width="40" height="40" alt="">
+<?php
+	 $statement = $connection->prepare(
+		"SELECT * FROM 03_admin_tbl ORDER BY id DESC LIMIT 1"
+	   );
+	   $statement->execute();
+	   $result = $statement->fetchAll();
+	   foreach($result as $row)
+	   {
+		?>
+<a href="index.php" class="logo">
+<img src="../sadmin/action/logo/<?php echo $row["logo"]; ?>" width="40" height="40" alt="">
 </a>
 </div>
 
@@ -47,9 +66,11 @@
 </a>
 
 <div class="page-title-box">
-<h3>SMART ATTENDANCE MARKING SYSTEMS</h3>
+<h3><?php echo $row["cname"]; ?></h3>
 </div>
-
+<?php
+	   }
+	   ?>
 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
 
 <ul class="nav user-menu">
@@ -62,7 +83,7 @@
 </a>
 <div class="dropdown-menu">
 <a class="dropdown-item" href="#">Settings</a>
-<a class="dropdown-item" href="#">Logout</a>
+<a class="dropdown-item" href="logout.php">Logout</a>
 </div>
 </li>
 </ul>
@@ -72,7 +93,7 @@
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
 <div class="dropdown-menu dropdown-menu-right">
 <a class="dropdown-item" href="#">Settings</a>
-<a class="dropdown-item" href="#">Logout</a>
+<a class="dropdown-item" href="logout.php">Logout</a>
 </div>
 </div>
 
@@ -87,39 +108,39 @@
 <a href="index.php"><i class="la la-home"></i> <span>Back to Home</span></a>
 </li>
 <li class="menu-title">Management</li>
-<li class="">
+<!-- <li class="">
 <a href="manage.php"><i class="la la-cog"></i> <span>Application Settings</span></a>
 </li>
 <li class="">
 <a href="#"><i class="la la-clock-o"></i> <span>Login History</span></a>
+</li> -->
+<li class="<?php if($activePage == 'department-management'){echo 'active';}else{ echo '';} ?>">
+<a href="department-management.php"><i class="la la-clock-o"></i> <span>Manage Department</span></a>
 </li>
-<li class="">
-<a href="department-management.php"><i class="la la-clock-o"></i> <span>Department Management</span></a>
+<li class="<?php if($activePage == 'employee-type-managment'){echo 'active';}else{ echo '';} ?>">
+<a href="employee-type-managment.php"><i class="la la-clock-o"></i> <span>Manage Employee Type </span></a>
 </li>
-<li class="">
-<a href="employee-type-managment.php"><i class="la la-clock-o"></i> <span>Employee Managment </span></a>
-</li>
-<li class="">
-<a href="designation-managment.php"><i class="la la-clock-o"></i> <span>Designation Managment </span></a>
+<li class="<?php if($activePage == 'designation-managment'){echo 'active';}else{ echo '';} ?>">
+<a href="designation-managment.php"><i class="la la-clock-o"></i> <span>Manage Designation </span></a>
 </li>
 
-<li class="">
-<a href="leave-management.php"><i class="la la-clock-o"></i> <span>Leave Managment </span></a>
+<li class="<?php if($activePage == 'leave-management'){echo 'active';}else{ echo '';} ?>">
+<a href="leave-management.php"><i class="la la-clock-o"></i> <span>Manage Leave Type </span></a>
 </li>
-<li class="">
+<li class="<?php if($activePage == 'deactive-reason'){echo 'active';}else{ echo '';} ?>">
 <a href="deactive-reason.php"><i class="la la-clock-o"></i> <span>Deactive Reason </span></a>
 </li>
 
-<li class="">
-<a href="public-holiday-managment.php"><i class="la la-clock-o"></i> <span>Public Holiday Ocassion </span></a>
+<li class="<?php if($activePage == 'public-holiday-managment'){echo 'active';}else{ echo '';} ?>">
+<a href="public-holiday-managment.php"><i class="la la-clock-o"></i> <span>Public Holiday Occasion </span></a>
 </li>
 
-<li class="">
-<a href="user-type.php"><i class="la la-clock-o"></i> <span>User Type</span></a>
+<li class="<?php if($activePage == 'user-type'){echo 'active';}else{ echo '';} ?>">
+<a href="user-type.php"><i class="la la-clock-o"></i> <span>Manage User Type</span></a>
 </li>
 
-<li class="">
-<a href="shift-managment.php"><i class="la la-clock-o"></i> <span>Shift Managment</span></a>
+<li class="<?php if($activePage == 'shift-managment'){echo 'active';}else{ echo '';} ?>">
+<a href="shift-managment.php"><i class="la la-clock-o"></i> <span>Manage Shift</span></a>
 </li>
 </ul>
 </div>
