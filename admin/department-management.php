@@ -59,12 +59,6 @@ if (isset($_POST['save']))
 <div class="table-responsive">
   <input type="hidden"value="department"id="anchor_value">
 
-<?php if (isset($_SESSION['add_message']) && !empty($_SESSION['add_message'])) { ?>
-                        <div class="success-message " style="margin-bottom: 20px;font-size: 20px;color: green;"><?php echo $_SESSION['add_message']; ?></div>
-                        <?php
-                        unset($_SESSION['add_message']);
-                    }
-  ?>
 <table class="datatable table table-stripped mb-0">
 <thead>
 <tr>
