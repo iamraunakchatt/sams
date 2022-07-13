@@ -29,8 +29,6 @@ foreach ($results as $result) {
    $storedpass= $fetchpassword;
 }
 
-echo $storedpass;
-echo $password;
   // Verifying Post password againt stored password
    if($storedpass==$password){
 
