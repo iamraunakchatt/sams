@@ -142,6 +142,12 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <li class="<?php if($activePage == 'shift-managment'){echo 'active';}else{ echo '';} ?>">
 <a href="shift-managment.php"><i class="la la-clock-o"></i> <span>Manage Shift</span></a>
 </li>
+<li class="<?php if($activePage == 'branch-managment'){echo 'active';}else{ echo '';} ?>">
+<a href="branch-managment.php"><i class="la la-clock-o"></i> <span>Manage Branch</span></a>
+</li>
+<li class="<?php if($activePage == 'employee'){echo 'active';}else{ echo '';} ?>">
+<a href="employee.php"><i class="la la-clock-o"></i> <span>Manage Employee</span></a>
+</li>
 </ul>
 </div>
 </div>

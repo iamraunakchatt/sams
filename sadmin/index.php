@@ -162,26 +162,40 @@ value="no"
 
 <div class="col-sm-6">
 <div class="form-group">
-<label>App License Valid From Date</label>
+<label>Admin App License Valid From Date</label>
 <input class="form-control" placeholder="eg. 5/28/2022" type="date" value="<?php echo $row["validfrom"]; ?>" name="validfrom">
 </div>
 </div>
 <div class="col-sm-6">
 <div class="form-group">
-<label>App License Valid Till Date</label>
+<label>Employee App License Valid Till Date</label>
 <input class="form-control" placeholder="eg. 5/28/2022" type="date" value="<?php echo $row["validtill"]; ?>" name="validtill">
 </div>
 </div>
 <div class="col-sm-6">
 <div class="form-group">
-<label>Change Password</label>
-<input class="form-control" placeholder="eg. 123456" type="password" value="<?php echo $row["password"]; ?>" id="txtPassword" name="password">
+<label>Super Admin Change Password</label>
+<input class="form-control" placeholder="Set This Password For Super Admin" type="password"  id="txtPassword" name="sppassword">
 </div>
 </div>
 <div class="col-sm-6">
 <div class="form-group">
-<label>Confirm Change Password</label>
-<input class="form-control" id="txtConfirmPassword" placeholder="eg. 123456" type="password" value="<?php echo $row["password"]; ?>">
+<label>Super Admin Confirm Change Password</label>
+<input class="form-control" id="txtConfirmPassword" placeholder="Repeat Super Admin New Password" type="password" >
+</div>
+</div>
+
+
+<div class="col-sm-6">
+<div class="form-group">
+<label>Admin Change Password</label>
+<input class="form-control" placeholder="eg. 123456" type="password" value="<?php echo $row["password"]; ?>" id="txtPassword1" name="password">
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group">
+<label>Admin Confirm Change Password</label>
+<input class="form-control" id="txtConfirmPassword1" placeholder="eg. 123456" type="password" value="<?php echo $row["password"]; ?>">
 </div>
 </div>
 </div>
@@ -212,6 +226,20 @@ value="no"
             txtConfirmPassword.setCustomValidity("");
             if (txtPassword.value != txtConfirmPassword.value) {
                 txtConfirmPassword.setCustomValidity("Passwords do not match.");
+            }
+        }
+    }
+</script>
+<script type="text/javascript">
+    window.onload = function () {
+        var txtPassword1 = document.getElementById("txtPassword1");
+        var txtConfirmPassword1 = document.getElementById("txtConfirmPassword1");
+        txtPassword1.onchange = ConfirmPassword1;
+        txtConfirmPassword1.onkeyup = ConfirmPassword1;
+        function ConfirmPassword1() {
+            txtConfirmPassword1.setCustomValidity("");
+            if (txtPassword1.value != txtConfirmPassword1.value) {
+                txtConfirmPassword1.setCustomValidity("Passwords do not match.");
             }
         }
     }
