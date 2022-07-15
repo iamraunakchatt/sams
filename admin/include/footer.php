@@ -377,7 +377,7 @@ $(document).ready(function(){
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php
-$status=$_GET['status'];
+@$status=$_GET['status'];
 if($status=="success"){
 ?>
 <script>

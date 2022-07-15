@@ -32,7 +32,6 @@ $vradius_meter=$data['radius_meter'];
 <h3 class="page-title"></h3>
 <ul class="breadcrumb">
 <li class="breadcrumb-item"><a href="#">Home</a></li>
-<li class="breadcrumb-item"><a href="#">Master</a></li>
 <li class="breadcrumb-item active">Branch Management</li>
 </ul>
 </div>

@@ -42,11 +42,10 @@ if (isset($_POST['save']))
         $sql = "INSERT INTO  12_employee(branch_id,employee_id,employee_name,employee_father_name,employee_address_one,employee_address_two,city,pincode,dob,mobile_no,email_address,department_id,designation_id,shift_id,attendance,passwordd,confirm_password,emp_image) VALUES ('$branch','$employee_id','$employee_name','$employee_fateher_name','$employee_address_1','$employee_address_2','$city','$pincode','$dob','$mobile_no','$email_address','$department','$designation','$shift','$attendance_type','$password','$confirm_password','$target_file')";
          
         if(mysqli_query($conn, $sql)){
-          $_SESSION['add_message'] = "Data Insert successfully.";
+          header("location: employee.php?status=success");
                
         } else{
-           echo "<script>alert('Data Not insert.')</script> $sql. "
-                . mysqli_error($conn);
+          header("location: employee.php?status=failed");
         }
          
         // Close connection
@@ -62,7 +61,6 @@ if (isset($_POST['save']))
 <h3 class="page-title"></h3>
 <ul class="breadcrumb">
 <li class="breadcrumb-item"><a href="#">Home</a></li>
-<li class="breadcrumb-item"><a href="#">Master</a></li>
 <li class="breadcrumb-item active">Employee Management</li>
 </ul>
 </div>
@@ -88,18 +86,6 @@ if (isset($_POST['save']))
 <div class="card-body">
 <div class="table-responsive">
 <input type="hidden"value="designation"id="anchor_value">
-<?php if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) { ?>
-                        <div class="success-message " style="margin-bottom: 20px;font-size: 20px;color: green;"><?php echo $_SESSION['success_message']; ?></div>
-                        <?php
-                        unset($_SESSION['success_message']);
-                    }
-                    ?>
-<?php if (isset($_SESSION['add_message']) && !empty($_SESSION['add_message'])) { ?>
-                        <div class="success-message " style="margin-bottom: 20px;font-size: 20px;color: green;"><?php echo $_SESSION['add_message']; ?></div>
-                        <?php
-                        unset($_SESSION['add_message']);
-                    }
-?>
 <table class="datatable table table-stripped mb-0">
 <thead>
 <tr>
@@ -115,17 +101,61 @@ if (isset($_POST['save']))
 <tbody>
 <?php
     $i=1;
-    $sql=mysqli_query($conn,"SELECT b.branch_type, b.branch_name, b.city, b.pincode,b.contact_no,b.id FROM `12_branch_management` AS b INNER JOIN `10_user_type` AS u ON b.user_type = u.id;")or die(mysqli_error($conn));
+    $sql=mysqli_query($conn,"SELECT * FROM `13_employee`")or die(mysqli_error($conn));
     while($row=mysqli_fetch_array($sql))
     {
+$bid=$row['branch_id'];
+$depid=$row['department_id'];
+$desid=$row['designation_id'];
+      $statement1 = $connection->prepare(
+        "SELECT * FROM 12_branch_management where id=$bid"
+         );
+         $statement1->execute();
+         $result1 = $statement1->fetchAll();
+         foreach($result1 as $row1)
+         {
+          $bname=$row1["branch_name"];
+         }
+
+         $statement2 = $connection->prepare(
+          "SELECT * FROM 04_department_management where id=$depid"
+           );
+           $statement2->execute();
+           $result2= $statement2->fetchAll();
+           foreach($result2 as $row2)
+           {
+            $depname=$row2["departmenet_name"];
+           }
+
+           $statement3 = $connection->prepare(
+            "SELECT * FROM 06_designation_management where id=$desid"
+             );
+             $statement3->execute();
+             $result3 = $statement3->fetchAll();
+             foreach($result3 as $row3)
+             {
+              $desname=$row3["designation_name"];
+             }
+             
+
       echo '<tr>
         <td>'.$i.'</td>
-        <td>'.$row['designation_name'].'</td>
+        <td>'.$bname.'</td>
+        <td>';
+        ?>
+        <h2 class="table-avatar">
+             <a href="view-employee.php?id=<?php echo $row['id']; ?>" class="avatar"><img alt="" src="userimg/<?php echo $row['emp_image']; ?>"></a>
+             <a href="view-employee.php?id=<?php echo $row['id']; ?>"><?php echo $row['employee_name']; ?></a>
+             </h2>
+        <?php echo '</td>
+        <td>'.$row['mobile_no'].'</td>
+        <td>'.$depname.'</td>
+        <td>'.$desname.'</td>
         <td width="10%">
-            <a href="edit-employee.php?id='.$row['id'].'"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>|
-            <a href="view-branch-management.php?id='.$row['id'].'"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+            <a class="btn btn-success" href="edit-employee.php?id='.$row['id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+            <a class="btn btn-info" href="view-employee.php?id='.$row['id'].'"><i class="fa fa-eye" aria-hidden="true"></i></a>
         
-            <a href="delete.php?action=designation&id='.$row['id'].'"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+            <a class="btn btn-danger"  href="delete.php?action=employee&id='.$row['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
             
             </td>
         </tr>';

@@ -8,7 +8,6 @@
   $result = mysqli_query($conn,$sql); 
   $data=mysqli_fetch_array($result); 
   $vbranch_id=$data['branch_id'];
-  $vbranch_name=$data['branch_name'];
   $vemployee_id=$data['employee_id'];
   $vemployee_name=$data['employee_name'];
   $vemployee_father_name=$data['employee_father_name'];
@@ -25,6 +24,7 @@
   $vattendance=$data['attendance'];
   $vpassword=$data['passwordd'];
   $vconfirm_password=$data['confirm_password'];
+  $vuserimg= $data['emp_image']; 
   if (isset($_POST['save']))
   {
       
@@ -66,21 +66,37 @@
       
      // Performing insert query execution
           // here our table name is college
-       
+          function upload_image2()
+          {
+           if(isset($_FILES["filetoupload"]))
+           {
+            $extension = explode('.', $_FILES['filetoupload']['name']);
+            $new_name = date('m-d-Y_H_i_s').rand() . '.' . $extension[1];
+            $destination = 'userimg/' . $new_name;
+            move_uploaded_file($_FILES['filetoupload']['tmp_name'], $destination);
+            return $new_name;
+           }
+          }
+          
+          $image = '';
+          if($_FILES["filetoupload"]["name"] != '')
+          {
+           $image = upload_image2();
+          }else{
+            $image=$_POST['altfiletoupload'];
+          }
 
-          $sql ="UPDATE  13_employee SET branch_id='".$branch."',employee_id='".$employee_id."',employee_name='".$employee_name."',employee_father_name='".$employee_fateher_name."',employee_address_one='".$employee_address_1."',employee_address_two='".$employee_address_2."',city='".$city."',pincode='".$pincode."',dob='".$dob."',mobile_no='".$mobile_no."',email_address='".$email_address."',department_id='".$department."',designation_id='".$designation."',shift_id='".$shift."',attendance='".$attendance_type."',passwordd='".$password."',confirm_password='".$confirm_password."' where id='".$id."'"; 
+          $sql ="UPDATE  13_employee SET branch_id='".$branch."',employee_id='".$employee_id."',employee_name='".$employee_name."',employee_father_name='".$employee_fateher_name."',employee_address_one='".$employee_address_1."',employee_address_two='".$employee_address_2."',city='".$city."',pincode='".$pincode."',dob='".$dob."',mobile_no='".$mobile_no."',email_address='".$email_address."',department_id='".$department."',designation_id='".$designation."',shift_id='".$shift."',attendance='".$attendance_type."',passwordd='".$password."',confirm_password='".$confirm_password."',emp_image='$image' where id='".$id."'"; 
    
     // mysqli_query($conn,$sql);
    
 
     if(mysqli_query($conn, $sql)){
        
-        $_SESSION['success_message'] = "Data Update successfully.";
-        header("Location: employee.php");    
+      header("location: employee.php?status=success");  
                
     } else{
-        echo "ERROR: Data! Not Update $sql. "
-            . mysqli_error($conn);
+      header("location: employee.php?status=failed");
     } 
          
   }
@@ -94,8 +110,7 @@
 <h3 class="page-title"></h3>
 <ul class="breadcrumb">
 <li class="breadcrumb-item"><a href="#">Home</a></li>
-<li class="breadcrumb-item"><a href="#">Master</a></li>
-<li class="breadcrumb-item active">Branch Management</li>
+<li class="breadcrumb-item active">Employee Management</li>
 </ul>
 </div>
 </div>
@@ -107,7 +122,7 @@
 <div class="card-header">
 	<div class="row">
 		<div class="col-md-8">
-		<h4 class="card-title mb-0">Add Branch </h4>
+		<h4 class="card-title mb-0">Edit Employee </h4>
 
 		</div>
 		
@@ -120,7 +135,7 @@
 <input type="hidden"value="branch"id="anchor_value">
 
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div class="modal-content">
       
       <div class="modal-body">
@@ -296,9 +311,12 @@
         </div>
 
         <div class="form-group">
+        <img alt="" src="userimg/<?php echo $vuserimg; ?>" style="width: 50px;border-radius: 50%;">
+        <br/>
           <label>Image</label>
           <br>
           <input type="file" name="filetoupload"  class="form-control">
+          <input type="hidden" name="altfiletoupload"  class="form-control" value="<?php echo $vuserimg; ?>">
 
         </div>
        

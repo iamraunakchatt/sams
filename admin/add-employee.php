@@ -28,33 +28,37 @@
       $confirm_password=stripslashes(mysqli_real_escape_string($conn,$_POST['confirm_password']));
   
       
-    //   $target_dir = "uploads/testimonial/";
-    //   $target_file = $target_dir . basename($_FILES["filetoupload"]["name"]);
-    //   $uploadOk = 1;
-    //   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-  
-    //   $check = getimagesize($_FILES["filetoupload"]["tmp_name"]);
-    //   if($check !== false) {
-    //       echo "File is an image - " . $check["mime"] . ".";
-    //       $uploadOk = 1;
-    //   } else {
-    //       echo "File is not an image.";
-    //       $uploadOk = 0;
-    //   }
+      function upload_image2()
+      {
+       if(isset($_FILES["filetoupload"]))
+       {
+        $extension = explode('.', $_FILES['filetoupload']['name']);
+        $new_name = date('m-d-Y_H_i_s').rand() . '.' . $extension[1];
+        $destination = 'userimg/' . $new_name;
+        move_uploaded_file($_FILES['filetoupload']['tmp_name'], $destination);
+        return $new_name;
+       }
+      }
+      
+      $image = '';
+      if($_FILES["filetoupload"]["name"] != '')
+      {
+       $image = upload_image2();
+      }else{
+        $image='default.jpeg';
+      }
   
       
      // Performing insert query execution
           // here our table name is college
-          $sql = "INSERT INTO  13_employee(branch_id,employee_id,employee_name,employee_father_name,employee_address_one,employee_address_two,city,pincode,dob,mobile_no,email_address,department_id,designation_id,shift_id,attendance,passwordd,confirm_password) VALUES ('$branch','$employee_id','$employee_name','$employee_fateher_name','$employee_address_1','$employee_address_2','$city','$pincode','$dob','$mobile_no','$email_address','$department','$designation','$shift','$attendance_type','$password','$confirm_password')";
+          $sql = "INSERT INTO  13_employee(branch_id,employee_id,employee_name,employee_father_name,employee_address_one,employee_address_two,city,pincode,dob,mobile_no,email_address,department_id,designation_id,shift_id,attendance,passwordd,confirm_password,emp_image) VALUES ('$branch','$employee_id','$employee_name','$employee_fateher_name','$employee_address_1','$employee_address_2','$city','$pincode','$dob','$mobile_no','$email_address','$department','$designation','$shift','$attendance_type','$password','$confirm_password','$image')";
            
           if(mysqli_query($conn, $sql)){
             
-            $_SESSION['add_message'] = "Data Insert successfully.";
-            header("Location: employee.php"); 
+            header("location: employee.php?status=success");  
                  
           } else{
-             echo "<script>alert('Data Not insert.')</script> $sql. "
-                  . mysqli_error($conn);
+            header("location: employee.php?status=failed");
           }
            
           // Close connection
@@ -70,8 +74,7 @@
 <h3 class="page-title"></h3>
 <ul class="breadcrumb">
 <li class="breadcrumb-item"><a href="#">Home</a></li>
-<li class="breadcrumb-item"><a href="#">Master</a></li>
-<li class="breadcrumb-item active">Branch Management</li>
+<li class="breadcrumb-item active">Employee Management</li>
 </ul>
 </div>
 </div>
@@ -83,7 +86,7 @@
 <div class="card-header">
 	<div class="row">
 		<div class="col-md-8">
-		<h4 class="card-title mb-0">Add Branch </h4>
+		<h4 class="card-title mb-0">Add Employee </h4>
 
 		</div>
 		
@@ -96,7 +99,7 @@
 <input type="hidden"value="branch"id="anchor_value">
 
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div class="modal-content">
       
       <div class="modal-body">

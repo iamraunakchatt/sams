@@ -152,5 +152,40 @@ if($action=='shift-managment')
             . mysqli_error($conn);
     } 
 }
+if($action=='branch-managment')
+{
+    $sql ="delete from  12_branch_management where id='".$id."'"; 
+   
+    // mysqli_query($conn,$sql);
+   
+
+    if(mysqli_query($conn, $sql)){
+        session_start();
+        $_SESSION['success_message'] = "Data Delete successfully.";
+        header("Location: branch-managment.php?status=deletesuccess");    
+               
+    } else{
+        echo "ERROR: Data! Not Update $sql. "
+            . mysqli_error($conn);
+    } 
+}
+
+if($action=='employee')
+{
+    $sql ="delete from  13_employee where id='".$id."'"; 
+   
+    // mysqli_query($conn,$sql);
+   
+
+    if(mysqli_query($conn, $sql)){
+        session_start();
+        $_SESSION['success_message'] = "Data Delete successfully.";
+        header("Location: employee.php?status=deletesuccess");    
+               
+    } else{
+        echo "ERROR: Data! Not Update $sql. "
+            . mysqli_error($conn);
+    } 
+}
 
 ?>
