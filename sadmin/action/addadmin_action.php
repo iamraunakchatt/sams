@@ -52,18 +52,22 @@ $statement = $connection->prepare(
     )
    );
 
-$sppassword=$_POST["sppassword"];
-   $hasedpassword=hash('sha256',$sppassword);
-
-   $statement = $connection->prepare(
-    "UPDATE `01_superadmin_tbl` SET `password`=:password WHERE
-    id=1"
-   );
-   $result = $statement->execute(
-    array(
-     ':password' => $hasedpassword
-    )
-   );
+   if($_POST["sppassword"]!=NULL){
+    $sppassword=$_POST["sppassword"];
+    $hasedpassword=hash('sha256',$sppassword);
+ 
+    $statement = $connection->prepare(
+     "UPDATE `01_superadmin_tbl` SET `password`=:password WHERE
+     id=1"
+    );
+    $result = $statement->execute(
+     array(
+      ':password' => $hasedpassword
+     )
+    ); 
+ }else{
+     
+ }
 
 
    if(!empty($result))
