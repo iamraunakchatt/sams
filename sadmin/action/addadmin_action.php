@@ -43,7 +43,7 @@ $statement = $connection->prepare(
      ':radius' => $_POST["radius"],
      ':mlocation' => $_POST["mlocation"],
      ':memployee' => $_POST["memployee"],
-     ':atype' => $_POST["atype"],
+     ':atype' => implode(',', $_POST["atype"]),
      ':empattbyadmin' => $onoffswitch,
      ':validfrom' => $_POST["validfrom"],
      ':validtill' => $_POST["validtill"],
@@ -52,22 +52,38 @@ $statement = $connection->prepare(
     )
    );
 
-   if($_POST["sppassword"]!=NULL){
-    $sppassword=$_POST["sppassword"];
-    $hasedpassword=hash('sha256',$sppassword);
- 
-    $statement = $connection->prepare(
-     "UPDATE `01_superadmin_tbl` SET `password`=:password WHERE
-     id=1"
-    );
-    $result = $statement->execute(
-     array(
-      ':password' => $hasedpassword
-     )
-    ); 
- }else{
-     
+
+   function upload_image3()
+{
+ if(isset($_FILES["salogo"]))
+ {
+  $extension = explode('.', $_FILES['salogo']['name']);
+  $new_name = 'profilepicture'.date('m-d-Y_H_i_s').rand() . '.' . $extension[1];
+  $destination = 'logo/' . $new_name;
+  move_uploaded_file($_FILES['salogo']['tmp_name'], $destination);
+  return $new_name;
  }
+}
+  
+  $image1 = '';
+  if($_FILES["salogo"]["name"] != '')
+  {
+   $image1 = upload_image3();
+  }else{
+    $image1=$_POST["falogo"];
+  }
+
+
+
+  $statement = $connection->prepare(
+   "UPDATE `01_superadmin_tbl` SET `propic`=:propic WHERE
+   id=1"
+  );
+  $result = $statement->execute(
+   array(
+    ':propic' => $image1
+   )
+  );
 
 
    if(!empty($result))

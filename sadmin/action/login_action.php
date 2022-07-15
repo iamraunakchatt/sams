@@ -30,7 +30,20 @@ if(@$_SESSION['randnmbr']==""){
          $_SESSION['randnum']= $text22;
 } 
 
+// Generate token
+function getToken($length){
+  $token = "";
+  $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  $codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
+  $codeAlphabet.= "0123456789";
+  $max = strlen($codeAlphabet); // edited
 
+  for ($i=0; $i < $length; $i++) {
+    $token .= $codeAlphabet[random_int(0, $max-1)];
+  }
+
+  return $token;
+}
     // Getting username/ email and password
     $uname=$_POST['username'];
      $password=hash('sha256',$_POST['password']);
@@ -69,6 +82,18 @@ foreach ($results as $result) {
      array(
 
       ':login_ip' => $_SERVER['REMOTE_ADDR']
+     )
+    );
+    $token = getToken(10);
+    $_SESSION['token'] = $token;
+
+    $statement = $connection->prepare("INSERT INTO `14_superadmin_token`(`username`, `token`) VALUES (:username,:token)
+    ");
+    $result = $statement->execute(
+     array(
+
+      ':username' => $_POST['username'],
+      ':token' =>$token
      )
     );
     

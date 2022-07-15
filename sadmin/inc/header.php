@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('check_token.php');
 require('../config/webconfig.php');
 if(isset($_SESSION['SAMSSuperadminLogin'])){
 
@@ -7,6 +8,16 @@ if(isset($_SESSION['SAMSSuperadminLogin'])){
     header("location: login.php");
 }
 $activePage = basename($_SERVER['PHP_SELF'], ".php");
+
+$statement1 = $connection->prepare(
+	"SELECT * FROM 01_superadmin_tbl ORDER BY id DESC LIMIT 1"
+   );
+   $statement1->execute();
+   $result1 = $statement1->fetchAll();
+   foreach($result1 as $row1)
+   {
+	$propic=$row1["propic"];
+   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +28,9 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <meta name="keywords" content="">
 <meta name="author" content="">
 <meta name="robots" content="noindex, nofollow">
-<title>Super Admin | SMART ATTENDANCE MARKING SYSTEMS</title>
+<title>SAMS - Superadmin</title>
 
-<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/logo2.png">
 
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
@@ -66,12 +77,12 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 
 <li class="nav-item dropdown has-arrow main-drop">
 <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-<span class="user-img"><img src="assets/img/profiles/avatar-21.jpg" alt="">
+<span class="user-img"><img src="action/logo/<?php echo $propic; ?>" alt="">
 <span class="status online"></span></span>
 <span>Admin</span>
 </a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="index.php">Settings</a>
+<a class="dropdown-item" href="settings.php">Settings</a>
 <a class="dropdown-item" href="logout.php">Logout</a>
 </div>
 </li>
@@ -81,7 +92,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <div class="dropdown mobile-user-menu">
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
 <div class="dropdown-menu dropdown-menu-right">
-<a class="dropdown-item" href="index.php">Settings</a>
+<a class="dropdown-item" href="settings.php">Settings</a>
 <a class="dropdown-item" href="logout.php">Logout</a>
 </div>
 </div>
@@ -102,6 +113,9 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 </li>
 <li class="<?php if($activePage == 'login-history'){echo 'active';}else{ echo '';} ?>">
 <a href="login-history.php"><i class="la la-clock-o"></i> <span>Login History</span></a>
+</li>
+<li class="<?php if($activePage == 'settings'){echo 'active';}else{ echo '';} ?>">
+<a href="settings.php"><i class="la la-lock"></i> <span>Change Password</span></a>
 </li>
 
 </ul>

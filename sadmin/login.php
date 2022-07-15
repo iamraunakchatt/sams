@@ -18,9 +18,9 @@ if(isset($_SESSION['SAMSSuperadminLogin'])){
 <meta name="keywords" content="">
 <meta name="author" content="">
 <meta name="robots" content="noindex, nofollow">
-<title>Super Admin | SMART ATTENDANCE MARKING SYSTEMS</title>
+<title>SAMS - Superadmin</title>
 
-<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/logo2.png">
 
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
@@ -118,6 +118,16 @@ if($status=="passwordwrong"){
   icon: 'success',
   title: 'Successfully',
   text: 'Logged Out',
+})
+</script>
+	<?php
+}else if($status=="alreadyloggedin"){
+	?>
+<script>
+    Swal.fire({
+  icon: 'error',
+  title: 'Already Loggedin',
+  text: 'in Other Device',
 })
 </script>
 	<?php

@@ -22,6 +22,18 @@
 	   $result = $statement->fetchAll();
 	   foreach($result as $row)
 	   {
+
+
+        
+	 $statement1 = $connection->prepare(
+		"SELECT * FROM 01_superadmin_tbl ORDER BY id DESC LIMIT 1"
+	   );
+	   $statement1->execute();
+	   $result1 = $statement1->fetchAll();
+	   foreach($result1 as $row1)
+	   {
+        $propic=$row1["propic"];
+       }
 		?>
 <form method="post" action="action/addadmin_action.php" enctype="multipart/form-data">
 <div class="row">
@@ -62,33 +74,33 @@
 <div class="col-sm-6">
 <div class="form-group">
 <label>Latitude</label>
-<input class="form-control" placeholder="eg. 121.56" type="number" value="<?php echo $row["latitude"]; ?>" required name="latitude">
+<input class="form-control" placeholder="eg. 121.56" type="textr" value="<?php echo $row["latitude"]; ?>" required name="latitude">
 </div>
 </div>
 <div class="col-sm-6">
 <div class="form-group">
 <label>Longtitude</label>
-<input class="form-control" placeholder="eg. 22.5" type="number" value="<?php echo $row["longitude"]; ?>" required name="lontitude">
+<input class="form-control" placeholder="eg. 22.5" type="text" value="<?php echo $row["longitude"]; ?>" required name="lontitude">
 </div>
 </div>
 </div>
 <div class="row">
 <div class="col-sm-12">
 <div class="form-group">
-<label>Radius in Meter <span style="font-size:12px">(Set Radius between 100m - 500m.By setting radus, employees can mark attendace inside in this set radis only.)</label>
+<label>Radius in Meter <span style="font-size:12px;color:red">(Set Radius between 100m - 500m.By setting radus, employees can mark attendace inside in this set radis only.)</label>
 <input class="form-control" placeholder="eg. 250" type="number" value="<?php echo $row["radius"]; ?>" required min="100" max="500" name="radius">
 </div>
 </div>
 <div class="col-sm-6">
 <div class="form-group">
-<label>Upload Logo</label>
-<input type="file" class="form-control" name="clogo" id="imgInp">
-<input type="hidden" class="form-control" name="flogo" value="<?php echo $row["logo"]; ?>">
+<label>Upload Super Admin Profile Picture</label>
+<input type="file" class="form-control" name="salogo" id="imgInp1">
+<input type="hidden" class="form-control" name="falogo" value="<?php echo $propic; ?>">
 </div>
 </div>
 <div class="col-lg-2">
 <label>&nbsp;</label>
-<div class="img-thumbnail float-end"><img src="action/logo/<?php echo $row["logo"]; ?>" class="img-fluid" alt="" width="140" height="40" id="blah"></div>
+<div class="img-thumbnail float-end"><img src="action/logo/<?php echo $propic; ?>" class="img-fluid" alt="" width="140" height="40" id="blah1"></div>
 </div>
 <div class="col-sm-4">
 <div class="form-group">
@@ -107,7 +119,8 @@
 <div class="col-sm-6">
 <div class="form-group">
 <label>Attendance Type</label>
-<select class="select" name="atype">
+<?php echo $row["atype"]; ?>
+<select class="select" name="atype[]" multiple>
 <?php if($row["atype"]=="auto"){
 ?>
 <option selected="selected" value="auto">Auto</option>
@@ -126,7 +139,31 @@
 <option value="manual">Manual</option>
 <option selected="selected" value="selfie">Selfie</option>
 <?php
-} ?>
+} else if($row["atype"]=="auto,manual" || $row["atype"]=="manual,auto"){
+    ?>
+    <option selected="selected" value="auto">Auto</option>
+    <option selected="selected" value="manual">Manual</option>
+    <option  value="selfie">Selfie</option>
+    <?php
+    } else if($row["atype"]=="auto,selfie" || $row["atype"]=="selfie,auto"){
+        ?>
+        <option selected="selected" value="auto">Auto</option>
+        <option  value="manual">Manual</option>
+        <option selected="selected" value="selfie">Selfie</option>
+        <?php
+        } else if($row["atype"]=="manual,selfie" || $row["atype"]=="selfie,manual"){
+            ?>
+            <option  value="auto">Auto</option>
+            <option selected="selected" value="manual">Manual</option>
+            <option selected="selected" value="selfie">Selfie</option>
+            <?php
+            } else if($row["atype"]=="manual,selfie,auto" || $row["atype"]=="selfie,manual,auto" || $row["atype"]=="auto,manual,selfie" || $row["atype"]=="auto,selfie,manual" || $row["atype"]=="manual,auto,selfie" || $row["atype"]=="selfie,auto,manual"){
+                ?>
+                <option  selected="selected" value="auto">Auto</option>
+                <option selected="selected" value="manual">Manual</option>
+                <option selected="selected" value="selfie">Selfie</option>
+                <?php
+                } ?>
 
 </select>
 </div>
@@ -172,20 +209,17 @@ value="no"
 <input class="form-control" placeholder="eg. 5/28/2022" type="date" value="<?php echo $row["validtill"]; ?>" name="validtill">
 </div>
 </div>
-<div class="col-sm-6">
+<div class="col-sm-8">
 <div class="form-group">
-<label>Super Admin Change Password</label>
-<input class="form-control" placeholder="Set This Password For Super Admin" type="password"  id="txtPassword" name="sppassword">
+<label>Upload Logo</label>
+<input type="file" class="form-control" name="clogo" id="imgInp">
+<input type="hidden" class="form-control" name="flogo" value="<?php echo $row["logo"]; ?>">
 </div>
 </div>
-<div class="col-sm-6">
-<div class="form-group">
-<label>Super Admin Confirm Change Password</label>
-<input class="form-control" id="txtConfirmPassword" placeholder="Repeat Super Admin New Password" type="password" >
+<div class="col-lg-4">
+<label>&nbsp;</label>
+<div class="img-thumbnail float-end"><img src="action/logo/<?php echo $row["logo"]; ?>" class="img-fluid" alt="" width="140" height="40" id="blah"></div>
 </div>
-</div>
-
-
 <div class="col-sm-6">
 <div class="form-group">
 <label>Admin Change Password</label>
@@ -249,6 +283,14 @@ value="no"
   const [file] = imgInp.files
   if (file) {
     blah.src = URL.createObjectURL(file)
+  }
+}
+</script>
+<script>
+    imgInp1.onchange = evt => {
+  const [file] = imgInp1.files
+  if (file) {
+    blah1.src = URL.createObjectURL(file)
   }
 }
 </script>
