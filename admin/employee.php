@@ -144,8 +144,8 @@ $desid=$row['designation_id'];
         <td>';
         ?>
         <h2 class="table-avatar">
-             <a href="#" class="avatar"><img alt="" src="userimg/<?php echo $row['emp_image']; ?>"></a>
-             <a href="#"><?php echo $row['employee_name']; ?></a>
+             <a href="view-employee.php?id=<?php echo $row['id']; ?>" class="avatar"><img alt="" src="userimg/<?php echo $row['emp_image']; ?>"></a>
+             <a href="view-employee.php?id=<?php echo $row['id']; ?>"><?php echo $row['employee_name']; ?></a>
              </h2>
         <?php echo '</td>
         <td>'.$row['mobile_no'].'</td>
@@ -153,7 +153,7 @@ $desid=$row['designation_id'];
         <td>'.$desname.'</td>
         <td width="10%">
             <a class="btn btn-success" href="edit-employee.php?id='.$row['id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-            <a class="btn btn-info" href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
+            <a class="btn btn-info" href="view-employee.php?id='.$row['id'].'"><i class="fa fa-eye" aria-hidden="true"></i></a>
         
             <a class="btn btn-danger"  href="delete.php?action=employee&id='.$row['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
             
