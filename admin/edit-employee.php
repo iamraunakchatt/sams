@@ -2,7 +2,7 @@
 
 <?php include('include/header.php'); 
   include('../config/webconfig.php');
-  session_start();
+
   $id = $_GET['id']; 
   $sql = "select * from 13_employee where id='".$id."'"; 
   $result = mysqli_query($conn,$sql); 
@@ -320,9 +320,13 @@
 
         </div>
        
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" name="save" class="btn btn-primary">Save changes</button>
+      </div> -->
+      <div class="submit-section">
+       <button type="submit" name="save" class="btn btn-primary submit-btn" style="width:100%">Save changes</button>
+        <!-- <button class="btn btn-primary submit-btn" type="submit" style="width:100%">Save</button> -->
       </div>
     </div>
 </div>

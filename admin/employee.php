@@ -73,7 +73,7 @@ if (isset($_POST['save']))
 <div class="card-header">
 	<div class="row">
 		<div class="col-md-8">
-		<h4 class="card-title mb-0"> Designation Name</h4>
+		<h4 class="card-title mb-0">Manage Employee</h4>
 
 		</div>
 		<div class="col-md-4">
