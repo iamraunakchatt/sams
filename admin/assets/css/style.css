@@ -4392,15 +4392,15 @@ textarea.form-control {
   flex-flow: wrap;
 }
 .dash-widget .card-body .dash-widget-icon {
-  background-color: rgba(255, 155, 68, 0.2);
-  color: #ff9b44;
-  font-size: 30px;
-  height: 60px;
-  line-height: 60px;
-  margin-right: 10px;
-  text-align: center;
-  width: 60px;
-  border-radius: 100%;
+  color: #fff;
+    font-size: 30px;
+    height: 60px;
+    line-height: 60px;
+    margin-right: 10px;
+    text-align: center;
+    width: 60px;
+    border-radius: 100%;
+    background: linear-gradient(to right, #273596 0%, #0975C5 100%)!important;
 }
 .dash-widget .card-body .dash-widget-info {
   text-align: right;

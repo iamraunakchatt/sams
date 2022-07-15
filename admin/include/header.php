@@ -115,35 +115,35 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <a href="#"><i class="la la-clock-o"></i> <span>Login History</span></a>
 </li> -->
 <li class="<?php if($activePage == 'department-management'){echo 'active';}else{ echo '';} ?>">
-<a href="department-management.php"><i class="la la-clock-o"></i> <span>Manage Department</span></a>
+<a href="department-management.php"><i class="la la-cubes"></i> <span>Manage Department</span></a>
 </li>
 <li class="<?php if($activePage == 'employee-type-managment'){echo 'active';}else{ echo '';} ?>">
-<a href="employee-type-managment.php"><i class="la la-clock-o"></i> <span>Manage Employee Type </span></a>
+<a href="employee-type-managment.php"><i class="la la-id-badge"></i> <span>Manage Employee Type </span></a>
 </li>
 <li class="<?php if($activePage == 'designation-managment'){echo 'active';}else{ echo '';} ?>">
-<a href="designation-managment.php"><i class="la la-clock-o"></i> <span>Manage Designation </span></a>
+<a href="designation-managment.php"><i class="la la-drivers-license-o"></i> <span>Manage Designation </span></a>
 </li>
 
 <li class="<?php if($activePage == 'leave-management'){echo 'active';}else{ echo '';} ?>">
-<a href="leave-management.php"><i class="la la-clock-o"></i> <span>Manage Leave Type </span></a>
+<a href="leave-management.php"><i class="la la-thermometer"></i> <span>Manage Leave Type </span></a>
 </li>
 <li class="<?php if($activePage == 'deactive-reason'){echo 'active';}else{ echo '';} ?>">
-<a href="deactive-reason.php"><i class="la la-clock-o"></i> <span>Deactive Reason </span></a>
+<a href="deactive-reason.php"><i class="la la-info-circle"></i> <span>Deactive Reason </span></a>
 </li>
 
 <li class="<?php if($activePage == 'public-holiday-managment'){echo 'active';}else{ echo '';} ?>">
-<a href="public-holiday-managment.php"><i class="la la-clock-o"></i> <span>Public Holiday Occasion </span></a>
+<a href="public-holiday-managment.php"><i class="la la-calendar"></i> <span>Public Holiday Occasion </span></a>
 </li>
 
 <li class="<?php if($activePage == 'user-type'){echo 'active';}else{ echo '';} ?>">
-<a href="user-type.php"><i class="la la-clock-o"></i> <span>Manage User Type</span></a>
+<a href="user-type.php"><i class="la la-briefcase"></i> <span>Manage User Type</span></a>
 </li>
 
 <li class="<?php if($activePage == 'shift-managment'){echo 'active';}else{ echo '';} ?>">
 <a href="shift-managment.php"><i class="la la-clock-o"></i> <span>Manage Shift</span></a>
 </li>
 <li class="<?php if($activePage == 'branch-managment'){echo 'active';}else{ echo '';} ?>">
-<a href="branch-managment.php"><i class="la la-clock-o"></i> <span>Manage Branch</span></a>
+<a href="branch-managment.php"><i class="la la-building"></i> <span>Manage Branch</span></a>
 </li>
 <li class="<?php if($activePage == 'employee'){echo 'active';}else{ echo '';} ?>">
 <a href="employee.php"><i class="la la-clock-o"></i> <span>Manage Employee</span></a>
