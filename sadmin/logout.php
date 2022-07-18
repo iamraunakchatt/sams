@@ -15,5 +15,5 @@ if(isset($_SESSION['SAMSSuperadminLogin'])){
  }
 
 session_destroy();
-echo "<script type='text/javascript'> document.location = 'login.php?status=loggedout'; </script>";
+echo "<script type='text/javascript'> document.location = 'login.php'; </script>";
 ?>

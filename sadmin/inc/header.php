@@ -46,6 +46,15 @@ $statement1 = $connection->prepare(
 			<script src="assets/js/html5shiv.min.js"></script>
 			<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+      <style>
+         #toggle-password1,#toggle-password2,#toggle-password3,#toggle-password4 {
+    cursor: pointer;
+    margin-right: 1px;
+    position: absolute;
+    top: 35px;
+    right: 10px;
+}
+      </style>
 </head>
 <body>
 
@@ -68,7 +77,7 @@ $statement1 = $connection->prepare(
 </a>
 
 <div class="page-title-box">
-<h3>SMART ATTENDANCE MARKING SYSTEMS</h3>
+<h3>SMART ATTENDANCE  MANAGEMENT SYSTEM</h3>
 </div>
 
 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
@@ -114,9 +123,9 @@ $statement1 = $connection->prepare(
 <li class="<?php if($activePage == 'login-history'){echo 'active';}else{ echo '';} ?>">
 <a href="login-history.php"><i class="la la-clock-o"></i> <span>Login History</span></a>
 </li>
-<li class="<?php if($activePage == 'settings'){echo 'active';}else{ echo '';} ?>">
+<!-- <li class="<?php if($activePage == 'settings'){echo 'active';}else{ echo '';} ?>">
 <a href="settings.php"><i class="la la-lock"></i> <span>Change Password</span></a>
-</li>
+</li> -->
 
 </ul>
 </div>

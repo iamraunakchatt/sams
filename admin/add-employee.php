@@ -66,6 +66,7 @@
          
   }
 ?>
+
 <div class="page-wrapper">
 <div class="content container-fluid">
 
@@ -251,18 +252,17 @@
               
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group position-relative">
           <label>Password</label>
           <br>
-          <input id="pass"type="password"class="form-control"name="password"required"">
-          <!-- <input type="password"name="password"class="form-control"required> -->
+          <input id="pass"type="password"class="form-control"name="password" required"">
+          <span class="fa fa-eye-slash" id="toggle-password1"></span>
         </div>
-        <div class="form-group">
+        <div class="form-group position-relative">
           <label>Confirm Password</label>
           <br>
           <input id="confirm_pass"class="form-control"type="password"name="confirm_password"required onkeyup="validate_password()">
-          <!-- <input type="password"name="confirm_password"class="form-control"required> -->
-          <span id="wrong_pass_alert"></span>
+          <span class="fa fa-eye-slash" id="toggle-password2"></span>
         </div>
 
         <div class="form-group">

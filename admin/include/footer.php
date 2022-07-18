@@ -19,16 +19,37 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+<?php
+if($activePage == 'public-holiday-managment' || $activePage == 'employee'){
+  ?>
 <script>
     $(document).ready(function() {
     $('.datatable').DataTable( {
         dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
+            'csv', 'excel', 'pdf', 'print'
+        ],
+        order: [[2, 'asc']],
     } );
 } );
 </script>
+<?php
+}else{
+  ?>
+<script>
+    $(document).ready(function() {
+    $('.datatable').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'csv', 'excel', 'pdf', 'print'
+        ],
+        order: [[1, 'asc']],
+    } );
+} );
+</script>
+  <?php
+}
+?>
 <script>
 $(document).ready(function(){
   $("a").click(function(){

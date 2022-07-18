@@ -43,7 +43,7 @@ if($action=='designation')
     }  
 }
 
-if($action=='employee')
+if($action=='employee_type')
 {
    
 

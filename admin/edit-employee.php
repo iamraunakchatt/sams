@@ -296,18 +296,17 @@
               
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group position-relative">
           <label>Password</label>
           <br>
           <input id="pass"type="password"value="<?php echo  $vpassword?>"class="form-control"name="password"required"">
-          <!-- <input type="password"name="password"class="form-control"required> -->
+          <span class="fa fa-eye-slash" id="toggle-password3"></span>
         </div>
-        <div class="form-group">
+        <div class="form-group position-relative">
           <label>Confirm Password</label>
           <br>
-          <input id="confirm_pass"class="form-control"value="<?php echo  $vconfirm_password?>"type="password"name="confirm_password"required onkeyup="validate_password()">
-          <!-- <input type="password"name="confirm_password"class="form-control"required> -->
-          <span id="wrong_pass_alert"></span>
+          <input id="confirm_pass"class="form-control" value="<?php echo  $vconfirm_password?>"type="password"name="confirm_password"required onkeyup="validate_password()">
+          <span class="fa fa-eye-slash" id="toggle-password4"></span>
         </div>
 
         <div class="form-group">

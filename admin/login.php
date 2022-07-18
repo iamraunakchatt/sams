@@ -50,8 +50,8 @@ require('../config/webconfig.php');
 		<a href="admin-dashboard.html" style="float:left"><img src="assets/img/logo2.png" alt="Dreamguy's Technologies"></a><a href="admin-dashboard.html"  style="float:right"><img src="../sadmin/action/logo/<?php echo $row["logo"]; ?>" alt="Dreamguy's Technologies"></a>
 		</div>
         
-<h3 class="account-title">FIELD STAFF MANAGEMENT SYSTEM</h3>
-<h3 class="account-title">स्मार्ट उपस्थिति अंकन प्रणाली</h3>
+<h3 class="account-title">SMART ATTENDANCE MANAGEMENT SYSTEM</h3>
+<h3 class="account-title">स्मार्ट उपस्थिति प्रबंधन प्रणाली</h3>
 <h3 class="account-title"><?php echo $row["cname"]; ?></h3>
 <p class="account-subtitle">Welcome Admin<br/>Please Signin to proceed</p>
 

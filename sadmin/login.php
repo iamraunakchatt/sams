@@ -47,8 +47,8 @@ if(isset($_SESSION['SAMSSuperadminLogin'])){
 	<div class="account-logo">
 		<a href="admin-dashboard.html"><img src="assets/img/logo2.png" alt="Dreamguy's Technologies"></a>
 		</div>
-<h3 class="account-title">SMART ATTENDANCE MARKING SYSTEMS</h3>
-<h3 class="account-title">स्मार्ट उपस्थिति अंकन प्रणाली</h3>
+<h3 class="account-title">SMART ATTENDANCE  MANAGEMENT SYSTEM</h3>
+<h3 class="account-title">स्मार्ट उपस्थिति प्रबंधन प्रणाली</h3>
 <p class="account-subtitle">Welcome Superadmin<br/>Please Signin to proceed</p>
 
 <form method="post" action="action/login_action.php">

@@ -17,7 +17,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <meta name="keywords" content="">
 <meta name="author" content="">
 <meta name="robots" content="noindex, nofollow">
-<title>Admin | SMART ATTENDANCE MARKING SYSTEMS</title>
+<title>SAMS - Admin</title>
 
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
@@ -36,6 +36,15 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 			<script src="assets/js/html5shiv.min.js"></script>
 			<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+		<style>
+         #toggle-password1,#toggle-password2,#toggle-password3,#toggle-password4 {
+    cursor: pointer;
+    margin-right: 1px;
+    position: absolute;
+    top: 35px;
+    right: 10px;
+}
+      </style>
 </head>
 <body>
 
@@ -118,13 +127,13 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <li class="<?php if($activePage == 'department-management'){echo 'active';}else{ echo '';} ?>">
 <a href="department-management.php"><i class="la la-cubes"></i> <span>Manage Department</span></a>
 </li>
-<li class="<?php if($activePage == 'employee-type-managment'){echo 'active';}else{ echo '';} ?>">
-<a href="employee-type-managment.php"><i class="la la-id-badge"></i> <span>Manage Employee Type </span></a>
-</li>
+
 <li class="<?php if($activePage == 'designation-managment'){echo 'active';}else{ echo '';} ?>">
 <a href="designation-managment.php"><i class="la la-drivers-license-o"></i> <span>Manage Designation </span></a>
 </li>
-
+<li class="<?php if($activePage == 'employee-type-managment'){echo 'active';}else{ echo '';} ?>">
+<a href="employee-type-managment.php"><i class="la la-id-badge"></i> <span>Manage Employee Type </span></a>
+</li>
 <li class="<?php if($activePage == 'leave-management'){echo 'active';}else{ echo '';} ?>">
 <a href="leave-management.php"><i class="la la-thermometer"></i> <span>Manage Leave Type </span></a>
 </li>

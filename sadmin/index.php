@@ -91,35 +91,25 @@
 <input class="form-control" placeholder="eg. 250" type="number" value="<?php echo $row["radius"]; ?>" required min="100" max="500" name="radius">
 </div>
 </div>
-<div class="col-sm-6">
-<div class="form-group">
-<label>Upload Super Admin Profile Picture</label>
-<input type="file" class="form-control" name="salogo" id="imgInp1">
-<input type="hidden" class="form-control" name="falogo" value="<?php echo $propic; ?>">
+
+
 </div>
-</div>
-<div class="col-lg-2">
-<label>&nbsp;</label>
-<div class="img-thumbnail float-end"><img src="action/logo/<?php echo $propic; ?>" class="img-fluid" alt="" width="140" height="40" id="blah1"></div>
-</div>
-<div class="col-sm-4">
+<div class="row">
+<div class="col-sm-2">
 <div class="form-group">
 <label>Max Locations</label>
 <input class="form-control" placeholder="eg. 4" type="text" value="<?php echo $row["mlocation"]; ?>" name="mlocation" >
 </div>
 </div>
-</div>
-<div class="row">
-<div class="col-sm-6">
+<div class="col-sm-2">
 <div class="form-group">
 <label>Max Employees</label>
 <input class="form-control" placeholder="eg. 10" type="text" value="<?php echo $row["memployee"]; ?>" name="memployee">
 </div>
 </div>
-<div class="col-sm-6">
+<div class="col-sm-8">
 <div class="form-group">
 <label>Attendance Type</label>
-<?php echo $row["atype"]; ?>
 <select class="select" name="atype[]" multiple>
 <?php if($row["atype"]=="auto"){
 ?>
@@ -221,15 +211,17 @@ value="no"
 <div class="img-thumbnail float-end"><img src="action/logo/<?php echo $row["logo"]; ?>" class="img-fluid" alt="" width="140" height="40" id="blah"></div>
 </div>
 <div class="col-sm-6">
-<div class="form-group">
+<div class="form-group position-relative">
 <label>Admin Change Password</label>
 <input class="form-control" placeholder="eg. 123456" type="password" value="<?php echo $row["password"]; ?>" id="txtPassword1" name="password">
+<span class="fa fa-eye-slash" id="toggle-password1"></span>
 </div>
 </div>
 <div class="col-sm-6">
-<div class="form-group">
+<div class="form-group position-relative">
 <label>Admin Confirm Change Password</label>
 <input class="form-control" id="txtConfirmPassword1" placeholder="eg. 123456" type="password" value="<?php echo $row["password"]; ?>">
+<span class="fa fa-eye-slash" id="toggle-password2"></span>
 </div>
 </div>
 </div>
@@ -283,14 +275,6 @@ value="no"
   const [file] = imgInp.files
   if (file) {
     blah.src = URL.createObjectURL(file)
-  }
-}
-</script>
-<script>
-    imgInp1.onchange = evt => {
-  const [file] = imgInp1.files
-  if (file) {
-    blah1.src = URL.createObjectURL(file)
   }
 }
 </script>
