@@ -3,11 +3,12 @@
 <?php include('include/header.php'); 
   include('../config/webconfig.php');
   
-
+  
   if (isset($_POST['save']))
   {
       
       
+    
       
       $branch=stripslashes(mysqli_real_escape_string($conn,$_POST['branch']));
       $employee_id=stripslashes(mysqli_real_escape_string($conn,$_POST['employee_id']));
