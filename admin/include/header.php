@@ -30,7 +30,8 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <link rel="stylesheet" href="assets/css/select2.min.css">
 
 <link rel="stylesheet" href="assets/css/style.css">
-
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
 <!--[if lt IE 9]>
 			<script src="assets/js/html5shiv.min.js"></script>
 			<script src="assets/js/respond.min.js"></script>
