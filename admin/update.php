@@ -90,8 +90,6 @@
  {
     $id=$_POST['id'];
     $deactive_reason=$_POST['deactive_reason'];
-
-
     $sql ="UPDATE 08_deative_reason_management SET deactive_reason='".$deactive_reason."' where id='".$id."'"; 
    
     // mysqli_query($conn,$sql);
