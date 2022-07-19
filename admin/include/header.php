@@ -92,7 +92,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <span>Admin</span>
 </a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="#">Settings</a>
+<a class="dropdown-item" href="setting.php">Settings</a>
 <a class="dropdown-item" href="logout.php">Logout</a>
 </div>
 </li>

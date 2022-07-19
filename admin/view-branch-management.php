@@ -3,12 +3,12 @@ include('include/header.php');
 $id = $_GET['id'];
 include('../config/webconfig.php');
 
-$sql="SELECT b.branch_type, b.branch_name, b.city,b.address_1,b.address_2, b.pincode,b.contact_no,b.id,u.user_type,b.attendance_type,b.latitude,b.longtitude,b.radius_meter FROM `12_branch_management` AS b INNER JOIN `10_user_type` AS u ON b.user_type = u.id WHERE b.id='".$id."'"; 
+$sql="SELECT bm.branch_type_name, b.branch_name, b.city,b.address_1,b.address_2, b.pincode,b.contact_no,b.id,u.user_type,b.attendance_type,b.latitude,b.longtitude,b.radius_meter FROM `12_branch_management` AS b INNER JOIN `10_user_type` AS u ON b.user_type = u.id INNER JOIN  15_branch_type_management AS bm ON b.branch_type=bm.id WHERE b.id='".$id."'"; 
   
 // $sql = "select * from 04_department_management where id='".$id."'"; 
 $result = mysqli_query($conn,$sql); 
 $data=mysqli_fetch_array($result); 
-$vbranch=$data['branch_type'];
+$vbranch=$data['branch_type_name'];
 $vbranch_name=$data['branch_name'];
 $vaddress_1=$data['address_1'];
 $vaddress_2=$data['address_2'];
@@ -44,6 +44,14 @@ $vradius_meter=$data['radius_meter'];
 
 <div class="card-body">
 <div class="table">
+<div class="row">
+        <div class="col-md-10">
+        </div>
+        <div class="col-md-2 float-left">
+        <a href="branch-managment.php" class="btn btn-primary " style="width: 100%;margin-top: 5%;">Back</a>
+
+        </div>
+</div>
 <div class="row">
     <div class="col-md-4">
         <label>Branch Type</label>

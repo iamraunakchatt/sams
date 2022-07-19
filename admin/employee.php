@@ -152,9 +152,8 @@ $desid=$row['designation_id'];
         <td>'.$depname.'</td>
         <td>'.$desname.'</td>
         <td width="10%">
-            <a class="btn btn-success" href="edit-employee.php?id='.$row['id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             <a class="btn btn-info" href="view-employee.php?id='.$row['id'].'"><i class="fa fa-eye" aria-hidden="true"></i></a>
-        
+            <a class="btn btn-success" href="edit-employee.php?id='.$row['id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             <a class="btn btn-danger"  href="delete.php?action=employee&id='.$row['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
             
             </td>

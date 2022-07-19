@@ -68,4 +68,14 @@ $data=mysqli_fetch_array($result);
 echo json_encode($data);
 }
 
+elseif($anchor_value=='branch-type')
+{
+$sql = "select * from   15_branch_type_management where id='".$id."'"; 
+$result = mysqli_query($conn,$sql); 
+  
+$data=mysqli_fetch_array($result); 
+echo json_encode($data);
+}
+
+
 ?>

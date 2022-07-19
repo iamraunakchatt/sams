@@ -38,7 +38,17 @@ $grace_period=$data['grace_period'];
 
 <div class="card-body">
 <div class="table">
+    <div class="row">
+    <div class="col-md-10">
+	</div>
+    <div class="col-md-2 float-left">
+    <a href="shift-managment.php" class="btn btn-primary " style="width: 100%;margin-top: 5%;">Back</a>
+
+    </div>
+    </div>
 <div class="row">
+   
+	
     <div class="col-md-4">
         <label>Shift Name</label>
         <div class="">

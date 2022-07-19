@@ -116,14 +116,16 @@ if (isset($_POST['save']))
           <label>Branch Type</label>
           <br>
           <select name="branch_type"class="form-control"required>
-              <option value="HQ"><?php echo $vbranch ?></option>
-              <option value="HQ">HQ</option>
-              <option value="Branch office">Branch Office</option>
-              <option value="Location">Locatio</option>
-              <option value="Factory">Factory</option>
-              <option value="Godown">Godown</option>
-              <option value="Warehouse">Warehouse</option>
-              <option value="Shop">Shop</option>
+          <?php
+            $i=1;
+            $sql=mysqli_query($conn,"select * from  15_branch_type_management")or die(mysqli_error($con));
+            while($row=mysqli_fetch_array($sql))
+            {
+                $username=$row['branch_type_name'];
+                $userid=$row['id'];
+                echo'<option value="'.$userid.'"';if ($userid==$vuser_type){echo 'selected';}echo '>'.$username.'</option>';
+            }
+          ?>
             </select>
         </div>
         <div class="form-group">

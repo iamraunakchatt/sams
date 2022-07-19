@@ -111,6 +111,14 @@ $(document).ready(function(){
             $(".idvalue").val(id);
             $('#deactive_reason').modal('show'); 
         }
+        else if(anchor_value=='branch-type')
+        {
+            var name=result.branch_type_name;
+            var id=result.id;
+            $(".dep").val(name);
+            $(".idvalue").val(id);
+            $('#branch_type').modal('show'); 
+        }
         else if(anchor_value=='public_holiday')
         {
             var name=result.ocassion;
@@ -127,8 +135,6 @@ $(document).ready(function(){
             var name=result.user_type;
             var id=result.id;
             $(".dep").val(name);
-           
-
             $(".idvalue").val(id);
             $('#usertype').modal('show'); 
         }
@@ -287,7 +293,7 @@ $(document).ready(function(){
           <label>Deactive Reason </label>
           <br>
           <input type="hidden"name="id"class="form-control idvalue "required>
-           <input type="hidden"name="name"value="deactive_reason"class="form-control "required>
+          <input type="hidden"name="name"value="deactive_reason"class="form-control "required>
           <input type="text"name="deactive_reason"class="form-control dep"required>
         </div>
       </div>
@@ -458,6 +464,34 @@ if($status=="success"){
 }
 ?>
 ?>
+
+<div class="modal fade" id="branch_type" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <form method="post"action="update.php">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Branch Type Management</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Branch Type</label>
+          <br>
+         
+          <input type="hidden"name="id"class="form-control idvalue "required>
+          <input type="hidden"name="name"value="branch_type_name"class="form-control "required>
+          <input type="text"name="branch_type_name"class="form-control dep"required>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" name="save" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+</form>
+  </div>
+</div>
 
 </body>
 </html>

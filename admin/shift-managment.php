@@ -82,8 +82,8 @@ if (isset($_POST['save']))
 <td>'.$row['from_shift'].'</td>
 <td>'.$row['to_from'].'</td>
 <td width="10%">
-    <a class="btn btn-success" href="javascript:void(0)" data-id="'.$row['id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
     <a class="btn btn-info" href="shift-view.php?action=shift-managment&id='.$row['id'].'"><i class="fa fa-eye" aria-hidden="true"></i></a>
+    <a class="btn btn-success" href="javascript:void(0)" data-id="'.$row['id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
     <a class="btn btn-danger"  href="delete.php?action=shift-managment&id='.$row['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
     
     </td>

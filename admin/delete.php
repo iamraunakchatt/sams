@@ -188,4 +188,21 @@ if($action=='employee')
     } 
 }
 
+if($action=='branch-type')
+{
+    $sql ="delete from  15_branch_type_management where id='".$id."'"; 
+   
+    // mysqli_query($conn,$sql);
+   
+
+    if(mysqli_query($conn, $sql)){
+        session_start();
+        $_SESSION['success_message'] = "Data Delete successfully.";
+        header("Location: branch-type.php?status=deletesuccess");    
+               
+    } else{
+        echo "ERROR: Data! Not Update $sql. "
+            . mysqli_error($conn);
+    } 
+}
 ?>

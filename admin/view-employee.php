@@ -64,7 +64,14 @@ $designation_name=$data['designation_name'];
 </div>
 </div>
 </div>
+<div class="row mb-4">
+        <div class="col-md-10">
+        </div>
+        <div class="col-md-2 float-left">
+        <a href="employee.php" class="btn btn-primary " style="width: 100%;margin-top: 5%;">Back</a>
 
+        </div>
+</div>
 <div class="row">
 <div class="col-sm-12">
 <div class="card mb-0">

@@ -80,19 +80,19 @@ if (isset($_POST['save']))
 <tbody>
 <?php
     $i=1;
-    $sql=mysqli_query($conn,"SELECT b.branch_type, b.branch_name, b.city, b.pincode,b.contact_no,b.id FROM `12_branch_management` AS b INNER JOIN `10_user_type` AS u ON b.user_type = u.id;")or die(mysqli_error($con));
+    $sql=mysqli_query($conn,"SELECT bm.branch_type_name, b.branch_name, b.city, b.pincode,b.contact_no,b.id FROM `12_branch_management` AS b INNER JOIN `10_user_type` AS u ON b.user_type = u.id INNER JOIN  15_branch_type_management AS bm ON b.branch_type=bm.id;")or die(mysqli_error($con));
     while($row=mysqli_fetch_array($sql))
     {
       echo '<tr>
 <td>'.$i.'</td>
-<td>'.$row['branch_type'].'</td>
+<td>'.$row['branch_type_name'].'</td>
 <td>'.$row['branch_name'].'</td>
 <td>'.$row['city'].'</td>
 <td>'.$row['pincode'].'</td>
 <td>'.$row['contact_no'].'</td>
 <td width="10%">
-    <a class="btn btn-success" href="edit-branch-management.php?id='.$row['id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
     <a class="btn btn-info" href="view-branch-management.php?id='.$row['id'].'"><i class="fa fa-eye" aria-hidden="true"></i></a>
+    <a class="btn btn-success" href="edit-branch-management.php?id='.$row['id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
     <a class="btn btn-danger"  href="delete.php?action=branch-managment&id='.$row['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
     
     </td>

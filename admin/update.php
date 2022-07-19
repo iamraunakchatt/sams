@@ -106,6 +106,26 @@
     }   
  }
 
+ elseif($name=='branch_type_name')
+ {
+    $id=$_POST['id'];
+    $deactive_reason=$_POST['branch_type_name'];
+    $sql ="UPDATE  15_branch_type_management SET branch_type_name='".$deactive_reason."' where id='".$id."'"; 
+   
+    // mysqli_query($conn,$sql);
+   
+
+    if(mysqli_query($conn, $sql)){
+        session_start();
+        $_SESSION['success_message'] = "Data Update successfully.";
+        header("Location: branch-type.php?status=editsuccess");    
+               
+    } else{
+        echo "ERROR: Data! Not Update $sql. "
+            . mysqli_error($conn);
+    }   
+ }
+
  elseif($name=='public_holiday')
  {
     $id=$_POST['id'];
@@ -178,3 +198,4 @@
  
  
 ?>
+

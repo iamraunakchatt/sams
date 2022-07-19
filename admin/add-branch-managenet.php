@@ -69,7 +69,7 @@ if (isset($_POST['save']))
         <div class="form-group">
           <label>Branch Type</label>
           <br>
-          <select name="branch_type"class="form-control"required>
+          <!-- <select name="branch_type"class="form-control"required>
               <option value="">Choose Branch Type</option>
               <option value="HQ">HQ</option>
               <option value="Branch office">Branch Office</option>
@@ -78,7 +78,21 @@ if (isset($_POST['save']))
               <option value="Godown">Godown</option>
               <option value="Warehouse">Warehouse</option>
               <option value="Shop">Shop</option>
-            </select>
+            </select> -->
+
+            <select name="branch_type"class="form-control"required>
+              <option value="">Choose Branch Type</option>
+              <?php
+              $i=1;
+              $sql=mysqli_query($conn,"select * from  15_branch_type_management")or die(mysqli_error($con));
+              while($row=mysqli_fetch_array($sql))
+              {
+                echo '<option value="'.$row['id'].'">'.$row['branch_type_name'].'</option>';
+              }
+              ?>
+              
+              
+        </select>
         </div>
         <div class="form-group">
           <label>Branch Name</label>
@@ -116,14 +130,14 @@ if (isset($_POST['save']))
           <select name="user_type"class="form-control"required>
               <option value="">Choose user Type</option>
               <?php
-    $i=1;
-    $sql=mysqli_query($conn,"select * from  10_user_type")or die(mysqli_error($con));
-    while($row=mysqli_fetch_array($sql))
-    {
-      echo '
-              <option value="'.$row['id'].'">'.$row['user_type'].'</option>';
-    }
-    ?>
+              $i=1;
+              $sql=mysqli_query($conn,"select * from  10_user_type")or die(mysqli_error($con));
+              while($row=mysqli_fetch_array($sql))
+              {
+                echo '
+                        <option value="'.$row['id'].'">'.$row['user_type'].'</option>';
+              }
+              ?>
               
               
         </select>
