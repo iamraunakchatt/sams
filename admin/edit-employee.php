@@ -93,10 +93,12 @@
 
     if(mysqli_query($conn, $sql)){
        
-      header("location: employee.php?status=success");  
+      echo "<script type='text/javascript'> document.location = 'employee.php?status=success'; </script>";
+
                
     } else{
-      header("location: employee.php?status=failed");
+      echo "<script type='text/javascript'> document.location = 'employee.php?status=failed'; </script>";
+
     } 
          
   }

@@ -1,4 +1,5 @@
 <?php
+ob_start();
 @session_start();
 require('../config/webconfig.php');
 if(isset($_SESSION['SAMSAdminLogin'])){
@@ -78,16 +79,14 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <div class="page-title-box">
 <h3><?php echo $row["cname"]; ?></h3>
 </div>
-<?php
-	   }
-	   ?>
+
 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
 
 <ul class="nav user-menu">
 
 <li class="nav-item dropdown has-arrow main-drop">
 <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-<span class="user-img"><img src="assets/img/profiles/avatar-21.jpg" alt="">
+<span class="user-img"><img src="<?php echo $row['profilepic']; ?>" alt="">
 <span class="status online"></span></span>
 <span>Admin</span>
 </a>
@@ -97,7 +96,9 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 </div>
 </li>
 </ul>
-
+<?php
+	   }
+	   ?>
 
 <div class="dropdown mobile-user-menu">
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
@@ -151,6 +152,9 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 
 <li class="<?php if($activePage == 'shift-managment'){echo 'active';}else{ echo '';} ?>">
 <a href="shift-managment.php"><i class="la la-clock-o"></i> <span>Manage Shift</span></a>
+</li>
+<li class="<?php if($activePage == 'branch-type'){echo 'active';}else{ echo '';} ?>">
+<a href="branch-type.php"><i class="la la-sitemap"></i> <span>Branch Type</span></a>
 </li>
 <li class="<?php if($activePage == 'branch-managment'){echo 'active';}else{ echo '';} ?>">
 <a href="branch-managment.php"><i class="la la-building"></i> <span>Manage Branch</span></a>

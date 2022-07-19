@@ -70,7 +70,7 @@ if (isset($_POST['save']))
 <tbody>
 <?php
     $i=1;
-    $sql=mysqli_query($conn,"select * from   06_designation_management")or die(mysqli_error($con));
+    $sql=mysqli_query($conn,"select * from 06_designation_management order by designation_name asc")or die(mysqli_error($con));
     while($row=mysqli_fetch_array($sql))
     {
       echo '<tr>

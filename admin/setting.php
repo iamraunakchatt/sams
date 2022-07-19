@@ -4,11 +4,12 @@
 if (isset($_POST['save']))
 {
     
+  if($_POST["sppassword"]!=NULL){
     $password=$_POST['sppassword'];
-    mysqli_query($conn,"update 03_admin_tbl set password='$password' where id=$id")or die(mysqli_error($conn));
-   
+    mysqli_query($conn,"update 03_admin_tbl set password='$password' where id=1")or die(mysqli_error($conn));
+  }
     $target_dir = "userimg/";
-    $target_file = $target_dir . basename($_FILES["filetoupload"]["name"]);
+    $target_file = $target_dir . date('m-d-Y_H_i_s').rand().basename($_FILES["filetoupload"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -52,7 +53,7 @@ if (isset($_POST['save']))
        if (move_uploaded_file($_FILES["filetoupload"]["tmp_name"], $target_file))
        {
         echo "The file ". basename( $_FILES["filetoupload"]["name"]). " has been uploaded.";
-        mysqli_query($conn,"update 03_admin_tbl set logo='$target_file' where id=$id")or die(mysqli_error($conn));
+        mysqli_query($conn,"update 03_admin_tbl set profilepic='$target_file' where id=1")or die(mysqli_error($conn));
         
        } 
        else 
@@ -61,6 +62,7 @@ if (isset($_POST['save']))
        }
     } 
 }
+echo "<script type='text/javascript'> document.location = 'setting.php?status=success'; </script>";
 
 }
   ?>
@@ -94,7 +96,7 @@ if (isset($_POST['save']))
 </div>
 <div class="col-lg-2">
 <label>&nbsp;</label>
-<div class="img-thumbnail float-end"><img src="<?php echo $row['logo']; ?>" class="img-fluid" alt="" width="140" height="40" id="blah1"></div>
+<div class="img-thumbnail float-end"><img src="<?php echo $row['profilepic']; ?>" class="img-fluid" alt="" width="140" height="40" id="blah1"></div>
 </div>
 <div class="col-sm-6">
 <div class="form-group position-relative">
