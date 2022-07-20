@@ -101,14 +101,14 @@ echo "<script type='text/javascript'> document.location = 'setting.php?status=su
 <div class="col-sm-6">
 <div class="form-group position-relative">
 <label>Admin Change Password</label>
-<input class="form-control" placeholder="Set This Password For Super Admin" type="password"  id="txtPassword" name="sppassword">
+<input class="form-control" placeholder="Set This Password For Admin" type="password"  id="txtPassword" name="sppassword">
 <span class="fa fa-eye-slash" id="toggle-password3"></span>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="form-group position-relative">
 <label>Admin Confirm Change Password</label>
-<input class="form-control" id="txtConfirmPassword" placeholder="Repeat Super Admin New Password" type="password" >
+<input class="form-control" id="txtConfirmPassword" placeholder="Repeat Admin New Password" type="password" >
 <span class="fa fa-eye-slash" id="toggle-password4"></span>
 </div>
 </div>

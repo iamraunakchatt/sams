@@ -20,7 +20,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <meta name="robots" content="noindex, nofollow">
 <title>SAMS - Admin</title>
 
-<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/logo2.png">
 
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
@@ -64,7 +64,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 	   {
 		?>
 <a href="index.php" class="logo">
-<img src="../sadmin/action/logo/<?php echo $row["logo"]; ?>" width="40" height="40" alt="">
+<img src="../sadmin/action/logo/<?php echo $row["logo"]; ?>" width="100" height="100" alt="">
 </a>
 </div>
 

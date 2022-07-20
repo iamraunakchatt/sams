@@ -106,12 +106,12 @@ $vradius_meter=$data['radius_meter'];
          <?php echo $vuser_type; ?>
         </div>
     </div>
-    <div class="col-md-4">
+    <!--<div class="col-md-4">
         <label>Attendance Type</label>
         <div class="">
          <?php echo $vattendance_type; ?>
         </div>
-    </div>
+    </div>-->
     <div class="col-md-4">
         <label>Latitudes</label>
         <div class="">

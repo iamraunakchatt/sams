@@ -286,7 +286,7 @@
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="display:none">
           <label>Attendance Type</label>
           <br>
           <select name="attendance_type"class="form-control"required>

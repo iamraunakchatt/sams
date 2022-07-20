@@ -162,10 +162,10 @@ $designation_name=$data['designation_name'];
 <div class="title">Shift Type</div>
 <div class="text"><?php echo $shift; ?></div>
 </li>
-<li>
+<!--<li>
 <div class="title">Attandence Type</div>
 <div class="text"><?php echo $attendance; ?></div>
-</li>
+</li>-->
 
 </ul>
 <hr>

@@ -11,10 +11,10 @@ if (isset($_POST['save']))
         $sql = "INSERT INTO  15_branch_type_management(branch_type_name) VALUES ('$name')";
          
         if(mysqli_query($conn, $sql)){
-          header("location: employee-type-managment.php?status=success");
+          header("location: branch-type.php?status=success");
                
         } else{
-          header("location: employee-type-managment.php?status=failed");
+          header("location: branch-type.php?status=failed");
         }
          
         // Close connection mysqli_close($conn);
