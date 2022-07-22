@@ -1,14 +1,28 @@
 <?php 
 include('../config/webconfig.php'); 
+$sql = "select * from   16_admin_token"; 
+$result = mysqli_query($conn,$sql); 
+$data=mysqli_fetch_array($result); 
+$status=$data['status'];
 
-$sql=mysqli_query($conn,"select * from   08_deative_reason_management")or die(mysqli_error($con));
+if($status==1)
+{
 
-if(mysqli_num_rows($sql)>0){
+$id = $_GET['id']; 
 
-    $output=mysqli_fetch_all($sql,MYSQLI_ASSOC);
-    echo json_encode($output);
+ $sql ="delete from  08_deative_reason_management  where id='".$id."'"; 
+ if(mysqli_query($conn, $sql)){
+
+    echo json_encode(array('message'=>'Data Delete successfully'));
+       
+} 
+else
+{
+    echo json_encode(array('message'=>'Data not Delete'));
 }
-else{
-    echo json_encode(array('message'=>'No Record Found'));
-   }
+}
+else
+{
+    echo json_encode(array('message'=>'Unauthenticated'));
+}
 ?>

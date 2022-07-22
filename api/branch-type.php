@@ -1,8 +1,7 @@
 <?php 
 include('../config/webconfig.php'); 
 
-
-$sql=mysqli_query($conn,"select * from  05_employee_management")or die(mysqli_error($con));
+$sql=mysqli_query($conn,"select * from  15_branch_type_management")or die(mysqli_error($con));
 
 if(mysqli_num_rows($sql)>0){
 
@@ -12,5 +11,4 @@ if(mysqli_num_rows($sql)>0){
 else{
     echo json_encode(array('message'=>'No Record Found'));
    }
-
 ?>

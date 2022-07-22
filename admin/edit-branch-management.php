@@ -35,21 +35,11 @@ if (isset($_POST['save']))
     $longitude=stripslashes(mysqli_real_escape_string($conn,$_POST['longitude']));
     $radius_meter=stripslashes(mysqli_real_escape_string($conn,$_POST['radius_meter']));
     
-   // Performing insert query execution
-        // here our table name is college
-        // $sql = "INSERT INTO   12_branch_management(branch_type,branch_name,address_1,address_2,city,pincode,contact_no,user_type,attendance_type,latitude,longtitude,radius_meter) VALUES ('$branch_type','$branch_name','$address_1','$address_2','$city','$pincode','$contact_number','$user_type','$attendance_type','$latitudes','$longitude','$radius_meter')";
-         
-        // if(mysqli_query($conn, $sql)){
-        //   $_SESSION['add_message'] = "Data Insert successfully.";
-               
-        // } else{
-        //    echo "<script>alert('Data Not insert.')</script> $sql. "
-        //         . mysqli_error($conn);
-        // }
+  
 
 
         
-    $sql ="UPDATE  12_branch_management SET branch_type='".$branch_type."',branch_name='".$branch_name."',address_1='".$address_1."',address_2='".$address_2."',city='".$city."',pincode='".$pincode."',contact_no='".$contact_number."',attendance_type='".$attendance_type."',latitude='".$latitudes."',longtitude='".$longitude."',radius_meter='".$radius_meter."' where id='".$id."'"; 
+    $sql ="UPDATE  12_branch_management SET branch_type='".$branch_type."',branch_name='".$branch_name."',address_1='".$address_1."',address_2='".$address_2."',city='".$city."',pincode='".$pincode."',contact_no='".$contact_number."',attendance_type='".$attendance_type."',latitude='".$latitudes."',longtitude='".$longitude."',radius_meter='".$radius_meter."',user_type='".$user_type."' where id='".$id."'"; 
    
     // mysqli_query($conn,$sql);
    
@@ -123,7 +113,7 @@ if (isset($_POST['save']))
             {
                 $username=$row['branch_type_name'];
                 $userid=$row['id'];
-                echo'<option value="'.$userid.'"';if ($userid==$vuser_type){echo 'selected';}echo '>'.$username.'</option>';
+                echo'<option value="'.$userid.'"';if ($userid==$vbranch){echo 'selected';}echo '>'.$username.'</option>';
             }
           ?>
             </select>

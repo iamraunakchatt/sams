@@ -7,9 +7,9 @@
 
   if($status==1)
    {
-        $id=$_GET['id'];
-        $deactive_reason=$_POST['deactive_reason'];
-        $sql ="UPDATE 08_deative_reason_management SET deactive_reason='".$deactive_reason."' where id='".$id."'"; 
+        
+        $status=0;
+        $sql ="UPDATE 16_admin_token SET status='".$status."'"; 
           
         if(mysqli_query($conn, $sql)){
 

@@ -7,10 +7,9 @@ $status=$data['status'];
 
 if($status==1)
 {
-$id = $_GET['id']; 
-
- $sql ="delete from 05_employee_management  where id='".$id."'"; 
- if(mysqli_query($conn, $sql)){
+$id = $_GET['id'];
+$sql ="delete from 15_branch_type_management  where id='".$id."'"; 
+if(mysqli_query($conn, $sql)){
 
     echo json_encode(array('message'=>'Data Delete successfully'));
        
@@ -23,6 +22,5 @@ else
 else
 {
     echo json_encode(array('message'=>'Unauthenticated'));
-
 }
 ?>
