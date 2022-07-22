@@ -160,7 +160,10 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <a href="branch-managment.php"><i class="la la-building"></i> <span>Manage Branch</span></a>
 </li>
 <li class="<?php if($activePage == 'employee'){echo 'active';}else{ echo '';} ?>">
-<a href="employee.php"><i class="la la-clock-o"></i> <span>Manage Employee</span></a>
+<a href="employee.php"><i class="la la-users"></i> <span>Manage Employee</span></a>
+</li>
+<li class="<?php if($activePage == 'manage-leave'){echo 'active';}else{ echo '';} ?>">
+<a href="manage-leave.php"><i class="la la-clock-o"></i> <span>Manage Leave</span></a>
 </li>
 </ul>
 </div>
