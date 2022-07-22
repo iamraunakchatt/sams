@@ -19,15 +19,21 @@ include('../config/webconfig.php');
 	{$valid_user=$user;}
 	//Password
 	
-	$sql=mysqli_query($conn,"SELECT * FROM login  WHERE email='$valid_user' AND pwd='$encpwd'")or die(mysqli_error($conn));
+	$sql=mysqli_query($conn,"SELECT * FROM 03_admin_tbl  WHERE username='$valid_user' AND password='$pwd'")or die(mysqli_error($conn));
 	$row=mysqli_fetch_array($sql);
-	$name=$row['email'];
+	// $name=$row['username'];
 	$count=mysqli_num_rows($sql);
 
 	if($count==1)
 	{	
-		$_SESSION['iuser']=$name;
-		echo json_encode(array('message'=>'Data Insert successfully'));
+		$status=1;
+		$sql ="UPDATE 16_admin_token SET status='".$status."'"; 
+          
+        mysqli_query($conn, $sql);
+
+        
+		// $_SESSION['iuser']=$name;
+		echo json_encode(array('message'=>'Login successfully'));
 	}
 	elseif(($valid_user!="")&&($valid_pwd!=""))
 	{
