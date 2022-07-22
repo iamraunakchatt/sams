@@ -68,7 +68,7 @@ if (isset($_POST['save']))
 <tbody>
 <?php
     $i=1;
-    $sql=mysqli_query($conn,"select * from  10_user_type")or die(mysqli_error($con));
+    $sql=mysqli_query($conn,"select * from  10_user_type order by user_type asc")or die(mysqli_error($con));
     while($row=mysqli_fetch_array($sql))
     {
       echo '<tr>

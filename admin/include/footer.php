@@ -21,13 +21,46 @@
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
 <?php
 if($activePage == 'public-holiday-managment' || $activePage == 'employee'){
+
+  if($activePage=="public-holiday-managment"){
+    $ptitle="SAMS - Public Holiday";
+  }else if($activePage=="employee"){
+    $ptitle="SAMS - Employee";
+  }
   ?>
 <script>
     $(document).ready(function() {
     $('.datatable').DataTable( {
         dom: 'Bfrtip',
         buttons: [
-            'csv', 'excel', 'pdf', 'print'
+            // 'csv', 'excel', 'pdf', 'print',
+            {
+    extend: 'csv',
+    title:'<?php echo $ptitle; ?>',
+    exportOptions: {
+    columns: ':not(:last-child)',
+  },
+    filename: function () { 
+                return '<?php echo $ptitle; ?>';}
+},
+{
+    extend: 'pdf',
+    title:'<?php echo $ptitle; ?>',
+    exportOptions: {
+    columns: ':not(:last-child)',
+  },
+    filename: function () { 
+                return '<?php echo $ptitle; ?>';}
+},,
+{
+    extend: 'excel',
+    title:'<?php echo $ptitle; ?>',
+    exportOptions: {
+    columns: ':not(:last-child)',
+  },
+    filename: function () { 
+                return '<?php echo $ptitle; ?>';}
+},'print' 
         ],
         order: [[2, 'asc']],
     } );
@@ -35,13 +68,61 @@ if($activePage == 'public-holiday-managment' || $activePage == 'employee'){
 </script>
 <?php
 }else{
+  if($activePage=="department-management"){
+    $ptitle="SAMS - Department";
+  }else if($activePage=="designation-managment"){
+    $ptitle="SAMS - Designation";
+  }else if($activePage=="employee-type-managment"){
+    $ptitle="SAMS - Employee Type";
+  }else if($activePage=="leave-management"){
+    $ptitle="SAMS - Leave Type";
+  }else if($activePage=="deactive-reason"){
+    $ptitle="SAMS - Deactive Reason";
+  }else if($activePage=="user-type"){
+    $ptitle="SAMS - User Type";
+  }else if($activePage=="shift-managment"){
+    $ptitle="SAMS - Shift";
+  }else if($activePage=="branch-type"){
+    $ptitle="SAMS - Branch Type";
+  }else if($activePage=="branch-managment"){
+    $ptitle="SAMS - Branch";
+  }else{
+    $ptitle="SAMS - Others";
+  }
   ?>
 <script>
     $(document).ready(function() {
     $('.datatable').DataTable( {
         dom: 'Bfrtip',
         buttons: [
-            'csv', 'excel', 'pdf', 'print'
+            // 'csv', 'excel', 'pdf', 'print',
+            {
+    extend: 'csv',
+    title:'<?php echo $ptitle; ?>',
+    exportOptions: {
+    columns: ':not(:last-child)',
+  },
+    filename: function () { 
+                return '<?php echo $ptitle; ?>';}
+},
+{
+    extend: 'pdf',
+    title:'<?php echo $ptitle; ?>',
+    exportOptions: {
+    columns: ':not(:last-child)',
+  },
+    filename: function () { 
+                return '<?php echo $ptitle; ?>';}
+},
+{
+    extend: 'excel',
+    title:'<?php echo $ptitle; ?>',
+    exportOptions: {
+    columns: ':not(:last-child)',
+  },
+    filename: function () { 
+                return '<?php echo $ptitle; ?>';}
+},'print'
         ],
         order: [[1, 'asc']],
     } );

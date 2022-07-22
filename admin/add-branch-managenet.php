@@ -142,11 +142,11 @@ if (isset($_POST['save']))
               
         </select>
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:none">
           <label>Attendance Type</label>
           <br>
-          <select name="attendance_type"class="form-control"required>
-              <option value="">Choose Attendance Type</option>
+          <select name="attendance_type"class="form-control">
+              <option value="Nothing">Choose Attendance Type</option>
               <option value="Manual">Manual</option>
               <option value="Selfie">Selfie</option>
               <option value="Auto">Auto</option>

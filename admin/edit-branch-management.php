@@ -39,19 +39,18 @@ if (isset($_POST['save']))
 
 
         
-    $sql ="UPDATE  12_branch_management SET branch_type='".$branch_type."',branch_name='".$branch_name."',address_1='".$address_1."',address_2='".$address_2."',city='".$city."',pincode='".$pincode."',contact_no='".$contact_number."',attendance_type='".$attendance_type."',latitude='".$latitudes."',longtitude='".$longitude."',radius_meter='".$radius_meter."',user_type='".$user_type."' where id='".$id."'"; 
+    $sql ="UPDATE  12_branch_management SET branch_type='".$branch_type."',branch_name='".$branch_name."',address_1='".$address_1."',address_2='".$address_2."',city='".$city."',pincode='".$pincode."',contact_no='".$contact_number."',attendance_type='".$attendance_type."',user_type='".$user_type."',latitude='".$latitudes."',longtitude='".$longitude."',radius_meter='".$radius_meter."' where id='".$id."'"; 
    
     // mysqli_query($conn,$sql);
    
 
     if(mysqli_query($conn, $sql)){
        
-        $_SESSION['success_message'] = "Data Update successfully.";
-        header("Location: branch-managment.php");    
+        
+        header("Location: branch-managment.php?status=success");    
                
     } else{
-        echo "ERROR: Data! Not Update $sql. "
-            . mysqli_error($conn);
+        header("Location: branch-managment.php?status=failed");  
     } 
 }
 ?>
@@ -76,7 +75,7 @@ if (isset($_POST['save']))
 <div class="card-header">
 	<div class="row">
 		<div class="col-md-8">
-		<h4 class="card-title mb-0">Add Branch </h4>
+		<h4 class="card-title mb-0">Edit Branch </h4>
 
 		</div>
 		
@@ -87,18 +86,6 @@ if (isset($_POST['save']))
 <div class="card-body">
 <div class="table-responsive">
 <input type="hidden"value="branch"id="anchor_value">
-<?php if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) { ?>
-                        <div class="success-message " style="margin-bottom: 20px;font-size: 20px;color: green;"><?php echo $_SESSION['success_message']; ?></div>
-                        <?php
-                        unset($_SESSION['success_message']);
-                    }
-                    ?>
-<?php if (isset($_SESSION['add_message']) && !empty($_SESSION['add_message'])) { ?>
-                        <div class="success-message " style="margin-bottom: 20px;font-size: 20px;color: green;"><?php echo $_SESSION['add_message']; ?></div>
-                        <?php
-                        unset($_SESSION['add_message']);
-                    }
-?>
 
 <form method="post">
     
@@ -111,9 +98,9 @@ if (isset($_POST['save']))
             $sql=mysqli_query($conn,"select * from  15_branch_type_management")or die(mysqli_error($con));
             while($row=mysqli_fetch_array($sql))
             {
-                $username=$row['branch_type_name'];
-                $userid=$row['id'];
-                echo'<option value="'.$userid.'"';if ($userid==$vbranch){echo 'selected';}echo '>'.$username.'</option>';
+                $branch_type_name=$row['branch_type_name'];
+                $branchtypeid=$row['id'];
+                echo'<option value="'.$branchtypeid.'"';if ($branchtypeid==$vbranch){echo 'selected';}echo '>'.$branch_type_name.'</option>';
             }
           ?>
             </select>
@@ -158,19 +145,19 @@ if (isset($_POST['save']))
     $sql=mysqli_query($conn,"select * from  10_user_type")or die(mysqli_error($con));
     while($row=mysqli_fetch_array($sql))
     {
-        $username=$row['user_type'];
-        $userid=$row['id'];
-        echo'<option value="'.$userid.'"';if ($userid==$vuser_type){echo 'selected';}echo '>'.$username.'</option>';
+        $user_type=$row['user_type'];
+        $usertypeid=$row['id'];
+        echo'<option value="'.$usertypeid.'"';if ($usertypeid==$vuser_type){echo 'selected';}echo '>'.$user_type.'</option>';
     }
     ?>
               
               
         </select>
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:none">
           <label>Attendance Type</label>
           <br>
-          <select name="attendance_type"class="form-control"required>
+          <select name="attendance_type"class="form-control">
               <option value="<?php echo $vattendance_type ;?>"><?php echo $vattendance_type ;?></option>
               <option value="Manual">Manual</option>
               <option value="Selfie">Selfie</option>

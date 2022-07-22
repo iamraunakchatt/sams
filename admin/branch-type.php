@@ -11,10 +11,10 @@ if (isset($_POST['save']))
         $sql = "INSERT INTO  15_branch_type_management(branch_type_name) VALUES ('$name')";
          
         if(mysqli_query($conn, $sql)){
-          header("location: employee-type-managment.php?status=success");
+          header("location: branch-type.php?status=success");
                
         } else{
-          header("location: employee-type-managment.php?status=failed");
+          header("location: branch-type.php?status=failed");
         }
          
         // Close connection mysqli_close($conn);
@@ -68,7 +68,7 @@ if (isset($_POST['save']))
 <tbody>
 <?php
     $i=1;
-    $sql=mysqli_query($conn,"select * from  15_branch_type_management ")or die(mysqli_error($con));
+    $sql=mysqli_query($conn,"select * from  15_branch_type_management order by branch_type_name asc")or die(mysqli_error($con));
     while($row=mysqli_fetch_array($sql))
     {
       echo '<tr>
