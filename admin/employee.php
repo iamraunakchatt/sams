@@ -36,6 +36,7 @@ if (isset($_POST['save']))
         $uploadOk = 0;
     }
 
+   
     
    // Performing insert query execution
         // here our table name is college
@@ -47,8 +48,7 @@ if (isset($_POST['save']))
         } else{
           header("location: employee.php?status=failed");
         }
-         
-        // Close connection
+    
        
 }
 ?>

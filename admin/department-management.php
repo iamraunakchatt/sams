@@ -3,11 +3,34 @@
 <?php include('include/header.php'); 
   include('../config/webconfig.php');
   session_start();
+  $equal=0;
 
 
 if (isset($_POST['save']))
 {
     $name=stripslashes(mysqli_real_escape_string($conn,$_POST['deparment_name']));
+    $strlower = strtolower($name);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 04_department_management order by departmenet_name asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $department=$row['departmenet_name'];
+            $depstrlower=strtolower($department);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+   
+    if($equal==1)
+    {
+      header("location: department-management.php?status=failed-data");
+    }
+
+    else{
+
    // Performing insert query execution
         // here our table name is college
         $sql = "INSERT INTO  04_department_management(departmenet_name) VALUES ('$name')";
@@ -20,6 +43,7 @@ if (isset($_POST['save']))
         }
          
         // Close connection
+    }
       
 }
 ?>
@@ -70,7 +94,7 @@ if (isset($_POST['save']))
 <tbody>
 <?php
     $i=1;
-    $sql=mysqli_query($conn,"select * from 04_department_management order by departmenet_name asc")or die(mysqli_error($con));
+    $sql=mysqli_query($conn,"select * from 04_department_management")or die(mysqli_error($con));
     while($row=mysqli_fetch_array($sql))
     {
       echo '<tr>
@@ -126,4 +150,4 @@ $i++;
 </form>
   </div>
 </div>
-<?php include('include/footer.php'); ?>>
+<?php include('include/footer.php'); ?>

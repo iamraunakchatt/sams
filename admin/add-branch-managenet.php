@@ -3,6 +3,8 @@
 <?php include('include/header.php'); 
   include('../config/webconfig.php');
   session_start();
+ 
+  
 
 if (isset($_POST['save']))
 {
@@ -18,9 +20,37 @@ if (isset($_POST['save']))
     $latitudes=stripslashes(mysqli_real_escape_string($conn,$_POST['latitudes']));
     $longitude=stripslashes(mysqli_real_escape_string($conn,$_POST['longitude']));
     $radius_meter=stripslashes(mysqli_real_escape_string($conn,$_POST['radius_meter']));
+
+    
     
    // Performing insert query execution
         // here our table name is college
+        
+        $strlower = strtolower($branch_name);
+        $i=1;
+        $sql=mysqli_query($conn,"select * from 12_branch_management order by id asc")or die(mysqli_error($con));
+        while($row=mysqli_fetch_array($sql))
+        {
+                $department=$row['branch_name'];
+                $depstrlower=strtolower($department);
+                if($depstrlower==$strlower)
+                {
+                  $equal=1;
+                  $_SESSION["favcolor"] = "abc";
+                  break;
+                }
+        $i++;      
+        }
+       
+        if($equal==1)
+        {
+          header("location: add-branch-managenet.php?status=branch-name");
+        }
+    
+        else{
+
+
+
         $sql = "INSERT INTO   12_branch_management(branch_type,branch_name,address_1,address_2,city,pincode,contact_no,user_type,attendance_type,latitude,longtitude,radius_meter) VALUES ('$branch_type','$branch_name','$address_1','$address_2','$city','$pincode','$contact_number','$user_type','$attendance_type','$latitudes','$longitude','$radius_meter')";
          
         if(mysqli_query($conn, $sql)){
@@ -29,6 +59,12 @@ if (isset($_POST['save']))
         } else{
           header("location: branch-managment.php?status=failed");
         }
+
+        }
+
+
+
+
 }
 ?>
 <div class="page-wrapper">

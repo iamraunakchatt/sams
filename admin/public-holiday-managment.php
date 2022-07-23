@@ -8,6 +8,28 @@ if (isset($_POST['save']))
 {
     $date=stripslashes(mysqli_real_escape_string($conn,$_POST['date']));
     $ocassion=stripslashes(mysqli_real_escape_string($conn,$_POST['ocassion']));
+
+    $strlower = strtolower($ocassion);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 09_public_holiday_ocassion order by id asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $department=$row['ocassion'];
+            $depstrlower=strtolower($department);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+   
+    if($equal==1)
+    {
+      header("location: public-holiday-managment.php?status=failed-data");
+    }
+
+    else{
    // Performing insert query execution
         // here our table name is college
         $sql = "INSERT INTO   09_public_holiday_ocassion(datee,ocassion) VALUES ('$date','$ocassion')";
@@ -18,6 +40,7 @@ if (isset($_POST['save']))
         } else{
           header("location: public-holiday-managment.php?status=failed");
         }
+      }
 }
 ?>
 <div class="page-wrapper">

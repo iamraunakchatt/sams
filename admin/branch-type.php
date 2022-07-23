@@ -8,6 +8,27 @@ if (isset($_POST['save']))
     $name=stripslashes(mysqli_real_escape_string($conn,$_POST['branch_type_name']));
    // Performing insert query execution
         // here our table name is college
+        $strlower = strtolower($name);
+        $i=1;
+        $sql=mysqli_query($conn,"select * from 15_branch_type_management order by id asc")or die(mysqli_error($con));
+        while($row=mysqli_fetch_array($sql))
+        {
+                $department=$row['branch_type_name'];
+                $depstrlower=strtolower($department);
+                if($depstrlower==$strlower)
+                {
+                  $equal=1;
+                  break;
+                }
+        $i++;      
+        }
+       
+        if($equal==1)
+        {
+          header("location: branch-type.php?status=failed-data");
+        }
+    
+        else{
         $sql = "INSERT INTO  15_branch_type_management(branch_type_name) VALUES ('$name')";
          
         if(mysqli_query($conn, $sql)){
@@ -15,6 +36,7 @@ if (isset($_POST['save']))
                
         } else{
           header("location: branch-type.php?status=failed");
+        }
         }
          
         // Close connection mysqli_close($conn);

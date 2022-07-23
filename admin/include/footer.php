@@ -542,9 +542,51 @@ if($status=="success"){
 })
 </script>
   <?php
-}
+}else if($status=="failed-data"){
+?>
+<script>
+  Swal.fire({
+  icon: 'error',
+  title: 'Oops!!',
+  text: 'Data already Exits!',
+})
+</script>
+<?php
+}else if($status=="emailaddress"){
+?>
+<script>
+  Swal.fire({
+  icon: 'error',
+  title: 'Oops!!',
+  text: 'Email Address already Exits!',
+})
+</script>
+<?php
+}else if($status=="branch-name"){
+?>
+<script>
+  Swal.fire({
+  icon: 'error',
+  title: 'Oops!!',
+  text: 'Branch Name already Exits!',
+})
+</script>
+<?php
+}else if($status=="mobile-number"){
+?>
+<script>
+  Swal.fire({
+  icon: 'error',
+  title: 'Oops!!',
+  text: 'Mobile Number already Exits!',
+})
+</script>
+
+<?php } 
 ?>
 ?>
+
+
 
 <div class="modal fade" id="branch_type" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

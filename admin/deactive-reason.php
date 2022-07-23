@@ -8,9 +8,30 @@ session_start();
 if (isset($_POST['save']))
 {
     $name=stripslashes(mysqli_real_escape_string($conn,$_POST['deactive_reason']));
-   // Performing insert query execution
-        // here our table name is college
-        $sql = "INSERT INTO  08_deative_reason_management(deactive_reason) VALUES ('$name')";
+
+    $strlower = strtolower($name);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 08_deative_reason_management order by deactive_reason asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $department=$row['deactive_reason'];
+            $depstrlower=strtolower($department);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+   
+    if($equal==1)
+    {
+      header("location: deactive-reason.php?status=failed-data");
+    }
+
+    else{
+    
+    $sql = "INSERT INTO  08_deative_reason_management(deactive_reason) VALUES ('$name')";
          
         if(mysqli_query($conn, $sql)){
           header("location: deactive-reason.php?status=success");
@@ -18,9 +39,10 @@ if (isset($_POST['save']))
         } else{
           header("location: deactive-reason.php?status=failed");
         }
+
+    }
          
-      
-}
+  }
 ?>
 <div class="page-wrapper">
 <div class="content container-fluid">
@@ -69,7 +91,7 @@ if (isset($_POST['save']))
 <tbody>
 <?php
     $i=1;
-    $sql=mysqli_query($conn,"select * from  08_deative_reason_management order by deactive_reason asc")or die(mysqli_error($con));
+    $sql=mysqli_query($conn,"select * from  08_deative_reason_management")or die(mysqli_error($con));
     while($row=mysqli_fetch_array($sql))
     {
       echo '<tr>

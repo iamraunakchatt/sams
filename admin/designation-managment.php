@@ -7,7 +7,28 @@
 
 if (isset($_POST['save']))
 {
-    $name=stripslashes(mysqli_real_escape_string($conn,$_POST['designation_name']));
+  $name=stripslashes(mysqli_real_escape_string($conn,$_POST['designation_name']));
+  $strlower = strtolower($name);
+  $i=1;
+  $sql=mysqli_query($conn,"select * from 06_designation_management order by designation_name asc")or die(mysqli_error($con));
+  while($row=mysqli_fetch_array($sql))
+  {
+          $department=$row['designation_name'];
+          $depstrlower=strtolower($department);
+          if($depstrlower==$strlower)
+          {
+            $equal=1;
+            break;
+          }
+  $i++;      
+  }
+ 
+  if($equal==1)
+  {
+    header("location: designation-managment.php?status=failed-data");
+  }
+  else{  
+  $name=stripslashes(mysqli_real_escape_string($conn,$_POST['designation_name']));
    // Performing insert query execution
         // here our table name is college
         $sql = "INSERT INTO  06_designation_management(designation_name) VALUES ('$name')";
@@ -20,6 +41,7 @@ if (isset($_POST['save']))
         }
          
         // Close connection
+      }
        
 }
 ?>

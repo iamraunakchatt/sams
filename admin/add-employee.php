@@ -49,6 +49,53 @@
         $image='default.jpeg';
       }
   
+
+     
+      $email = strtolower($email_address);
+      $mobile = strtolower($mobile_no);
+      $i=1;
+      $sql=mysqli_query($conn,"select * from 13_employee order by ID asc")or die(mysqli_error($con));
+      while($row=mysqli_fetch_array($sql))
+      {
+              
+              $valemail_address=$row['email_address'];
+              $valmobile_no=$row['mobile_no'];
+  
+              
+              $lowvalemail_address=strtolower($valemail_address);
+              $lowvalmobile_no=strtolower($valmobile_no);
+             
+
+              if($lowvalmobile_no==$mobile)
+              {
+                $equal=2;
+                break;
+              }
+  
+              if($lowvalemail_address==$email)
+              {
+                $equal=3;
+                break;
+              }
+              
+  
+  
+      $i++;      
+      }
+     
+      
+        if($equal==2)
+        {
+          header("location: add-employee.php?status=mobile-number");
+        }
+        else{
+  
+          if($equal==3)
+          {
+            header("location: add-employee.php?status=emailaddress");
+          }
+          else{
+      
       
      // Performing insert query execution
           // here our table name is college
@@ -63,6 +110,12 @@
           }
            
           // Close connection
+
+        }
+        // Close connection
+      }
+
+      
          
   }
 ?>

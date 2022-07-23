@@ -14,6 +14,30 @@ if (isset($_POST['save']))
     $grace_period=stripslashes(mysqli_real_escape_string($conn,$_POST['grace_period']));
    // Performing insert query execution
         // here our table name is college
+
+        $strlower = strtolower($shift_name);
+        $i=1;
+        $sql=mysqli_query($conn,"select * from 11_shift_management order by id asc")or die(mysqli_error($con));
+        while($row=mysqli_fetch_array($sql))
+        {
+                $department=$row['shift_name'];
+                $depstrlower=strtolower($department);
+                if($depstrlower==$strlower)
+                {
+                  $equal=1;
+                  break;
+                }
+        $i++;      
+        }
+       
+        if($equal==1)
+        {
+          header("location: shift-managment.php?status=failed-data");
+        }
+    
+        else
+        {
+
         $sql = "INSERT INTO   11_shift_management(shift_name,from_shift,to_from,lunch,to_lunch,grace_period) VALUES ('$shift_name','$from','$to_from','$lunch','$to_lunch','$grace_period')";
          
         if(mysqli_query($conn, $sql)){
@@ -22,6 +46,7 @@ if (isset($_POST['save']))
         } else{
           header("location: shift-managment.php?status=failed");
         }
+      }
 }
 ?>
 <div class="page-wrapper">

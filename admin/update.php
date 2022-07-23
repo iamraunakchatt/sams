@@ -6,6 +6,27 @@
     $id=$_POST['id'];
     $deparment_name=$_POST['deparment_name'];
 
+    $strlower = strtolower($deparment_name);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 04_department_management order by departmenet_name asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $department=$row['departmenet_name'];
+            $depstrlower=strtolower($department);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+   
+    if($equal==1)
+    {
+      header("location: department-management.php?status=failed-data");
+    }
+ 
+    else{
     $sql ="UPDATE  04_department_management SET departmenet_name='".$deparment_name."' where id='".$id."'"; 
    
     // mysqli_query($conn,$sql);
@@ -20,12 +41,34 @@
         echo "ERROR: Data! Not Update $sql. "
             . mysqli_error($conn);
     }
+    }
 
  }
  elseif($name=='designation')
  {
     $id=$_POST['id'];
     $designation_name=$_POST['designation_name'];
+    $strlower = strtolower($designation_name);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 06_designation_management order by designation_name asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $designation=$row['designation_name'];
+            $depstrlower=strtolower($designation);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+   
+    if($equal==1)
+    {
+      header("location: designation-managment.php?status=failed-data");
+    }
+ 
+    else{
 
 
     $sql ="UPDATE   06_designation_management SET designation_name='".$designation_name."' where id='".$id."'"; 
@@ -41,15 +84,39 @@
     } else{
         echo "ERROR: Data! Not Update $sql. "
             . mysqli_error($conn);
-    }   
+    }  
+    } 
  }
 
  elseif($name=='employee_management')
  {
     $id=$_POST['id'];
+    $equal=0;
     $employee_name=$_POST['employee_name'];
 
+    $strlower = strtolower($employee_name);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 05_employee_management order by employee_name asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $emp=$row['employee_name'];
+            $depstrlower=strtolower($emp);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+  
+    if($equal==1)
+    {
+      header("location: employee-type-managment.php?status=failed-data");
+    }
+ 
+    else{
 
+   
     $sql ="UPDATE   05_employee_management SET employee_name='".$employee_name."' where id='".$id."'"; 
    
     // mysqli_query($conn,$sql);
@@ -63,13 +130,35 @@
     } else{
         echo "ERROR: Data! Not Update $sql. "
             . mysqli_error($conn);
-    }   
- }
+    } 
+}
+}
  elseif($name=='leave_management')
  {
     $id=$_POST['id'];
     $leave=$_POST['leave'];
 
+    
+    $strlower = strtolower($leave);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 07_leave_management order by leave_data asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $emp=$row['leave_data'];
+            $depstrlower=strtolower($emp);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+  
+    if($equal==1)
+    {
+      header("location: leave-management.php?status=failed-data");
+    }
+    else{
 
     $sql ="UPDATE    07_leave_management SET leave_data='".$leave."' where id='".$id."'"; 
    
@@ -84,12 +173,33 @@
     } else{
         echo "ERROR: Data! Not Update $sql. "
             . mysqli_error($conn);
-    }   
+    }  
+   } 
  }
  elseif($name=='deactive_reason')
  {
     $id=$_POST['id'];
     $deactive_reason=$_POST['deactive_reason'];
+    $strlower = strtolower($deactive_reason);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 08_deative_reason_management order by deactive_reason asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $emp=$row['deactive_reason'];
+            $depstrlower=strtolower($emp);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+  
+    if($equal==1)
+    {
+      header("location: deactive-reason.php?status=failed-data");
+    }
+    else{
     $sql ="UPDATE 08_deative_reason_management SET deactive_reason='".$deactive_reason."' where id='".$id."'"; 
    
     // mysqli_query($conn,$sql);
@@ -103,13 +213,34 @@
     } else{
         echo "ERROR: Data! Not Update $sql. "
             . mysqli_error($conn);
-    }   
+    }  
+    } 
  }
 
  elseif($name=='branch_type_name')
  {
     $id=$_POST['id'];
     $deactive_reason=$_POST['branch_type_name'];
+    $strlower = strtolower($deactive_reason);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 15_branch_type_management order by id asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $emp=$row['branch_type_name'];
+            $depstrlower=strtolower($emp);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+  
+    if($equal==1)
+    {
+      header("location: branch-type.php?status=failed-data");
+    }
+    else{
     $sql ="UPDATE  15_branch_type_management SET branch_type_name='".$deactive_reason."' where id='".$id."'"; 
    
     // mysqli_query($conn,$sql);
@@ -123,14 +254,60 @@
     } else{
         echo "ERROR: Data! Not Update $sql. "
             . mysqli_error($conn);
-    }   
+    }  
+    } 
  }
 
  elseif($name=='public_holiday')
  {
     $id=$_POST['id'];
-    $date=$_POST['date'];
+
+    $sql = "select * from   09_public_holiday_ocassion where id='".$id."'"; 
+    $result = mysqli_query($conn,$sql); 
+    $data=mysqli_fetch_array($result); 
+    $vocassion=$data['ocassion'];
     $ocassion=$_POST['ocassion'];
+    $date=$_POST['date'];
+    if($vocassion==$ocassion)
+    {
+        $sql ="UPDATE 09_public_holiday_ocassion SET datee='".$date."',ocassion='".$ocassion."' where id='".$id."'"; 
+   
+        // mysqli_query($conn,$sql);
+       
+    
+        if(mysqli_query($conn, $sql)){
+            session_start();
+            $_SESSION['success_message'] = "Data Update successfully.";
+            header("Location: public-holiday-managment.php?status=editsuccess");    
+                   
+        } else{
+            echo "ERROR: Data! Not Update $sql. "
+                . mysqli_error($conn);
+        } 
+    }
+    else{
+   
+    
+    $strlower = strtolower($ocassion);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 09_public_holiday_ocassion order by id asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $emp=$row['ocassion'];
+            $depstrlower=strtolower($emp);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+  
+    if($equal==1)
+    {
+      header("location: public-holiday-managment.php?status=failed-data");
+    }
+    else{
 
     $sql ="UPDATE 09_public_holiday_ocassion SET datee='".$date."',ocassion='".$ocassion."' where id='".$id."'"; 
    
@@ -145,14 +322,35 @@
     } else{
         echo "ERROR: Data! Not Update $sql. "
             . mysqli_error($conn);
-    }   
+    }  
+    } 
+}
  }
  elseif($name=='user_type')
  {
     $id=$_POST['id'];
     $user_type=$_POST['user_type'];
-   
 
+    $strlower = strtolower($user_type);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 10_user_type order by id asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $emp=$row['user_type'];
+            $depstrlower=strtolower($emp);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+  
+    if($equal==1)
+    {
+      header("location: user-type.php?status=failed-data");
+    }
+    else{
     $sql ="UPDATE 10_user_type SET user_type='".$user_type."' where id='".$id."'"; 
    
     // mysqli_query($conn,$sql);
@@ -167,6 +365,7 @@
         echo "ERROR: Data! Not Update $sql. "
             . mysqli_error($conn);
     }   
+    }
  }
  
  elseif($name=='grace_period')
@@ -178,7 +377,52 @@
     $lunch=$_POST['lunch'];
     $to_lunch=$_POST['to_lunch'];
     $grace_period=$_POST['grace_period'];
+
+    $sql = "select * from  11_shift_management  where id='".$id."'"; 
+    $result = mysqli_query($conn,$sql); 
+    $data=mysqli_fetch_array($result); 
+    $vshift=$data['shift_name'];
+   
+    if($shift_name==$vshift)
+    {
+        $sql ="UPDATE  11_shift_management SET shift_name='".$shift_name."',from_shift='".$from."',to_from='".$to_from."',lunch='".$lunch."',to_lunch='".$to_lunch."',grace_period='".$grace_period."' where id='".$id."'"; 
+   
+        // mysqli_query($conn,$sql);
+       
     
+        if(mysqli_query($conn, $sql)){
+            session_start();
+            $_SESSION['success_message'] = "Data Update successfully.";
+            header("Location: shift-managment.php?status=editsuccess");    
+                   
+        } else{
+            echo "ERROR: Data! Not Update $sql. "
+                . mysqli_error($conn);
+        }
+    }
+
+    else
+    {
+    $strlower = strtolower($shift_name);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 11_shift_management order by id asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $emp=$row['shift_name'];
+            $depstrlower=strtolower($emp);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+  
+    if($equal==1)
+    {
+      header("location:shift-managment.php?status=failed-data");
+    }
+    else{
 
     $sql ="UPDATE  11_shift_management SET shift_name='".$shift_name."',from_shift='".$from."',to_from='".$to_from."',lunch='".$lunch."',to_lunch='".$to_lunch."',grace_period='".$grace_period."' where id='".$id."'"; 
    
@@ -193,7 +437,9 @@
     } else{
         echo "ERROR: Data! Not Update $sql. "
             . mysqli_error($conn);
+    }
     }   
+}
  }
  
  

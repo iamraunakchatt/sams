@@ -8,6 +8,28 @@ if (isset($_POST['save']))
     $name=stripslashes(mysqli_real_escape_string($conn,$_POST['leave']));
    // Performing insert query execution
 
+   $strlower = strtolower($name);
+   $i=1;
+   $sql=mysqli_query($conn,"select * from 07_leave_management order by leave_data asc")or die(mysqli_error($con));
+   while($row=mysqli_fetch_array($sql))
+   {
+           $department=$row['leave_data'];
+           $depstrlower=strtolower($department);
+           if($depstrlower==$strlower)
+           {
+             $equal=1;
+             break;
+           }
+   $i++;      
+   }
+  
+   if($equal==1)
+   {
+     header("location: leave-management.php?status=failed-data");
+   }
+
+   else{
+
 
         $sql = "INSERT INTO  07_leave_management(leave_data) VALUES ('$name')";
          
@@ -17,12 +39,9 @@ if (isset($_POST['save']))
         } else{
           header("location: leave-management.php?status=failed");
         }
-      
-       
-         
-        // Close connection
-        
-}
+   }
+    // Close connection
+  }
 ?>
 <div class="page-wrapper">
 <div class="content container-fluid">

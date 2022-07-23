@@ -7,6 +7,28 @@
 if (isset($_POST['save']))
 {
     $user_type=stripslashes(mysqli_real_escape_string($conn,$_POST['user_type']));
+
+    $strlower = strtolower($user_type);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 10_user_type order by id asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $department=$row['user_type'];
+            $depstrlower=strtolower($department);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+   
+    if($equal==1)
+    {
+      header("location: user-type.php?status=failed-data");
+    }
+
+    else{
    // Performing insert query execution
         // here our table name is college
         $sql = "INSERT INTO  10_user_type(user_type) VALUES ('$user_type')";
@@ -18,6 +40,7 @@ if (isset($_POST['save']))
         }
          
         // Close connection
+    }
        
 }
 ?>

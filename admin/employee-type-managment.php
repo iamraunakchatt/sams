@@ -6,6 +6,28 @@
 if (isset($_POST['save']))
 {
     $name=stripslashes(mysqli_real_escape_string($conn,$_POST['employee_name']));
+
+    $strlower = strtolower($name);
+    $i=1;
+    $sql=mysqli_query($conn,"select * from 05_employee_management order by employee_name asc")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+            $department=$row['employee_name'];
+            $depstrlower=strtolower($department);
+            if($depstrlower==$strlower)
+            {
+              $equal=1;
+              break;
+            }
+    $i++;      
+    }
+   
+    if($equal==1)
+    {
+      header("location: employee-type-managment.php?status=failed-data");
+    }
+
+    else{
    // Performing insert query execution
         // here our table name is college
         $sql = "INSERT INTO  05_employee_management(employee_name) VALUES ('$name')";
@@ -18,6 +40,7 @@ if (isset($_POST['save']))
         }
          
         // Close connection mysqli_close($conn);
+      }
 }
 ?>
 <div class="page-wrapper">
