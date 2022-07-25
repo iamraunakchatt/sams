@@ -12,8 +12,8 @@ $id = $_GET['id'];
 
  $sql ="delete from 04_department_management  where id='".$id."'";
 
- $sql ="delete from  13_employee  where department_id='".$id."'";
-   
+// $sql ="delete from  13_employee  where department_id='".$id."'";
+
  if(mysqli_query($conn, $sql)){
 
     echo json_encode(array('message'=>'Data Delete successfully'));

@@ -10,7 +10,7 @@ if($status==1)
 $id = $_GET['id'];
 $sql ="delete from  12_branch_management  where id='".$id."'"; 
 
-$sql ="delete from  13_employee  where branch_id='".$id."'"; 
+//$sql ="delete from  13_employee  where branch_id='".$id."'"; 
 
 if(mysqli_query($conn, $sql)){
 

@@ -12,7 +12,7 @@ $id = $_GET['id'];
 
  $sql ="delete from  06_designation_management  where id='".$id."'"; 
 
- $sql ="delete from  13_employee  where designation_id='".$id."'"; 
+ //$sql ="delete from  13_employee  where designation_id='".$id."'"; 
 
  if(mysqli_query($conn, $sql)){
 

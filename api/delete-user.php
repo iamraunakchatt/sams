@@ -12,7 +12,7 @@ $id = $_GET['id'];
 
  $sql ="delete from   10_user_type  where id='".$id."'"; 
 
- $sql ="delete from 12_branch_management  where user_type='".$id."'"; 
+ //$sql ="delete from 12_branch_management  where user_type='".$id."'"; 
 if(mysqli_query($conn, $sql)){
 
     echo json_encode(array('message'=>'Data Delete successfully'));
