@@ -274,7 +274,7 @@
               
               <?php
                 $i=1;
-                $sql=mysqli_query($conn,"select * from  11_shift_management")or die(mysqli_error($con));
+                $sql=mysqli_query($conn,"select * from  11_shift_management order by shift_name asc")or die(mysqli_error($con));
                 while($row=mysqli_fetch_array($sql))
                 {
                     $shiftname=$row['shift_name'];
