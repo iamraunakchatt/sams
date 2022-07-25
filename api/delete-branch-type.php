@@ -9,6 +9,8 @@ if($status==1)
 {
 $id = $_GET['id'];
 $sql ="delete from 15_branch_type_management  where id='".$id."'"; 
+
+$sql ="delete from 12_branch_management  where branch_type='".$id."'"; 
 if(mysqli_query($conn, $sql)){
 
     echo json_encode(array('message'=>'Data Delete successfully'));

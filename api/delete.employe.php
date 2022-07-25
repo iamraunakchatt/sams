@@ -4,20 +4,20 @@ $sql = "select * from   16_admin_token";
 $result = mysqli_query($conn,$sql); 
 $data=mysqli_fetch_array($result); 
 $status=$data['status'];
-
 if($status==1)
 {
+$id = $_GET['id']; 
 
-$sql=mysqli_query($conn,"select * from   13_employee")or die(mysqli_error($con));
+ $sql ="delete from  13_employee where id='".$id."'"; 
+ if(mysqli_query($conn, $sql)){
 
-if(mysqli_num_rows($sql)>0){
-
-    $output=mysqli_fetch_all($sql,MYSQLI_ASSOC);
-    echo json_encode($output);
+    echo json_encode(array('message'=>'Data Delete successfully'));
+       
+} 
+else
+{
+    echo json_encode(array('message'=>'Data not Delete'));
 }
-else{
-    echo json_encode(array('message'=>'No Record Found'));
-   }
 }
 else
 {

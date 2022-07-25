@@ -12,7 +12,6 @@
 
      
       $id=$_GET['id'];
-
       $branch=stripslashes(mysqli_real_escape_string($conn,$_POST['branch']));
       $employee_id=stripslashes(mysqli_real_escape_string($conn,$_POST['employee_id']));
       $employee_name=stripslashes(mysqli_real_escape_string($conn,$_POST['employee_name']));

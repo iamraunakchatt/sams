@@ -7,17 +7,20 @@ $status=$data['status'];
 
 if($status==1)
 {
+$id = $_GET['id'];
+$sql ="delete from  12_branch_management  where id='".$id."'"; 
 
-$sql=mysqli_query($conn,"select * from   12_branch_management")or die(mysqli_error($con));
+$sql ="delete from  13_employee  where branch_id='".$id."'"; 
 
-if(mysqli_num_rows($sql)>0){
+if(mysqli_query($conn, $sql)){
 
-    $output=mysqli_fetch_all($sql,MYSQLI_ASSOC);
-    echo json_encode($output);
+    echo json_encode(array('message'=>'Data Delete successfully'));
+       
+} 
+else
+{
+    echo json_encode(array('message'=>'Data not Delete'));
 }
-else{
-    echo json_encode(array('message'=>'No Record Found'));
-   }
 }
 else
 {
