@@ -117,7 +117,7 @@ $designation_name=$data['designation_name'];
 </div>
 </div>
 </div>
-<div class="pro-edit"><a  class="edit-icon" href="edit-employee.php?id=<?php echo $id; ?>"><i class="fa fa-pencil"></i></a></div>
+<!--<div class="pro-edit"><a  class="edit-icon" href="edit-employee.php?id=<?php echo $id; ?>"><i class="fa fa-pencil"></i></a></div>-->
 </div>
 </div>
 </div>
@@ -129,7 +129,7 @@ $designation_name=$data['designation_name'];
 <div class="col-md-6 d-flex">
 <div class="card profile-box flex-fill">
 <div class="card-body">
-<h3 class="card-title">Address Informations <a href="edit-employee.php?id=<?php echo $id; ?>" class="edit-icon" ><i class="fa fa-pencil"></i></a></h3>
+<h3 class="card-title">Address Informations <!--<a href="edit-employee.php?id=<?php echo $id; ?>" class="edit-icon" ><i class="fa fa-pencil"></i></a>--></h3>
 <ul class="personal-info">
 <li>
 <div class="title">Address 1</div>
@@ -155,7 +155,7 @@ $designation_name=$data['designation_name'];
 <div class="col-md-6 d-flex">
 <div class="card profile-box flex-fill">
 <div class="card-body">
-<h3 class="card-title">Other information <a href="edit-employee.php?id=<?php echo $id; ?>" class="edit-icon" ><i class="fa fa-pencil"></i></a></h3>
+<h3 class="card-title">Other information <!--<a href="edit-employee.php?id=<?php echo $id; ?>" class="edit-icon" ><i class="fa fa-pencil"></i></a>--></h3>
 <h5 class="section-title">Office</h5>
 <ul class="personal-info">
 <li>
