@@ -10,7 +10,7 @@
 
 <!--<script src="assets/js/jquery.dataTables.min.js"></script>
 <script src="assets/js/dataTables.bootstrap4.min.js"></script>-->
-
+<script src="assets/js/select2.min.js"></script>
 <script src="assets/js/app.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
@@ -124,7 +124,18 @@ if($activePage == 'public-holiday-managment' || $activePage == 'employee'){
                 return '<?php echo $ptitle; ?>';}
 },'print'
         ],
-        order: [[1, 'asc']],
+        <?php
+        if($activePage=="branch-managment"){
+          ?>
+          order: [[2, 'asc']],
+          <?php
+        }else{
+          ?>
+          order: [[1, 'asc']],
+          <?php
+        }
+        ?>
+        
     } );
 } );
 </script>

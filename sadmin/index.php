@@ -185,6 +185,32 @@ value="no"
 </div>
 </div>
 
+<div class="col-sm-6">
+<div class="form-group">
+<label>App Auto Logout :</label>
+</div>
+</div>
+
+<div class="col-sm-2">
+<div class="onoffswitch">
+<input type="checkbox" name="auto_logout" class="onoffswitch-checkbox" id="switch_hraa"
+<?php if($row["auto_logout"]=="yes"){
+?>
+checked value="yes"
+<?php
+}else{
+?>
+value="no"
+<?php
+} ?>
+>
+<label class="onoffswitch-label" for="switch_hraa">
+<span class="onoffswitch-inner"></span>
+<span class="onoffswitch-switch"></span>
+</label>
+</div>
+</div>
+
 
 
 <div class="col-sm-6">

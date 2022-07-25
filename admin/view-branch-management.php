@@ -130,7 +130,26 @@ $vradius_meter=$data['radius_meter'];
          <?php echo $vradius_meter; ?>
         </div>
     </div>
+    <?php
+        $statement = $connection->prepare(
+          "SELECT * FROM 03_admin_tbl ORDER BY id DESC LIMIT 1"
+           );
+           $statement->execute();
+           $result = $statement->fetchAll();
+           foreach($result as $row)
+           {
+            ?>
+            
 
+<div class="col-md-4">
+        <label>Attendance Type</label>
+        <div class="">
+         <?php echo ucwords(str_replace(',',', ',($row["atype"]))); ?>
+        </div>
+    </div>
+<?php
+           }
+           ?>
 
 </div>
 

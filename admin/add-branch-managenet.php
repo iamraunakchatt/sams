@@ -120,7 +120,7 @@ if (isset($_POST['save']))
               <option value="">Choose Branch Type</option>
               <?php
               $i=1;
-              $sql=mysqli_query($conn,"select * from  15_branch_type_management")or die(mysqli_error($con));
+              $sql=mysqli_query($conn,"select * from  15_branch_type_management order by branch_type_name asc")or die(mysqli_error($con));
               while($row=mysqli_fetch_array($sql))
               {
                 echo '<option value="'.$row['id'].'">'.$row['branch_type_name'].'</option>';
@@ -167,7 +167,7 @@ if (isset($_POST['save']))
               <option value="">Choose user Type</option>
               <?php
               $i=1;
-              $sql=mysqli_query($conn,"select * from  10_user_type")or die(mysqli_error($con));
+              $sql=mysqli_query($conn,"select * from  10_user_type order by user_type asc")or die(mysqli_error($con));
               while($row=mysqli_fetch_array($sql))
               {
                 echo '
@@ -178,6 +178,67 @@ if (isset($_POST['save']))
               
         </select>
         </div>
+        <?php
+        $statement = $connection->prepare(
+          "SELECT * FROM 03_admin_tbl ORDER BY id DESC LIMIT 1"
+           );
+           $statement->execute();
+           $result = $statement->fetchAll();
+           foreach($result as $row)
+           {
+            ?>
+            <div class="form-group">
+<label>Attendance Type</label>
+<select class="select" name="atype[]" multiple disabled>
+<?php if($row["atype"]=="auto"){
+?>
+<option selected="selected" value="auto">Auto</option>
+<option value="manual">Manual</option>
+<option value="selfie">Selfie</option>
+<?php
+}else if($row["atype"]=="manual"){
+?>
+<option  value="auto">Auto</option>
+<option selected="selected" value="manual">Manual</option>
+<option value="selfie">Selfie</option>
+<?php
+}else if($row["atype"]=="selfie"){
+?>
+<option value="auto">Auto</option>
+<option value="manual">Manual</option>
+<option selected="selected" value="selfie">Selfie</option>
+<?php
+} else if($row["atype"]=="auto,manual" || $row["atype"]=="manual,auto"){
+    ?>
+    <option selected="selected" value="auto">Auto</option>
+    <option selected="selected" value="manual">Manual</option>
+    <option  value="selfie">Selfie</option>
+    <?php
+    } else if($row["atype"]=="auto,selfie" || $row["atype"]=="selfie,auto"){
+        ?>
+        <option selected="selected" value="auto">Auto</option>
+        <option  value="manual">Manual</option>
+        <option selected="selected" value="selfie">Selfie</option>
+        <?php
+        } else if($row["atype"]=="manual,selfie" || $row["atype"]=="selfie,manual"){
+            ?>
+            <option  value="auto">Auto</option>
+            <option selected="selected" value="manual">Manual</option>
+            <option selected="selected" value="selfie">Selfie</option>
+            <?php
+            } else if($row["atype"]=="manual,selfie,auto" || $row["atype"]=="selfie,manual,auto" || $row["atype"]=="auto,manual,selfie" || $row["atype"]=="auto,selfie,manual" || $row["atype"]=="manual,auto,selfie" || $row["atype"]=="selfie,auto,manual"){
+                ?>
+                <option  selected="selected" value="auto">Auto</option>
+                <option selected="selected" value="manual">Manual</option>
+                <option selected="selected" value="selfie">Selfie</option>
+                <?php
+                } ?>
+
+</select>
+</div>
+<?php
+           }
+           ?>
         <div class="form-group" style="display:none">
           <label>Attendance Type</label>
           <br>
