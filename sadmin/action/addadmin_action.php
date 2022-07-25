@@ -27,8 +27,14 @@ if(isset($_POST["onoffswitch"])){
   $onoffswitch="no";
 }
 
+if(isset($_POST["auto_logout"])){
+  $auto_logout="yes";
+}else{
+  $auto_logout="no";
+}
+
 $statement = $connection->prepare(
-    "UPDATE `03_admin_tbl` SET `cname`=:cname,`address1`=:address1,`address2`=:address2,`city`=:city,`zipcode`=:zipcode,`latitude`=:latitude,`longitude`=:lontitude,`radius`=:radius,`logo`='$image',`mlocation`=:mlocation,`memployee`=:memployee,`atype`=:atype,`empattbyadmin`=:empattbyadmin,`validfrom`=:validfrom,`validtill`=:validtill,`password`=:password,`update_dt`=NOW(),`update_ip`=:update_ip WHERE
+    "UPDATE `03_admin_tbl` SET `cname`=:cname,`address1`=:address1,`address2`=:address2,`city`=:city,`zipcode`=:zipcode,`latitude`=:latitude,`longitude`=:lontitude,`radius`=:radius,`logo`='$image',`mlocation`=:mlocation,`memployee`=:memployee,`atype`=:atype,`empattbyadmin`=:empattbyadmin,`validfrom`=:validfrom,`validtill`=:validtill,`password`=:password,`update_dt`=NOW(),`update_ip`=:update_ip,`auto_logout`=:auto_logout WHERE
     id=1"
    );
    $result = $statement->execute(
@@ -48,7 +54,8 @@ $statement = $connection->prepare(
      ':validfrom' => $_POST["validfrom"],
      ':validtill' => $_POST["validtill"],
      ':password' => $_POST["password"],
-     ':update_ip' => $_SERVER['REMOTE_ADDR']
+     ':update_ip' => $_SERVER['REMOTE_ADDR'],
+     ':auto_logout' => $auto_logout,
     )
    );
 

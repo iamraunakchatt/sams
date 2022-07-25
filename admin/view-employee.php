@@ -161,6 +161,22 @@ $designation_name=$data['designation_name'];
 <li>
 <div class="title">Shift Type</div>
 <div class="text"><?php echo $shift; ?></div>
+<?php
+        $statement = $connection->prepare(
+          "SELECT * FROM 03_admin_tbl ORDER BY id DESC LIMIT 1"
+           );
+           $statement->execute();
+           $result = $statement->fetchAll();
+           foreach($result as $row)
+           {
+            ?>
+            
+            <div class="title">Attendance Type</div>
+<div class="text"><?php echo ucwords(str_replace(',',', ',($row["atype"]))); ?></div>
+
+<?php
+           }
+           ?>
 </li>
 <!--<li>
 <div class="title">Attandence Type</div>
