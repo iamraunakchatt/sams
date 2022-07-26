@@ -27,13 +27,15 @@ include('../config/webconfig.php');
 	if($count==1)
 	{	
 		$status=1;
-		$sql ="UPDATE 16_admin_token SET status='".$status."'"; 
+		$token = bin2hex(random_bytes(16));
+        $sql = "INSERT INTO  16_admin_token(token) VALUES ('$token')";
           
-        mysqli_query($conn, $sql);
-
-        
+		mysqli_query($conn, $sql);
+		
+        $abc=array("message"=>"Login successfully", "token"=>$token);
+      
 		// $_SESSION['iuser']=$name;
-		echo json_encode(array('message'=>'Login successfully'));
+		echo json_encode(array($abc));
 	}
 	elseif(($valid_user!="")&&($valid_pwd!=""))
 	{
