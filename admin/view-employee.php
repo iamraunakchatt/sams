@@ -92,7 +92,7 @@ $designation_name=$data['designation_name'];
 <h6 class="text-muted"><?php echo $departmenet_name; ?></h6>
 <small class="text-muted"><?php echo $designation_name; ?></small>
 <div class="staff-id">Employee ID : <?php echo $id?></div>
-<div class="staff-msg"><a class="btn btn-custom" href="edit-employee.php?id=<?php echo $id; ?>">Edit Profile</a></div>
+<!-- <div class="staff-msg"><a class="btn btn-custom" href="edit-employee.php?id=<?php echo $id; ?>">Edit Profile</a></div> -->
 </div>
 </div>
 <div class="col-md-7">
