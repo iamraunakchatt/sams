@@ -121,12 +121,39 @@ echo "<script type='text/javascript'> document.location = 'setting.php?status=su
 	   }
 ?>
 </div>
+<div class="container">
+<div class="col-sm-6 offset-md-4">
+<h3 class="mt-4">SUNDAY HOLIDAY OCCASION</h3>
+
+<form method="post"action="public-holiday-check.php">
+<input type="hidden"name="save"value="save">
+<div class="form-group">
+<?php
+$holiday_id='Sunday-1st-Jan';
+$sql = "SELECT * FROM  09_public_holiday_ocassion  WHERE ocassion='$holiday_id'";  
+$result = mysqli_query($conn,$sql); 
+$data=mysqli_fetch_array($result); 
+$count=mysqli_num_rows($result); 
+
+?>
+<input type="checkbox"name="check" value="1"<?php if($count==1){echo 'checked';}?>>
+<label for="vehicle1">Check Sunday Holiday Occasion</label><br>
+</div>
+<div class="form-group">
+  <button type="submit"class="btn btn-primary">Save</button>
+</div>
+</form>
+</div>
+</div> 
+
 </div>
 </div>
 
 </div>
 
 </div>
+
+
 
 <?php include('include/footer.php'); ?>
 <script type="text/javascript">
