@@ -27,6 +27,7 @@
       $attendance_type=stripslashes(mysqli_real_escape_string($conn,$_POST['attendance_type']));
       $password=stripslashes(mysqli_real_escape_string($conn,$_POST['password']));
       $confirm_password=stripslashes(mysqli_real_escape_string($conn,$_POST['confirm_password']));
+      $weekoff=stripslashes(mysqli_real_escape_string($conn,$_POST['weekoff']));
   
       
       function upload_image2()
@@ -99,7 +100,7 @@
       
      // Performing insert query execution
           // here our table name is college
-          $sql = "INSERT INTO  13_employee(branch_id,employee_id,employee_name,employee_father_name,employee_address_one,employee_address_two,city,pincode,dob,mobile_no,email_address,department_id,designation_id,shift_id,attendance,passwordd,confirm_password,emp_image) VALUES ('$branch','$employee_id','$employee_name','$employee_fateher_name','$employee_address_1','$employee_address_2','$city','$pincode','$dob','$mobile_no','$email_address','$department','$designation','$shift','$attendance_type','$password','$confirm_password','$image')";
+          $sql = "INSERT INTO  13_employee(branch_id,employee_id,employee_name,employee_father_name,employee_address_one,employee_address_two,city,pincode,dob,mobile_no,email_address,department_id,designation_id,shift_id,attendance,weekoff,passwordd,confirm_password,emp_image) VALUES ('$branch','$employee_id','$employee_name','$employee_fateher_name','$employee_address_1','$employee_address_2','$city','$pincode','$dob','$mobile_no','$email_address','$department','$designation','$shift','$attendance_type','$weekoff','$password','$confirm_password','$image')";
            
           if(mysqli_query($conn, $sql)){
             
@@ -355,6 +356,23 @@
 <?php
            }
            ?>
+
+<div class="form-group">
+          <label>Select Week Off Day</label>
+          <br>
+          <select name="weekoff"class="form-control"required>
+              <option value="">Choose Day</option>
+              <option value="No week off"> No week off</option>
+              <option value="Sunday">Sunday</option>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+              
+        </select>
+        </div>
       <div class="form-group position-relative">
           <label>Password</label>
           <br>

@@ -25,6 +25,7 @@
   $vpassword=$data['passwordd'];
   $vconfirm_password=$data['confirm_password'];
   $vuserimg= $data['emp_image']; 
+  $vweekoff= $data['weekoff']; 
   if (isset($_POST['save']))
   {
       
@@ -47,6 +48,7 @@
       $attendance_type=stripslashes(mysqli_real_escape_string($conn,$_POST['attendance_type']));
       $password=stripslashes(mysqli_real_escape_string($conn,$_POST['password']));
       $confirm_password=stripslashes(mysqli_real_escape_string($conn,$_POST['confirm_password']));
+      $weekoff=stripslashes(mysqli_real_escape_string($conn,$_POST['weekoff']));
   
       
     //   $target_dir = "uploads/testimonial/";
@@ -86,7 +88,7 @@
             $image=$_POST['altfiletoupload'];
           }
 
-          $sql ="UPDATE  13_employee SET branch_id='".$branch."',employee_id='".$employee_id."',employee_name='".$employee_name."',employee_father_name='".$employee_fateher_name."',employee_address_one='".$employee_address_1."',employee_address_two='".$employee_address_2."',city='".$city."',pincode='".$pincode."',dob='".$dob."',mobile_no='".$mobile_no."',email_address='".$email_address."',department_id='".$department."',designation_id='".$designation."',shift_id='".$shift."',attendance='".$attendance_type."',passwordd='".$password."',confirm_password='".$confirm_password."',emp_image='$image' where id='".$id."'"; 
+          $sql ="UPDATE  13_employee SET branch_id='".$branch."',employee_id='".$employee_id."',employee_name='".$employee_name."',employee_father_name='".$employee_fateher_name."',employee_address_one='".$employee_address_1."',employee_address_two='".$employee_address_2."',city='".$city."',pincode='".$pincode."',dob='".$dob."',mobile_no='".$mobile_no."',email_address='".$email_address."',department_id='".$department."',designation_id='".$designation."',shift_id='".$shift."',attendance='".$attendance_type."',weekoff='".$weekoff."',passwordd='".$password."',confirm_password='".$confirm_password."',emp_image='$image' where id='".$id."'"; 
    
     // mysqli_query($conn,$sql);
    
@@ -347,6 +349,106 @@
 <?php
            }
            ?>
+           <div class="form-group">
+          <label>Select Week Off Day</label>
+          <br>
+          <select name="weekoff"class="form-control"required>
+              <option value="">Choose Day</option>
+              <?php
+              if($vweekoff=="No week off"){
+?>
+<option value="No week off" selected> No week off</option>
+              <option value="Sunday">Sunday</option>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+              <?php
+              }else if($vweekoff=="Sunday"){
+                ?>
+                <option value="No week off"> No week off</option>
+                              <option value="Sunday" selected>Sunday</option>
+                              <option value="Monday">Monday</option>
+                              <option value="Tuesday">Tuesday</option>
+                              <option value="Wednesday">Wednesday</option>
+                              <option value="Thursday">Thursday</option>
+                              <option value="Friday">Friday</option>
+                              <option value="Saturday">Saturday</option>
+                              <?php
+              }else if($vweekoff=="Monday"){
+                ?>
+                <option value="No week off"> No week off</option>
+                              <option value="Sunday">Sunday</option>
+                              <option value="Monday" selected>Monday</option>
+                              <option value="Tuesday">Tuesday</option>
+                              <option value="Wednesday">Wednesday</option>
+                              <option value="Thursday">Thursday</option>
+                              <option value="Friday">Friday</option>
+                              <option value="Saturday">Saturday</option>
+                              <?php
+              }else if($vweekoff=="Tuesday"){
+                ?>
+                <option value="No week off"> No week off</option>
+                              <option value="Sunday">Sunday</option>
+                              <option value="Monday">Monday</option>
+                              <option value="Tuesday" selected>Tuesday</option>
+                              <option value="Wednesday">Wednesday</option>
+                              <option value="Thursday">Thursday</option>
+                              <option value="Friday">Friday</option>
+                              <option value="Saturday">Saturday</option>
+                              <?php
+              }else if($vweekoff=="Wednesday"){
+                ?>
+                <option value="No week off"> No week off</option>
+                              <option value="Sunday">Sunday</option>
+                              <option value="Monday">Monday</option>
+                              <option value="Tuesday">Tuesday</option>
+                              <option value="Wednesday" selected>Wednesday</option>
+                              <option value="Thursday">Thursday</option>
+                              <option value="Friday">Friday</option>
+                              <option value="Saturday">Saturday</option>
+                              <?php
+              }else if($vweekoff=="Thursday"){
+                ?>
+                <option value="No week off"> No week off</option>
+                              <option value="Sunday">Sunday</option>
+                              <option value="Monday">Monday</option>
+                              <option value="Tuesday">Tuesday</option>
+                              <option value="Wednesday">Wednesday</option>
+                              <option value="Thursday" selected>Thursday</option>
+                              <option value="Friday">Friday</option>
+                              <option value="Saturday">Saturday</option>
+                              <?php
+              }else if($vweekoff=="Friday"){
+                ?>
+                <option value="No week off"> No week off</option>
+                              <option value="Sunday">Sunday</option>
+                              <option value="Monday">Monday</option>
+                              <option value="Tuesday">Tuesday</option>
+                              <option value="Wednesday">Wednesday</option>
+                              <option value="Thursday">Thursday</option>
+                              <option value="Friday" selected>Friday</option>
+                              <option value="Saturday">Saturday</option>
+                              <?php
+              }else if($vweekoff=="Saturday"){
+                ?>
+                <option value="No week off"> No week off</option>
+                              <option value="Sunday">Sunday</option>
+                              <option value="Monday">Monday</option>
+                              <option value="Tuesday">Tuesday</option>
+                              <option value="Wednesday">Wednesday</option>
+                              <option value="Thursday">Thursday</option>
+                              <option value="Friday">Friday</option>
+                              <option value="Saturday" selected>Saturday</option>
+                              <?php
+              }
+              ?>
+              
+              
+        </select>
+        </div>
       <div class="form-group position-relative">
           <label>Password</label>
           <br>

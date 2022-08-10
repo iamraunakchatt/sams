@@ -23,6 +23,7 @@ $desid=$data['designation_id'];
 
 $attendance=$data['attendance'];
 $passwordd=$data['passwordd'];
+$weekoff=$data['weekoff'];
 
 
 
@@ -177,6 +178,8 @@ $designation_name=$data['designation_name'];
 <?php
            }
            ?>
+           <div class="title">Week Off Day</div>
+<div class="text"><?php echo $weekoff; ?></div>
 </li>
 <!--<li>
 <div class="title">Attandence Type</div>

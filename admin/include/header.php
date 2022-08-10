@@ -117,6 +117,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <ul>
 <li>
 <a href="index.php"><i class="la la-home"></i> <span>Back to Home</span></a>
+<a href="office.php"><i class="la la-building"></i> <span>Office Details</span></a>
 </li>
 <li class="menu-title">Management</li>
 <!-- <li class="">
