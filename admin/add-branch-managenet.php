@@ -4,7 +4,22 @@
   include('../config/webconfig.php');
   session_start();
  
-  
+ 
+  $statement = $connection->prepare(
+   "SELECT * FROM 03_admin_tbl ORDER BY id DESC LIMIT 1"
+    );
+    $statement->execute();
+    $result = $statement->fetchAll();
+    foreach($result as $row)
+    {
+     $maxbranch=$row["mlocation"];
+    }
+
+    $branchcnt = mysqli_num_rows(mysqli_query($conn,"SELECT * FROM `12_branch_management`"));
+    if($branchcnt==$maxbranch){
+   
+      header("location: branch-managment.php");
+    }
 
 if (isset($_POST['save']))
 {

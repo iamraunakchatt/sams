@@ -1,4 +1,10 @@
 <?php include ('include/header.php'); ?>
+<style>
+    #map {
+  height: 350px;
+  width:100%;
+}
+</style>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
 <div class="page-wrapper">
@@ -91,6 +97,7 @@
 <input class="form-control" placeholder="eg. 250" type="number" value="<?php echo $row["radius"]; ?>" required min="100" max="500" name="radius" disabled>
 </div>
 </div>
+
 <div class="col-sm-12">
 <div id="map"></div>
 </div>
@@ -165,42 +172,7 @@
 
 
 <?php include ('include/footer.php'); ?>
-<script type="text/javascript">
-    window.onload = function () {
-        var txtPassword = document.getElementById("txtPassword");
-        var txtConfirmPassword = document.getElementById("txtConfirmPassword");
-        txtPassword.onchange = ConfirmPassword;
-        txtConfirmPassword.onkeyup = ConfirmPassword;
-        function ConfirmPassword() {
-            txtConfirmPassword.setCustomValidity("");
-            if (txtPassword.value != txtConfirmPassword.value) {
-                txtConfirmPassword.setCustomValidity("Passwords do not match.");
-            }
-        }
-    }
-</script>
-<script type="text/javascript">
-    window.onload = function () {
-        var txtPassword1 = document.getElementById("txtPassword1");
-        var txtConfirmPassword1 = document.getElementById("txtConfirmPassword1");
-        txtPassword1.onchange = ConfirmPassword1;
-        txtConfirmPassword1.onkeyup = ConfirmPassword1;
-        function ConfirmPassword1() {
-            txtConfirmPassword1.setCustomValidity("");
-            if (txtPassword1.value != txtConfirmPassword1.value) {
-                txtConfirmPassword1.setCustomValidity("Passwords do not match.");
-            }
-        }
-    }
-</script>
-<script>
-    imgInp.onchange = evt => {
-  const [file] = imgInp.files
-  if (file) {
-    blah.src = URL.createObjectURL(file)
-  }
-}
-</script>
+
 <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxp7tH5i5ATJdKgoFOWyXXb6wt0z_a7TQ&callback=initAutocomplete&libraries=places&v=weekly"
       defer

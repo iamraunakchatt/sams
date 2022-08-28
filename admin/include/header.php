@@ -166,7 +166,120 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <li class="<?php if($activePage == 'manage-leave'){echo 'active';}else{ echo '';} ?>">
 <a href="manage-leave.php"><i class="la la-clock-o"></i> <span>Manage Leave</span></a>
 </li>
+
+<style>
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: inherit;
+  min-width: 100%;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+</style>
+<style>
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content1 {
+  display: none;
+  position: inherit;
+  min-width: 100%;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content1 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show1 {display:block;}
+</style>
+<li>
+    <div class="dropdown">
+  <a onclick="myFunction()" href="#" class="dropbtn"><i class="la la-pie-chart" style="margin-right: 15px;"></i> View Reports <span class="menu-arrow"></span></a>
+  <div id="myDropdown" class="dropdown-content">
+       <a href="#">Live Tracking</a>
+    <a href="#">Daily Performance</a>
+    <a href="#">Daily Late Arrival</a>
+    <a href="#">Daily Early Depart</a>
+    <a href="#">Daily Absent/on Leave</a>
+    <a href="#">Monthly Report</a>
+    <a href="#">Yearly Report</a>
+  </div>
+</div>
+</li>
+<li>
+    <div class="dropdown1">
+  <a onclick="myFunction1()" href="#" class="dropbtn1"><i class="la la-cog" style="margin-right: 15px;"></i> Tools <span class="menu-arrow"></span></a>
+  <div id="myDropdown1" class="dropdown-content1">
+       <a href="#">Notes to Employee</a>
+    <a href="#">Send Broadcast to Employees</a>
+    
+  </div>
+</div>
+</li>
 </ul>
 </div>
 </div>
 </div>
+<script>
+    function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("myDropdown1").classList.remove("show1");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var dropdowns1 = document.getElementsByClassName("dropdown-content1");
+    dropdowns1.classList.remove('show1');
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+<script>
+    function myFunction1() {
+  document.getElementById("myDropdown1").classList.toggle("show1");
+  document.getElementById("myDropdown").classList.remove("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn1')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content1");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show1')) {
+        openDropdown.classList.remove('show1');
+      }
+    }
+  }
+}
+</script>

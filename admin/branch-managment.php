@@ -56,9 +56,50 @@ if (isset($_POST['save']))
 
 		</div>
 		<div class="col-md-4">
-		<a href="add-branch-managenet.php" class="btn btn-primary" style="width: 100%;margin-top: 5%;">Add</a>
-		</div>
+    <?php
+	 $statement = $connection->prepare(
+		"SELECT * FROM 03_admin_tbl ORDER BY id DESC LIMIT 1"
+	   );
+	   $statement->execute();
+	   $result = $statement->fetchAll();
+	   foreach($result as $row)
+	   {
+      $maxbranch=$row["mlocation"];
+     }
+
+     $branchcnt = mysqli_num_rows(mysqli_query($conn,"SELECT * FROM `12_branch_management`"));
+     if($branchcnt==$maxbranch){
+      ?>
+		<a href="#" class="btn btn-primary" style="width: 100%;margin-top: 5%;" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</a>
+	<?php
+     }else{
+      ?>
+<a href="add-branch-managenet.php" class="btn btn-primary" style="width: 100%;margin-top: 5%;">Add</a>
+      <?php
+     }
+     ?>	
+  </div>
 	</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Branch Addition</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       You have already exhausted the total number of branch you are permitted to add in the system. If you want to add more contact your system supplier.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 </div>

@@ -1,5 +1,5 @@
 <?php 
-$conn=mysqli_connect("localhost","root","","sams_db");
+$conn=mysqli_connect("localhost","ascsamsi_admin","~&BGHA$;Ii?=","ascsamsi_db");
 $id = $_GET['id']; 
 $action = $_GET['action']; 
 

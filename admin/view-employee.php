@@ -1,6 +1,7 @@
 <?php
 include('include/header.php'); 
 $id = $_GET['id'];
+$empid = $_GET['id'];
 include('../config/webconfig.php');
 
 
@@ -8,6 +9,7 @@ $sql = "select * from   13_employee where id='".$id."'";
 $result = mysqli_query($conn,$sql); 
   
 $data=mysqli_fetch_array($result); 
+
 $employee_name=$data['employee_name'];
 $mobile_no=$data['mobile_no'];
 $img=$data['emp_image'];
@@ -24,6 +26,8 @@ $desid=$data['designation_id'];
 $attendance=$data['attendance'];
 $passwordd=$data['passwordd'];
 $weekoff=$data['weekoff'];
+$status=$data['status'];
+$disble_reason=$data['disble_reason'];
 
 
 
@@ -149,6 +153,74 @@ $designation_name=$data['designation_name'];
 <div class="text"><?php echo $pincode; ?></div>
 </li>
 </ul>
+<hr>
+<h5 class="section-title">Employement Status</h5>
+<ul class="personal-info">
+<li>
+<div class="title" style="margin-top:10px">Status</div>
+<div class="text">
+<form method="post" action="empdisable.php">
+<?php
+ if($status==1){
+            ?>
+            
+            <select class="form-control" id="emstatus" name="status">
+                 <option value="1" selected>Active</option>
+                 <option value="0">Deactive</option>
+             </select>
+             <?php
+             
+             }else{
+             ?>
+             
+             <select class="form-control" id="emstatus" name="status">
+                 <option value="1">Active</option>
+                 <option value="0" selected>Deactive</option>
+             </select>
+             
+             <?php
+             }
+             ?>
+             
+             <div id="reason_sbmt" style="display:none">
+                 <input type="hidden" value="<?php echo $empid; ?>" name="empid">
+             <select class="form-control" name="reason">
+                 <?php
+                  $statement3 = $connection->prepare(
+            "SELECT * FROM 08_deative_reason_management"
+             );
+             $statement3->execute();
+             $result3 = $statement3->fetchAll();
+             foreach($result3 as $row3)
+             {
+              $deactive_reason=$row3["deactive_reason"];
+              ?>
+              
+              <option value="<?php echo $deactive_reason; ?>"><?php echo $deactive_reason; ?></option>
+              <?php
+             }
+             ?>
+                 
+                 
+             </select>
+             </div>
+             <div id="reason_sbmt1" style="display:none">
+             <button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
+             </form>
+             
+             </div>
+</li>
+<?php
+ if($status==0){
+            ?>
+<li id="rsntxt">
+<div class="title">Reason</div>
+<div class="text"><?php echo $disble_reason; ?></div>
+</li>
+<?php
+}
+?>
+</ul>
 </div>
 </div>
 </div>
@@ -211,4 +283,15 @@ $designation_name=$data['designation_name'];
 </div>
 
 
-<?php include('include/footer.php'); ?>>
+<?php include('include/footer.php'); ?>
+<script>
+    $('#emstatus').on('change', function() {
+        $("#rsntxt").css("display", "none");
+        $("#reason_sbmt1").css("display", "block");
+  var v= this.value ;
+  if (v==0){
+      $("#reason_sbmt").css("display", "block");
+     
+  }
+});
+</script>

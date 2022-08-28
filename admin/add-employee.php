@@ -3,6 +3,23 @@
 <?php include('include/header.php'); 
   include('../config/webconfig.php');
   
+  $statement = $connection->prepare(
+   "SELECT * FROM 03_admin_tbl ORDER BY id DESC LIMIT 1"
+    );
+    $statement->execute();
+    $result = $statement->fetchAll();
+    foreach($result as $row)
+    {
+     $maxemployee=$row["memployee"];
+    }
+
+    $empcnt = mysqli_num_rows(mysqli_query($conn,"SELECT * FROM `13_employee`"));
+if($empcnt==$maxemployee){
+  header("location: employee.php");
+}
+
+
+
   
   if (isset($_POST['save']))
   {

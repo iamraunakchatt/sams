@@ -77,11 +77,49 @@ if (isset($_POST['save']))
 
 		</div>
 		<div class="col-md-4">
-		<a href="add-employee.php" class="btn btn-primary" style="width: 100%;margin-top: 5%;">Add</a>
+    <?php
+	 $statement = $connection->prepare(
+		"SELECT * FROM 03_admin_tbl ORDER BY id DESC LIMIT 1"
+	   );
+	   $statement->execute();
+	   $result = $statement->fetchAll();
+	   foreach($result as $row)
+	   {
+      $maxemployee=$row["memployee"];
+     }
+
+     $empcnt = mysqli_num_rows(mysqli_query($conn,"SELECT * FROM `13_employee`"));
+if($empcnt==$maxemployee){
+?>
+<a href="#" class="btn btn-primary" style="width: 100%;margin-top: 5%;" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</a>
+<?php
+}else{
+  ?>
+<a href="add-employee.php" class="btn btn-primary" style="width: 100%;margin-top: 5%;">Add</a>
+  <?php
+}
+		?>
+		
 		</div>
 	</div>
 
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Employee Addition</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       You have already exhausted the total number of employee you are permitted to add in the system. If you want to add more contact your system supplier.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 <div class="card-body">
 <div class="table-responsive">
@@ -95,6 +133,7 @@ if (isset($_POST['save']))
 <th>Mobile No</th>
 <th>Department</th>
 <th>Designation</th>
+<th>Change Status</th>
 <th>Action</th>
 </tr>
 </thead>
@@ -104,9 +143,11 @@ if (isset($_POST['save']))
     $sql=mysqli_query($conn,"SELECT * FROM `13_employee`")or die(mysqli_error($conn));
     while($row=mysqli_fetch_array($sql))
     {
+      $eid=$row['id'];
 $bid=$row['branch_id'];
 $depid=$row['department_id'];
 $desid=$row['designation_id'];
+$status=$row['status'];
       $statement1 = $connection->prepare(
         "SELECT * FROM 12_branch_management where id=$bid"
          );
@@ -136,7 +177,12 @@ $desid=$row['designation_id'];
              {
               $desname=$row3["designation_name"];
              }
+             if($status==1){
+             $statusbtn="Active";
              
+             }else{
+              $statusbtn="Deactive";
+             }
 
       echo '<tr>
         <td>'.$i.'</td>
@@ -144,13 +190,16 @@ $desid=$row['designation_id'];
         <td>';
         ?>
         <h2 class="table-avatar">
+        <?php //echo $badge; ?><br/>
              <a href="view-employee.php?id=<?php echo $row['id']; ?>" class="avatar"><img alt="" src="userimg/<?php echo $row['emp_image']; ?>"></a>
+             
              <a href="view-employee.php?id=<?php echo $row['id']; ?>"><?php echo $row['employee_name']; ?></a>
              </h2>
         <?php echo '</td>
         <td>'.$row['mobile_no'].'</td>
         <td>'.$depname.'</td>
         <td>'.$desname.'</td>
+        <td>'.$statusbtn.'</td>
         <td width="10%">
             <a class="btn btn-info" href="view-employee.php?id='.$row['id'].'"><i class="fa fa-eye" aria-hidden="true"></i></a>
             <a class="btn btn-success" href="edit-employee.php?id='.$row['id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
