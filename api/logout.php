@@ -1,6 +1,5 @@
 <?php 
   include('../config/webconfig.php');
-  
 $token=$_POST['token'];
 $sql = "SELECT * FROM  16_admin_token  WHERE token='$token'"; 
 $result = mysqli_query($conn,$sql); 
