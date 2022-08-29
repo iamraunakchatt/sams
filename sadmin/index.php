@@ -127,50 +127,13 @@
 <div class="col-sm-8">
 <div class="form-group">
 <label>Attendance Type</label>
-<select class="select" name="atype[]" multiple>
-<?php if($row["atype"]=="auto"){
-?>
-<option selected="selected" value="auto">Auto</option>
-<option value="manual">Manual</option>
-<option value="selfie">Selfie</option>
-<?php
-}else if($row["atype"]=="manual"){
-?>
-<option  value="auto">Auto</option>
-<option selected="selected" value="manual">Manual</option>
-<option value="selfie">Selfie</option>
-<?php
-}else if($row["atype"]=="selfie"){
-?>
-<option value="auto">Auto</option>
-<option value="manual">Manual</option>
-<option selected="selected" value="selfie">Selfie</option>
-<?php
-} else if($row["atype"]=="auto,manual" || $row["atype"]=="manual,auto"){
-    ?>
-    <option selected="selected" value="auto">Auto</option>
-    <option selected="selected" value="manual">Manual</option>
-    <option  value="selfie">Selfie</option>
-    <?php
-    } else if($row["atype"]=="auto,selfie" || $row["atype"]=="selfie,auto"){
-        ?>
-        <option selected="selected" value="auto">Auto</option>
-        <option  value="manual">Manual</option>
-        <option selected="selected" value="selfie">Selfie</option>
-        <?php
-        } else if($row["atype"]=="manual,selfie" || $row["atype"]=="selfie,manual"){
-            ?>
-            <option  value="auto">Auto</option>
-            <option selected="selected" value="manual">Manual</option>
-            <option selected="selected" value="selfie">Selfie</option>
-            <?php
-            } else if($row["atype"]=="manual,selfie,auto" || $row["atype"]=="selfie,manual,auto" || $row["atype"]=="auto,manual,selfie" || $row["atype"]=="auto,selfie,manual" || $row["atype"]=="manual,auto,selfie" || $row["atype"]=="selfie,auto,manual"){
-                ?>
-                <option  selected="selected" value="auto">Auto</option>
-                <option selected="selected" value="manual">Manual</option>
-                <option selected="selected" value="selfie">Selfie</option>
-                <?php
-                } ?>
+<select class="select" name="atype[]" multiple id="atype">
+<option <?php  if (str_contains($row["atype"], 'auto')) { echo 'selected="selected"';}  ?>   value="auto">Auto</option>
+<option <?php  if (str_contains($row["atype"], 'manual')) { echo 'selected="selected"';}  ?>  value="manual">Manual</option>
+<option <?php  if (str_contains($row["atype"], 'selfie')) { echo 'selected="selected"';}  ?>  value="selfie">Selfie</option>
+<option <?php  if (str_contains($row["atype"], 'face')) { echo 'selected="selected"';}  ?>  value="face">Face Recognition</option>
+<option <?php  if (str_contains($row["atype"], 'finger')) { echo 'selected="selected"';}  ?>  value="finger">Finger Scan</option>
+
 
 </select>
 </div>
@@ -263,6 +226,21 @@ value="no"
 <div class="form-group position-relative">
 <label>Admin Password</label>
 <input class="form-control" placeholder="eg. 123456" type="password" value="<?php echo $row["password"]; ?>" id="txtPassword1" name="password">
+<span class="fa fa-eye-slash" id="toggle-password1"></span>
+</div>
+</div>
+
+
+<div class="col-sm-6">
+<div class="form-group position-relative">
+<label>Goolge Map API Key</label>
+<input class="form-control" placeholder="Goolge Map API Key" type="text" value="<?php echo $row["gmapapi"]; ?>"  name="gmapapi">
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group position-relative">
+<label>Firebase API Key</label>
+<input class="form-control" placeholder="Firebase API Key" type="text" value="<?php echo $row["fapi"]; ?>"  name="fapi">
 <span class="fa fa-eye-slash" id="toggle-password1"></span>
 </div>
 </div>
@@ -428,3 +406,22 @@ window.initAutocomplete = initAutocomplete;
 }
 </script>
 
+<script>
+  $('#atype').on('change', function() {
+    var a=this.value
+   
+    if(a=="auto"){
+      $('#switch_hra').removeAttr('checked');
+    }else{
+      <?php
+      if($row["empattbyadmin"]=="yes"){
+        ?>
+$('#switch_hra').attr('checked','checked');
+        <?php
+      }
+      ?>
+    }
+   //$('#switch_hra').bootstrapToggle('off', true);
+    
+});
+</script>

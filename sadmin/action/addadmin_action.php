@@ -34,7 +34,7 @@ if(isset($_POST["auto_logout"])){
 }
 
 $statement = $connection->prepare(
-    "UPDATE `03_admin_tbl` SET `cname`=:cname,`address1`=:address1,`address2`=:address2,`city`=:city,`zipcode`=:zipcode,`latitude`=:latitude,`longitude`=:lontitude,`radius`=:radius,`logo`='$image',`mlocation`=:mlocation,`memployee`=:memployee,`atype`=:atype,`empattbyadmin`=:empattbyadmin,`validfrom`=:validfrom,`validtill`=:validtill,`password`=:password,`update_dt`=NOW(),`update_ip`=:update_ip,`auto_logout`=:auto_logout,`username`=:username WHERE
+    "UPDATE `03_admin_tbl` SET `cname`=:cname,`address1`=:address1,`address2`=:address2,`city`=:city,`zipcode`=:zipcode,`latitude`=:latitude,`longitude`=:lontitude,`radius`=:radius,`logo`='$image',`mlocation`=:mlocation,`memployee`=:memployee,`atype`=:atype,`empattbyadmin`=:empattbyadmin,`validfrom`=:validfrom,`validtill`=:validtill,`password`=:password,`update_dt`=NOW(),`update_ip`=:update_ip,`auto_logout`=:auto_logout,`username`=:username,`gmapapi`=:gmapapi,`fapi`=:fapi WHERE
     id=2"
    );
 
@@ -58,12 +58,14 @@ $statement = $connection->prepare(
      ':update_ip' => $_SERVER['REMOTE_ADDR'],
      ':username' => $_POST['email'],
      ':auto_logout' => $auto_logout,
+     ':gmapapi' => $_POST['gmapapi'],
+     ':fapi' => $_POST['fapi'],
     )
    );
 
 
    $statement1 = $connection->prepare(
-    "UPDATE `03_admin_tbl` SET `cname`=:cname,`address1`=:address1,`address2`=:address2,`city`=:city,`zipcode`=:zipcode,`latitude`=:latitude,`longitude`=:lontitude,`radius`=:radius,`logo`='$image',`mlocation`=:mlocation,`memployee`=:memployee,`atype`=:atype,`empattbyadmin`=:empattbyadmin,`validfrom`=:validfrom,`validtill`=:validtill,`update_dt`=NOW(),`update_ip`=:update_ip,`auto_logout`=:auto_logout WHERE
+    "UPDATE `03_admin_tbl` SET `cname`=:cname,`address1`=:address1,`address2`=:address2,`city`=:city,`zipcode`=:zipcode,`latitude`=:latitude,`longitude`=:lontitude,`radius`=:radius,`logo`='$image',`mlocation`=:mlocation,`memployee`=:memployee,`atype`=:atype,`empattbyadmin`=:empattbyadmin,`validfrom`=:validfrom,`validtill`=:validtill,`update_dt`=NOW(),`update_ip`=:update_ip,`auto_logout`=:auto_logout,`gmapapi`=:gmapapi,`fapi`=:fapi WHERE
     id=1"
    );
 
@@ -85,6 +87,8 @@ $statement = $connection->prepare(
      ':validtill' => $_POST["validtill"],
      ':update_ip' => $_SERVER['REMOTE_ADDR'],
      ':auto_logout' => $auto_logout,
+     ':gmapapi' => $_POST['gmapapi'],
+     ':fapi' => $_POST['fapi'],
     )
    );
 
