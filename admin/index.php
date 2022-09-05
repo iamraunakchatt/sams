@@ -14,10 +14,10 @@ if ($result = mysqli_query($conn, $sql)) {
 
 ?>
 <style type="text/css">
-<!--
-.style1 {color: #990000}
-.style2 {color: #0033CC}
--->
+
+/* .style1 {color: #990000}
+.style2 {color: #0033CC} */
+
 </style>
 
 
