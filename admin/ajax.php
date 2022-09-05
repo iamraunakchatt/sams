@@ -1,5 +1,5 @@
 <?php 
-$conn=mysqli_connect("localhost","ascsamsi_admin","~&BGHA$;Ii?=","ascsamsi_db");
+$conn=mysqli_connect("localhost","root","","sams_db");
 $id = $_GET['id']; 
 $anchor_value = $_GET['anchor_value']; 
 if($anchor_value=='department')
