@@ -13,6 +13,13 @@ if ($result = mysqli_query($conn, $sql)) {
  }
 
 ?>
+<style type="text/css">
+<!--
+.style1 {color: #990000}
+.style2 {color: #0033CC}
+-->
+</style>
+
 
 
 <div class="page-wrapper">
@@ -22,9 +29,9 @@ if ($result = mysqli_query($conn, $sql)) {
 <div class="page-header">
 <div class="row">
 <div class="col-sm-12">
-<h3 class="page-title">Welcome Admin!</h3>
+<h3 class="page-title style1">Welcome Admin!</h3>
 <ul class="breadcrumb">
-<li class="breadcrumb-item active">Dashboard</li>
+<li class="breadcrumb-item active style2">Dashboard</li>
 </ul>
 </div>
 </div>
@@ -82,7 +89,7 @@ if ($result = mysqli_query($conn, $sql)) {
 <div class="col-md-12 d-flex">
 <div class="card card-table flex-fill">
 <div class="card-header">
-<h3 class="card-title mb-0">Employee Attendance</h3>
+<h3 class="card-title mb-0 style2">Employee Attendance</h3>
 </div>
 <div class="card-body">
 <div class="table-responsive">
@@ -101,8 +108,8 @@ if ($result = mysqli_query($conn, $sql)) {
 </td>
 <td>
 <h2 class="table-avatar">
-<a href="#" class="avatar"><img alt="" src="assets/img/profiles/avatar-19.jpg"></a>
-<a href="client-profile.html">Barry Cuda <span>CEO</span></a>
+<a href="#" class="avatar"><img alt="" src="../admin - Copy/assets/img/profiles/avatar-19.jpg"></a>
+<a href="../admin - Copy/client-profile.html">Barry Cuda <span>CEO</span></a>
 </h2>
 </td>
 <td class="text-end">
@@ -115,8 +122,8 @@ Mumbai Branch
 </td>
 <td>
 <h2 class="table-avatar">
-<a href="#" class="avatar"><img alt="" src="assets/img/profiles/avatar-18.jpg"></a>
-<a href="client-profile.html">Larry Kim <span>Manager</span></a>
+<a href="#" class="avatar"><img alt="" src="../admin - Copy/assets/img/profiles/avatar-18.jpg"></a>
+<a href="../admin - Copy/client-profile.html">Larry Kim <span>Manager</span></a>
 </h2>
 </td>
 <td class="text-end">
@@ -128,7 +135,7 @@ Delhi Branch
 </div>
 </div>
 <div class="card-footer">
-<a href="employee.php">View all Employee Details</a>
+<a href="../admin - Copy/employee.php">View all Employee Details</a>
 </div>
 </div>
 </div>
@@ -144,15 +151,15 @@ Delhi Branch
 </div>
 
 
-<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="../admin - Copy/assets/js/jquery-3.6.0.min.js"></script>
 
-<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="../admin - Copy/assets/js/bootstrap.bundle.min.js"></script>
 
-<script src="assets/js/jquery.slimscroll.min.js"></script>
+<script src="../admin - Copy/assets/js/jquery.slimscroll.min.js"></script>
 
-<script src="assets/js/jquery.dataTables.min.js"></script>
-<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+<script src="../admin - Copy/assets/js/jquery.dataTables.min.js"></script>
+<script src="../admin - Copy/assets/js/dataTables.bootstrap4.min.js"></script>
 
-<script src="assets/js/app.js"></script>
+<script src="../admin - Copy/assets/js/app.js"></script>
 </body>
 </html>

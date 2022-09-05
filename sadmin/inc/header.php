@@ -28,7 +28,7 @@ $statement1 = $connection->prepare(
 <meta name="keywords" content="">
 <meta name="author" content="">
 <meta name="robots" content="noindex, nofollow">
-<title>SAMS - Superadmin</title>
+<title>SAMS-Super Admin</title>
 
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo2.png">
 
@@ -118,7 +118,7 @@ $statement1 = $connection->prepare(
 </li>
 <li class="menu-title">Settings</li>
 <li class="<?php if($activePage == 'index'){echo 'active';}else{ echo '';} ?>">
-<a href="index.php"><i class="la la-cog"></i> <span>Application Settings</span></a>
+<a href="index.php"><i class="la la-cog"></i> <span>Client Settings</span></a>
 </li>
 <li class="<?php if($activePage == 'login-history'){echo 'active';}else{ echo '';} ?>">
 <a href="login-history.php"><i class="la la-clock-o"></i> <span>Login History</span></a>

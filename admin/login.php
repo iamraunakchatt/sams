@@ -12,7 +12,7 @@ require('../config/webconfig.php');
 	<meta name="keywords" content="">
 	<meta name="author" content="">
 	<meta name="robots" content="noindex, nofollow">
-	<title>Admin | SMART ATTENDANCE MARKING SYSTEMS</title>
+	<title>SAMS | Admin</title>
 
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/logo2.png">
 
@@ -26,6 +26,15 @@ require('../config/webconfig.php');
 			<script src="assets/js/html5shiv.min.js"></script>
 			<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+    <style type="text/css">
+<!--
+.style1 {color: #FF0000}
+.style2 {
+	font-size: 16px;
+	color: #003366;
+}
+-->
+    </style>
 </head>
 
 <body class="account-page">
@@ -48,12 +57,11 @@ require('../config/webconfig.php');
 							$result = $statement->fetchAll();
 							foreach ($result as $row) {
 							?>
-								<a href="admin-dashboard.html" style="float:left"><img src="assets/img/logo2.png" alt="Dreamguy's Technologies"></a><a href="admin-dashboard.html" style="float:right"><img src="../sadmin/action/logo/<?php echo $row["logo"]; ?>" alt="Dreamguy's Technologies"></a>
-						</div>
-
-						<h3 class="account-title">SMART ATTENDANCE MANAGEMENT SYSTEM</h3>
-						<h3 class="account-title">स्मार्ट उपस्थिति प्रबंधन प्रणाली</h3>
-						<h3 class="account-title"><?php echo $row["cname"]; ?></h3>
+								<a href="admin-dashboard.html" style="float:left"><img src="assets/img/logo2.png" alt="Dreamguy's Technologies"></a><a href="admin-dashboard.html" style="float:right"><img src="../sadmin/action/logo/<?php echo $row["logo"]; ?>" alt="Dreamguy's Technologies"></a>						</div>
+  						<h3 class="account-title style1"><img src="assets/img/sams.png" width="207" height="51"></h3>
+						<h3 class="account-title text-sm"><span class="style2">SMART ATTENDANCE MANAGEMENT SYS</span>TEM</h3>
+						<br>
+						<h3 class="account-title style1"><?php echo $row["cname"]; ?></h3>
 						<p class="account-subtitle">Welcome Admin<br />Please Signin to proceed</p>
 
 						<form method="post" action="login_exec.php">
@@ -66,12 +74,10 @@ require('../config/webconfig.php');
 									<div class="col">
 										<label>Password</label>
 									</div>
-
 								</div>
 								<div class="position-relative">
 									<input class="form-control" type="password" name="password" Placeholder="Enter Admin Password" id="password" required>
-									<span class="fa fa-eye-slash" id="toggle-password"></span>
-								</div>
+									<span class="fa fa-eye-slash" id="toggle-password"></span>								</div>
 							</div>
 							<div class="form-group text-center">
 								<button class="btn btn-primary account-btn" type="submit">Login</button>
@@ -82,9 +88,8 @@ require('../config/webconfig.php');
 							}
 					?>
 					<div class="account-logo" style="margin-bottom: 10px;">
-						<a href="admin-dashboard.html"><img src="assets/img/ASCITHUB.PNG" style="width: 50px;" alt="Dreamguy's Technologies"></a>
-					</div>
-					<p class="account-subtitle" style="font-size: 12px;margin-bottom:0px">Powered by : ASCITHUB</p>
+						<a href="admin-dashboard.html"><img src="assets/img/ASCITHUB.PNG" style="width: 50px;" alt="Dreamguy's Technologies"></a>					</div>
+					<p class="account-subtitle" style="font-size: 12px;margin-bottom:0px"><a href="https://ascinfo.in/" target="_blank">Powered by : ASCITHUB</a></p>
 					</div>
 				</div>
 			</div>

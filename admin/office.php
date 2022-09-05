@@ -93,7 +93,7 @@
 <div class="row">
 <div class="col-sm-12">
 <div class="form-group">
-<label>Radius in Meter <span style="font-size:12px;color:red">(Set Radius between 100m - 500m.By setting radus, employees can mark attendace inside in this set radis only.)</label>
+<label>Radius in Meter <span style="font-size:12px;color:red">(Employees can mark Attendace inside in defined Radius of Office only.)</label>
 <input class="form-control" placeholder="eg. 250" type="number" value="<?php echo $row["radius"]; ?>" required min="100" max="500" name="radius" disabled>
 </div>
 </div>

@@ -1,4 +1,10 @@
 <?php include ('inc/header.php'); ?>
+<style type="text/css">
+<!--
+.style2 {color: #003333}
+-->
+</style>
+
 
 
 <div class="page-wrapper">
@@ -10,7 +16,7 @@
 <div class="page-header">
 <div class="row">
 <div class="col-sm-12">
-<h3 class="page-title">Super Admin Settings</h3>
+<h3 class="page-title style2">Super Admin Settings</h3>
 </div>
 </div>
 </div>
@@ -38,6 +44,7 @@
 </div>
 <div class="col-sm-6">
 <div class="form-group position-relative">
+<br />
 <label>Super Admin Change Password</label>
 <input class="form-control" placeholder="Set This Password For Super Admin" type="password"  id="txtPassword" name="sppassword">
 <span class="fa fa-eye-slash" id="toggle-password3"></span>
@@ -45,6 +52,7 @@
 </div>
 <div class="col-sm-6">
 <div class="form-group position-relative">
+<br />
 <label>Super Admin Confirm Change Password</label>
 <input class="form-control" id="txtConfirmPassword" placeholder="Repeat Super Admin New Password" type="password" >
 <span class="fa fa-eye-slash" id="toggle-password4"></span>

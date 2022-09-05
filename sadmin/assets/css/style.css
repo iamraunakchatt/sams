@@ -270,7 +270,7 @@ h6 {
 body {
   font-family: "CircularStd", sans-serif;
   font-size: 15px;
-  color: #1f1f1f;
+  color: #990000;
   background-color: #f7f7f7;
   overflow-x: hidden;
 }
@@ -4886,7 +4886,7 @@ textarea.form-control {
 
 .account-page .main-wrapper {
   width: 100%;
-  background-image: url("../img/background-login.jpg");
+  background-image: url(../../img/background-login.jpg);
   background-position: center;
     background-size: cover;
 }
@@ -4919,7 +4919,7 @@ textarea.form-control {
   margin-bottom: 25px;
 }
 .account-page .main-wrapper .account-content .account-box label {
-  color: #1f1f1f;
+  color: #990000;
   font-size: 16px;
   font-weight: normal;
   margin-bottom: 5px;
@@ -4954,7 +4954,7 @@ textarea.form-control {
   text-align: center;
 }
 .account-page .main-wrapper .account-content .account-box .account-wrapper .account-title {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 500;
   margin-bottom: 5px;
   text-align: center;

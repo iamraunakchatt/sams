@@ -4,6 +4,7 @@
   height: 350px;
   width:100%;
 }
+.style2 {color: #990000}
 </style>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
@@ -45,7 +46,9 @@
 <div class="row">
 <div class="col-sm-12">
 <div class="form-group">
-<label>Company Name <span class="text-danger">*</span></label>
+  <span class="style2">
+  <label><strong>Company Name *</strong></label>
+  </span>
 <input class="form-control" type="text" placeholder="eg. Dreamguy's Technologies" value="<?php echo $row["cname"]; ?>" name="cname" required>
 </div>
 </div>
@@ -79,13 +82,17 @@
 <div class="row">
 <div class="col-sm-6">
 <div class="form-group">
-<label>Latitude</label>
+  <span class="style2">
+  <label><strong>Latitude</strong></label>
+  </span>
 <input class="form-control" placeholder="eg. 121.56" type="textr" value="<?php echo $row["latitude"]; ?>" required name="latitude">
 </div>
 </div>
 <div class="col-sm-6">
 <div class="form-group">
-<label>Longtitude</label>
+  <span class="style2">
+  <label><strong>Longtitude</strong></label>
+  </span>
 <input class="form-control" placeholder="eg. 22.5" type="text" value="<?php echo $row["longitude"]; ?>" required name="lontitude">
 </div>
 </div>
@@ -104,8 +111,8 @@
 </div>
 <div class="col-sm-12">
 <div class="form-group">
-<label>Radius in Meter <span style="font-size:12px;color:red">(Set Radius between 100m - 500m.By setting radus, employees can mark attendace inside in this set radis only.)</label>
-<input class="form-control" placeholder="eg. 250" type="number" value="<?php echo $row["radius"]; ?>" required min="100" max="500" name="radius">
+<label>Radius in Meter <span style="font-size:12px;color:red">(Set Radius between <strong>5 Mtrs. - 500 Mtrs.</strong> Employees will able to to mark Attendace inside in set radius of office only.)</label>
+<input class="form-control" placeholder="eg. 250" type="number" value="<?php echo $row["radius"]; ?>" required min="5" max="500" name="radius">
 </div>
 </div>
 
@@ -114,34 +121,34 @@
 <div class="row">
 <div class="col-sm-2">
 <div class="form-group">
-<label>Max Locations</label>
+  <span class="style2">
+  <label>Max Locations</label>
+  </span>
 <input class="form-control" placeholder="eg. 4" type="text" value="<?php echo $row["mlocation"]; ?>" name="mlocation" >
 </div>
 </div>
 <div class="col-sm-2">
 <div class="form-group">
-<label>Max Employees</label>
+<label><span class="style2">Max Employees</span></label>
 <input class="form-control" placeholder="eg. 10" type="text" value="<?php echo $row["memployee"]; ?>" name="memployee">
 </div>
 </div>
 <div class="col-sm-8">
 <div class="form-group">
-<label>Attendance Type</label>
+<label><span class="style2">Attendance Type</span></label>
 <select class="select" name="atype[]" multiple id="atype">
 <option <?php  if (str_contains($row["atype"], 'auto')) { echo 'selected="selected"';}  ?>   value="auto">Auto</option>
-<option <?php  if (str_contains($row["atype"], 'manual')) { echo 'selected="selected"';}  ?>  value="manual">Manual</option>
-<option <?php  if (str_contains($row["atype"], 'selfie')) { echo 'selected="selected"';}  ?>  value="selfie">Selfie</option>
 <option <?php  if (str_contains($row["atype"], 'face')) { echo 'selected="selected"';}  ?>  value="face">Face Recognition</option>
 <option <?php  if (str_contains($row["atype"], 'finger')) { echo 'selected="selected"';}  ?>  value="finger">Finger Scan</option>
-
-
+<option <?php  if (str_contains($row["atype"], 'manual')) { echo 'selected="selected"';}  ?>  value="manual">Manual</option>
+<option <?php  if (str_contains($row["atype"], 'selfie')) { echo 'selected="selected"';}  ?>  value="selfie">Selfie</option>
 </select>
 </div>
 </div>
 
 <div class="col-sm-6">
 <div class="form-group">
-<label>Employees Attendance Mark by Admin :</label>
+<label><span class="style2">Employees Attendance Mark by Admin </span>:</label>
 </div>
 </div>
 
@@ -160,14 +167,13 @@ value="no"
 >
 <label class="onoffswitch-label" for="switch_hra">
 <span class="onoffswitch-inner"></span>
-<span class="onoffswitch-switch"></span>
-</label>
+<span class="onoffswitch-switch"></span></label>
 </div>
 </div>
 
 <div class="col-sm-6">
 <div class="form-group">
-<label>App Auto Logout :</label>
+<label><span class="style2">App Auto Logout </span>:</label>
 </div>
 </div>
 
@@ -186,8 +192,7 @@ value="no"
 >
 <label class="onoffswitch-label" for="switch_hraa">
 <span class="onoffswitch-inner"></span>
-<span class="onoffswitch-switch"></span>
-</label>
+<span class="onoffswitch-switch"></span></label>
 </div>
 </div>
 
@@ -195,19 +200,22 @@ value="no"
 
 <div class="col-sm-6">
 <div class="form-group">
-<label>Admin App License Valid From Date</label>
+<label><span class="style2">Admin App License Valid From Date</span></label>
+<span class="style2">
 <input class="form-control" placeholder="eg. 5/28/2022" type="date" value="<?php echo $row["validfrom"]; ?>" name="validfrom">
-</div>
+</span></div>
 </div>
 <div class="col-sm-6">
 <div class="form-group">
-<label>Employee App License Valid Till Date</label>
-<input class="form-control" placeholder="eg. 5/28/2022" type="date" value="<?php echo $row["validtill"]; ?>" name="validtill">
+  <span class="style2">
+  <label>Employee App License Valid Till Date</label>
+  </span>
+  <input class="form-control" placeholder="eg. 5/28/2022" type="date" value="<?php echo $row["validtill"]; ?>" name="validtill">
 </div>
 </div>
 <div class="col-sm-8">
 <div class="form-group">
-<label>Upload Logo</label>
+<label><span class="style2">Upload Logo</span></label>
 <input type="file" class="form-control" name="clogo" id="imgInp">
 <input type="hidden" class="form-control" name="flogo" value="<?php echo $row["logo"]; ?>">
 </div>
@@ -218,30 +226,30 @@ value="no"
 </div>
 <div class="col-sm-6">
 <div class="form-group position-relative">
-<label>Admin Email Address</label>
+<label><span class="style2">Admin Email Address</span></label>
 <input class="form-control" placeholder="Email Address" type="email" value="<?php echo $row["username"]; ?>"  name="email">
 </div>
 </div>
 <div class="col-sm-6">
 <div class="form-group position-relative">
-<label>Admin Password</label>
+<label><span class="style2">Admin Password</span></label>
 <input class="form-control" placeholder="eg. 123456" type="password" value="<?php echo $row["password"]; ?>" id="txtPassword1" name="password">
-<span class="fa fa-eye-slash" id="toggle-password1"></span>
-</div>
+<span class="fa fa-eye-slash" id="toggle-password1"></span></div>
 </div>
 
 
 <div class="col-sm-6">
 <div class="form-group position-relative">
-<label>Goolge Map API Key</label>
+<label><span class="style2"><strong>Goolge Map API Key</strong></span></label>
 <input class="form-control" placeholder="Goolge Map API Key" type="text" value="<?php echo $row["gmapapi"]; ?>"  name="gmapapi">
 </div>
 </div>
 <div class="col-sm-6">
 <div class="form-group position-relative">
-<label>Firebase API Key</label>
+  <span class="style2">
+  <label><strong>Firebase API Key</strong></label>
+  </span>
 <input class="form-control" placeholder="Firebase API Key" type="text" value="<?php echo $row["fapi"]; ?>"  name="fapi">
-<span class="fa fa-eye-slash" id="toggle-password1"></span>
 </div>
 </div>
 <!-- <div class="col-sm-6">

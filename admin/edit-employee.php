@@ -300,50 +300,11 @@
             <div class="form-group">
 <label>Attendance Type</label>
 <select class="select" name="atype[]" multiple disabled>
-<?php if($row["atype"]=="auto"){
-?>
-<option selected="selected" value="auto">Auto</option>
-<option value="manual">Manual</option>
-<option value="selfie">Selfie</option>
-<?php
-}else if($row["atype"]=="manual"){
-?>
-<option  value="auto">Auto</option>
-<option selected="selected" value="manual">Manual</option>
-<option value="selfie">Selfie</option>
-<?php
-}else if($row["atype"]=="selfie"){
-?>
-<option value="auto">Auto</option>
-<option value="manual">Manual</option>
-<option selected="selected" value="selfie">Selfie</option>
-<?php
-} else if($row["atype"]=="auto,manual" || $row["atype"]=="manual,auto"){
-    ?>
-    <option selected="selected" value="auto">Auto</option>
-    <option selected="selected" value="manual">Manual</option>
-    <option  value="selfie">Selfie</option>
-    <?php
-    } else if($row["atype"]=="auto,selfie" || $row["atype"]=="selfie,auto"){
-        ?>
-        <option selected="selected" value="auto">Auto</option>
-        <option  value="manual">Manual</option>
-        <option selected="selected" value="selfie">Selfie</option>
-        <?php
-        } else if($row["atype"]=="manual,selfie" || $row["atype"]=="selfie,manual"){
-            ?>
-            <option  value="auto">Auto</option>
-            <option selected="selected" value="manual">Manual</option>
-            <option selected="selected" value="selfie">Selfie</option>
-            <?php
-            } else if($row["atype"]=="manual,selfie,auto" || $row["atype"]=="selfie,manual,auto" || $row["atype"]=="auto,manual,selfie" || $row["atype"]=="auto,selfie,manual" || $row["atype"]=="manual,auto,selfie" || $row["atype"]=="selfie,auto,manual"){
-                ?>
-                <option  selected="selected" value="auto">Auto</option>
-                <option selected="selected" value="manual">Manual</option>
-                <option selected="selected" value="selfie">Selfie</option>
-                <?php
-                } ?>
-
+<option <?php  if (str_contains($row["atype"], 'auto')) { echo 'selected="selected"';}  ?>   value="auto">Auto</option>
+<option <?php  if (str_contains($row["atype"], 'manual')) { echo 'selected="selected"';}  ?>  value="manual">Manual</option>
+<option <?php  if (str_contains($row["atype"], 'selfie')) { echo 'selected="selected"';}  ?>  value="selfie">Selfie</option>
+<option <?php  if (str_contains($row["atype"], 'face')) { echo 'selected="selected"';}  ?>  value="face">Face Recognition</option>
+<option <?php  if (str_contains($row["atype"], 'finger')) { echo 'selected="selected"';}  ?>  value="finger">Finger Scan</option>
 </select>
 </div>
 <?php
