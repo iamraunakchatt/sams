@@ -119,10 +119,10 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 
 
 <li>
-<a href="index.php"><i class="la la-file-pdf-o"></i> <span>DASHBOARD</span></a>
+<a href="index.php"><i class="la la-tachometer"></i> <span>DASHBOARD</span></a>
 </li>
 <li>
-<a href="office.php"><i class="la la-file-pdf-o"></i> <span>MAIN OFFICE DETAILS</span></a>
+<a href="office.php"><i class="la la-building"></i> <span>MAIN OFFICE DETAILS</span></a>
 </li>
 
 
@@ -174,15 +174,15 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 
 
 <li class="submenu" >
-<a href="#"><i class="la la-rocket"></i> <span>LEAVE MANAGEMNT</span> <span class="menu-arrow"></span></a>
+<a href="#"><i class="la la-clock-o"></i> <span>LEAVE MANAGEMNT</span> <span class="menu-arrow"></span></a>
 <ul class="subsubmenu" style="<?php if($activePage =='manage-leave'){echo'display:block';}else{echo'display:none';} ?>">
 
 <li class="<?php if($activePage == 'manage-leave'){echo 'active';}else{ echo '';} ?>">
-<a href="manage-leave.php"><i class="la la-clock-o"></i> <span>Leave Request</span></a>
+<a href="manage-leave.php"><i class="la la-user-secret"></i> <span>Leave Request</span></a>
 </li>
 
 <li class="<?php if($activePage == 'approval-of-leave'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-building"></i><span>Approval of Leave</span></a>
+<a href="#"><i class="la la-check-square-o"></i><span>Approval of Leave</span></a>
 </li>
 
 </ul>
@@ -192,16 +192,16 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 
 
 <li class="submenu">
-<a href="#"><i class="la la-rocket"></i> <span>VIEW</span> <span class="menu-arrow"></span></a>
+<a href="#"><i class="la la-address-card-o"></i> <span>VIEW</span> <span class="menu-arrow"></span></a>
 <ul class="subsubmenu" style="display: none;">
 
 <li class="<?php if($activePage == 'today-present-employees'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-briefcase"></i> <span>Today Present Employees</span></a>
+<a href="#"><i class="la la-users"></i> <span>Today Present Employees</span></a>
 </li>
 
 
 <li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-building"></i><span> Live Tracking</span></a>
+<a href="#"><i class="la la-map-marker"></i><span> Live Tracking</span></a>
 </li>
 
 </ul>
@@ -209,41 +209,41 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 
 
 <li class="submenu">
-<a href="#"><i class="la la-rocket"></i> <span>REPORTS</span> <span class="menu-arrow"></span></a>
+<a href="#"><i class="la la-file-text-o"></i> <span>REPORTS</span> <span class="menu-arrow"></span></a>
 <ul class="subsubmenu" style="display: none;">
 
 <li class="<?php if($activePage == 'today-present-employees'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-briefcase"></i> <span>Daily Report</span></a>
+<a href="#"><i class="la la-line-chart"></i> <span>Daily Report</span></a>
 </li>
 
 
 <li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-building"></i><span> Performance</span></a>
+<a href="#"><i class="la la-pie-chart"></i><span> Performance</span></a>
 </li>
 
 <li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-building"></i><span> Late Arrival</span></a>
+<a href="#"><i class="la la-bar-chart"></i><span> Late Arrival</span></a>
 </li>
 
 <li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-building"></i><span> Early Departure</span></a>
+<a href="#"><i class="la la-area-chart"></i><span> Early Departure</span></a>
 </li>
 
 <li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-building"></i><span> Absent</span></a>
+<a href="#"><i class="la la-id-badge"></i><span> Absent</span></a>
 </li>
 
 <li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-building"></i><span> On Leave</span></a>
+<a href="#"><i class="la la-address-book-o"></i><span> On Leave</span></a>
 </li>
 
 
 <li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-building"></i><span> Monthly</span></a>
+<a href="#"><i class="la la-window-restore"></i><span> Monthly</span></a>
 </li>
 
 <li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-building"></i><span> Yearly</span></a>
+<a href="#"><i class="la la-calendar"></i><span> Yearly</span></a>
 </li>
 
 </ul>
@@ -251,16 +251,16 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 
 
 <li class="submenu">
-<a href="#"><i class="la la-rocket"></i> <span>TOOLS</span> <span class="menu-arrow"></span></a>
+<a href="#"><i class="la la-cogs"></i> <span>TOOLS</span> <span class="menu-arrow"></span></a>
 <ul class="subsubmenu"style="display: none;">
 
 <li class="<?php if($activePage == 'today-present-employees'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-briefcase"></i> <span>Broadcast to Employees</span></a>
+<a href="#"><i class="la la-paper-plane"></i> <span>Broadcast to Employees</span></a>
 </li>
 
 
 <li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-building"></i><span> Notes to Employee</span></a>
+<a href="#"><i class="la la-comment"></i><span> Notes to Employee</span></a>
 </li>
 
 </ul>
