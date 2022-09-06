@@ -108,8 +108,8 @@ if ($result = mysqli_query($conn, $sql)) {
 </td>
 <td>
 <h2 class="table-avatar">
-<a href="#" class="avatar"><img alt="" src="../admin - Copy/assets/img/profiles/avatar-19.jpg"></a>
-<a href="../admin - Copy/client-profile.html">Barry Cuda <span>CEO</span></a>
+<a href="#" class="avatar"><img alt="" src="assets/img/profiles/avatar-19.jpg"></a>
+<a href="#">Barry Cuda <span>CEO</span></a>
 </h2>
 </td>
 <td class="text-end">
@@ -122,8 +122,8 @@ Mumbai Branch
 </td>
 <td>
 <h2 class="table-avatar">
-<a href="#" class="avatar"><img alt="" src="../admin - Copy/assets/img/profiles/avatar-18.jpg"></a>
-<a href="../admin - Copy/client-profile.html">Larry Kim <span>Manager</span></a>
+<a href="#" class="avatar"><img alt="" src="assets/img/profiles/avatar-18.jpg"></a>
+<a href="#">Larry Kim <span>Manager</span></a>
 </h2>
 </td>
 <td class="text-end">
@@ -135,7 +135,7 @@ Delhi Branch
 </div>
 </div>
 <div class="card-footer">
-<a href="../admin - Copy/employee.php">View all Employee Details</a>
+<a href="#">View all Employee Details</a>
 </div>
 </div>
 </div>
@@ -151,7 +151,7 @@ Delhi Branch
 </div>
 
 
-<script src="../admin - Copy/assets/js/jquery-3.6.0.min.js"></script>
+<!-- <script src="../admin - Copy/assets/js/jquery-3.6.0.min.js"></script>
 
 <script src="../admin - Copy/assets/js/bootstrap.bundle.min.js"></script>
 
@@ -162,4 +162,6 @@ Delhi Branch
 
 <script src="../admin - Copy/assets/js/app.js"></script>
 </body>
-</html>
+</html> -->
+
+<?php include('include/footer.php'); ?>>

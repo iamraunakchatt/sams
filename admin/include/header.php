@@ -114,21 +114,26 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 
 <div class="sidebar" id="sidebar">
 <div class="sidebar-inner slimscroll">
-<div class="sidebar-menu">
+<div id="sidebar-menu"  class="sidebar-menu">
 <ul>
+
+
 <li>
-<a href="index.php"> <span class="style1">DASHBOARD</span></a>
-<a href="office.php"> <span class="style1">MAIN OFFICE DETAILS</span></a></li>
-<li class="menu-title style1">MASTERS</li>
-<!-- <li class="">
-<a href="manage.php"><i class="la la-cog"></i> <span>Application Settings</span></a>
+<a href="index.php"><i class="la la-file-pdf-o"></i> <span>DASHBOARD</span></a>
 </li>
-<li class="">
-<a href="#"><i class="la la-clock-o"></i> <span>Login History</span></a>
-</li> -->
+<li>
+<a href="office.php"><i class="la la-file-pdf-o"></i> <span>MAIN OFFICE DETAILS</span></a>
+</li>
+
+
+<li class="submenu" >
+<a href="#"><i class="la la-rocket"></i> <span> MASTERS</span> <span class="menu-arrow"></span></a>
+<ul class="subsubmenu"style=" <?php if(($activePage=="department-management")||($activePage=="employee")||($activePage=="designation-managment")||($activePage=="employee-type-managment")||($activePage=="shift-managment")||($activePage=="branch-type")||($activePage=="branch-managment")||($activePage=="deactive-reason")||($activePage=="public-holiday-managment")||($activePage=="user-type")){echo 'display:block';} else{ echo'display:none';}?>">
+
 <li class="<?php if($activePage == 'department-management'){echo 'active';}else{ echo '';} ?>">
 <a href="department-management.php"><i class="la la-cubes"></i> <span>Department Management</span></a>
 </li>
+
 
 <li class="<?php if($activePage == 'designation-managment'){echo 'active';}else{ echo '';} ?>">
 <a href="designation-managment.php"><i class="la la-drivers-license-o"></i> <span>Designation Management </span></a>
@@ -164,8 +169,13 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <li class="<?php if($activePage == 'user-type'){echo 'active';}else{ echo '';} ?>">
 <a href="user-type.php"><i class="la la-briefcase"></i> <span>User Type Management</span></a>
 </li>
+</ul>
+</li>
 
-<li class="menu-title style1">LEAVE MANAGEMNT</li>
+
+<li class="submenu" >
+<a href="#"><i class="la la-rocket"></i> <span>LEAVE MANAGEMNT</span> <span class="menu-arrow"></span></a>
+<ul class="subsubmenu" style="<?php if($activePage =='manage-leave'){echo'display:block';}else{echo'display:none';} ?>">
 
 <li class="<?php if($activePage == 'manage-leave'){echo 'active';}else{ echo '';} ?>">
 <a href="manage-leave.php"><i class="la la-clock-o"></i> <span>Leave Request</span></a>
@@ -175,10 +185,16 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <a href="#"><i class="la la-building"></i><span>Approval of Leave</span></a>
 </li>
 
-
+</ul>
 </li>
 
-<li class="menu-title style1">VIEW</li>
+
+
+
+<li class="submenu">
+<a href="#"><i class="la la-rocket"></i> <span>VIEW</span> <span class="menu-arrow"></span></a>
+<ul class="subsubmenu" style="display: none;">
+
 <li class="<?php if($activePage == 'today-present-employees'){echo 'active';}else{ echo '';} ?>">
 <a href="#"><i class="la la-briefcase"></i> <span>Today Present Employees</span></a>
 </li>
@@ -187,6 +203,70 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 <li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
 <a href="#"><i class="la la-building"></i><span> Live Tracking</span></a>
 </li>
+
+</ul>
+</li>
+
+
+<li class="submenu">
+<a href="#"><i class="la la-rocket"></i> <span>REPORTS</span> <span class="menu-arrow"></span></a>
+<ul class="subsubmenu" style="display: none;">
+
+<li class="<?php if($activePage == 'today-present-employees'){echo 'active';}else{ echo '';} ?>">
+<a href="#"><i class="la la-briefcase"></i> <span>Daily Report</span></a>
+</li>
+
+
+<li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
+<a href="#"><i class="la la-building"></i><span> Performance</span></a>
+</li>
+
+<li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
+<a href="#"><i class="la la-building"></i><span> Late Arrival</span></a>
+</li>
+
+<li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
+<a href="#"><i class="la la-building"></i><span> Early Departure</span></a>
+</li>
+
+<li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
+<a href="#"><i class="la la-building"></i><span> Absent</span></a>
+</li>
+
+<li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
+<a href="#"><i class="la la-building"></i><span> On Leave</span></a>
+</li>
+
+
+<li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
+<a href="#"><i class="la la-building"></i><span> Monthly</span></a>
+</li>
+
+<li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
+<a href="#"><i class="la la-building"></i><span> Yearly</span></a>
+</li>
+
+</ul>
+</li>
+
+
+<li class="submenu">
+<a href="#"><i class="la la-rocket"></i> <span>TOOLS</span> <span class="menu-arrow"></span></a>
+<ul class="subsubmenu"style="display: none;">
+
+<li class="<?php if($activePage == 'today-present-employees'){echo 'active';}else{ echo '';} ?>">
+<a href="#"><i class="la la-briefcase"></i> <span>Broadcast to Employees</span></a>
+</li>
+
+
+<li class="<?php if($activePage == 'live-tracking'){echo 'active';}else{ echo '';} ?>">
+<a href="#"><i class="la la-building"></i><span> Notes to Employee</span></a>
+</li>
+
+</ul>
+</li>  
+  
+
 
 
 </li>
@@ -236,33 +316,8 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show1 {display:block;}
 </style>
-<li>
-    <div class="dropdown">
-	<a onClick="myFunction()" href="#" class="dropbtn"><span class="style1">REPORTS</span></a>
 
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#">Daily Report</a>
-    <a href="#">Performance/a>
-    <a href="#">Late Arrival</a>
-    <a href="#">Early Departure</a>
-    <a href="#">Absent</a>
-    <a href="#">On Leave</a>
-    <a href="#">Monthly</a>
-    <a href="#">Yearly</a>
-  </div>
-</div>
-</li>
-<li>
-    <div class="dropdown1">
-  <a onClick="myFunction1()" href="#" class="dropbtn1"> <span class="style1">TOOLS</span></a>
-  <div id="myDropdown1" class="dropdown-content1">
-  <a href="#">Broadcast to Employees</a>     
-  <a href="#">Notes to Employee</a>
-   
-    
-  </div>
-</div>
-</li>
+
 </ul>
 </div>
 </div>

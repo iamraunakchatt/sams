@@ -10,6 +10,10 @@
   -webkit-flex-wrap: wrap;
 }
 
+.subsubmenu li a {
+
+  color: #0000CC!important;
+}
 .notifications .notification-list, .equal-height-cards .pricing-box ul, .experience-box .experience-list, .personal-info, .square-list, .job-widget .job-post-det, .job-list .job-list-footer ul, .roles-menu ul, .task-wrapper .task-list-body #task-list, .team-members, .attachments, .my-video ul, .call-icons .call-items, .call-users ul, .upload-list, .custom-modal .modal-content .modal-body .chat-user-list, .custom-modal .modal-content .modal-body .attach-files ul, .sidebar .sidebar-menu ul {
   list-style: none;
   padding: 0;
@@ -1484,7 +1488,7 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
   left: 0;
   position: relative;
   transition: all 0.2s ease-in-out;
-  margin: 0 0 0 230px;
+  margin: 0 0 0 330px;
   padding: 60px 0 0;
 }
 @media (max-width: 992px) {
@@ -2204,7 +2208,7 @@ input[type=file].form-control {
   }
 }
 .sidebar {
-  background-color: #34444c;
+  background-color:#CCCCCC;
   border-right: 1px solid transparent;
   margin-top: 0;
   position: fixed;
@@ -2214,7 +2218,7 @@ input[type=file].form-control {
   -webkit-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   transition: all 0.2s ease;
-  width: 230px;
+  width: 292px;
   z-index: 1001;
 }
 @media (max-width: 992px) {
@@ -2278,7 +2282,7 @@ input[type=file].form-control {
   justify-content: flex-start;
   position: relative;
   font-size: 15px;
-  color: #b7c0cd;
+  color: #990000;
   height: auto;
   -webkit-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
@@ -2286,7 +2290,7 @@ input[type=file].form-control {
   padding: 8px 15px;
 }
 .sidebar .sidebar-menu ul li a:hover {
-  color: #ffffff;
+  color: #990000;
 }
 .sidebar .sidebar-menu ul li a span {
   display: inline-block;
@@ -2393,7 +2397,7 @@ input[type=file].form-control {
   display: block;
   font-size: 14px;
   position: relative;
-  padding: 9px 10px 9px 50px;
+  padding: 9px 10px 9px 15px;
 }
 .sidebar .sidebar-menu ul ul a.active {
   color: #ff9b44;
