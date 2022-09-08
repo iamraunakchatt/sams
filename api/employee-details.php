@@ -3,7 +3,7 @@ include('../config/webconfig.php');
 
 $id=$_GET['id'];
 
-$sql = "select * from    04_department_management where id='".$id."'"; 
+$sql = "select * from 13_employee where id='".$id."'"; 
 $result = mysqli_query($conn,$sql); 
   
 if(mysqli_num_rows($result)>0){
@@ -11,9 +11,7 @@ if(mysqli_num_rows($result)>0){
     $output=mysqli_fetch_all($result,MYSQLI_ASSOC);
     echo json_encode($output);
 }
-else
-   {
-    echo json_encode(array('message'=>'No Record Found'));
-   }
-
+else{
+ echo json_encode(array('message'=>'No Record Found'));
+}
 ?>

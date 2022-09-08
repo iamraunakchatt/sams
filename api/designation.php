@@ -1,14 +1,17 @@
+
 <?php 
 include('../config/webconfig.php'); 
+$id=$_GET['id'];
 
-$sql=mysqli_query($conn,"select * from   06_designation_management")or die(mysqli_error($con));
+$sql = "select * from 06_designation_management where id='".$id."'"; 
+$result = mysqli_query($conn,$sql); 
+  
+if(mysqli_num_rows($result)>0){
 
-if(mysqli_num_rows($sql)>0){
-
-    $output=mysqli_fetch_all($sql,MYSQLI_ASSOC);
+    $output=mysqli_fetch_all($result,MYSQLI_ASSOC);
     echo json_encode($output);
 }
 else{
-    echo json_encode(array('message'=>'No Record Found'));
-   }
+ echo json_encode(array('message'=>'No Record Found'));
+}
 ?>

@@ -1,9 +1,8 @@
 <?php 
 include('../config/webconfig.php'); 
-
 $id=$_GET['id'];
 
-$sql = "select * from   09_public_holiday_ocassion where id='".$id."'"; 
+$sql = "select * from 05_employee_management where id='".$id."'"; 
 $result = mysqli_query($conn,$sql); 
   
 if(mysqli_num_rows($result)>0){
@@ -15,4 +14,3 @@ else{
  echo json_encode(array('message'=>'No Record Found'));
 }
 ?>
-
