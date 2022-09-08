@@ -26,6 +26,7 @@
   $vconfirm_password=$data['confirm_password'];
   $vuserimg= $data['emp_image']; 
   $vweekoff= $data['weekoff']; 
+  $sapp_login= $data['sapp_login']; 
   if (isset($_POST['save']))
   {
       
@@ -50,7 +51,11 @@
       $confirm_password=stripslashes(mysqli_real_escape_string($conn,$_POST['confirm_password']));
       $weekoff=stripslashes(mysqli_real_escape_string($conn,$_POST['weekoff']));
   
-      
+      if(isset($_POST["sapp_enable"])){
+        $sapp_enable=1;
+      }else{
+        $sapp_enable=0;
+      }
     //   $target_dir = "uploads/testimonial/";
     //   $target_file = $target_dir . basename($_FILES["filetoupload"]["name"]);
     //   $uploadOk = 1;
@@ -88,7 +93,7 @@
             $image=$_POST['altfiletoupload'];
           }
 
-          $sql ="UPDATE  13_employee SET branch_id='".$branch."',employee_id='".$employee_id."',employee_name='".$employee_name."',employee_father_name='".$employee_fateher_name."',employee_address_one='".$employee_address_1."',employee_address_two='".$employee_address_2."',city='".$city."',pincode='".$pincode."',dob='".$dob."',mobile_no='".$mobile_no."',email_address='".$email_address."',department_id='".$department."',designation_id='".$designation."',shift_id='".$shift."',attendance='".$attendance_type."',weekoff='".$weekoff."',passwordd='".$password."',confirm_password='".$confirm_password."',emp_image='$image' where id='".$id."'"; 
+          $sql ="UPDATE  13_employee SET branch_id='".$branch."',employee_id='".$employee_id."',employee_name='".$employee_name."',employee_father_name='".$employee_fateher_name."',employee_address_one='".$employee_address_1."',employee_address_two='".$employee_address_2."',city='".$city."',pincode='".$pincode."',dob='".$dob."',mobile_no='".$mobile_no."',email_address='".$email_address."',department_id='".$department."',designation_id='".$designation."',shift_id='".$shift."',attendance='".$attendance_type."',weekoff='".$weekoff."',passwordd='".$password."',confirm_password='".$confirm_password."',emp_image='$image',sapp_login='".$sapp_enable."' where id='".$id."'"; 
    
     // mysqli_query($conn,$sql);
    
@@ -422,7 +427,28 @@
           <input id="confirm_pass"class="form-control" value="<?php echo  $vconfirm_password?>"type="password"name="confirm_password"required onkeyup="validate_password()">
           <span class="fa fa-eye-slash" id="toggle-password4"></span>
         </div>
+        <div class="form-group position-relative">
+          <label>Enable Supervisor App Login</label>
+          <br>
+          <div class="onoffswitch" style="margin-left: 0px;">
+<input type="checkbox" name="sapp_enable" class="onoffswitch-checkbox" id="sapp_enable" 
 
+<?php if($sapp_login==1){
+?>
+checked value="yes"
+<?php
+}else{
+?>
+value="no"
+<?php
+} ?>
+
+>
+<label class="onoffswitch-label" for="sapp_enable">
+<span class="onoffswitch-inner"></span>
+<span class="onoffswitch-switch"></span></label>
+</div>
+        </div>
         <div class="form-group">
         <img alt="" src="userimg/<?php echo $vuserimg; ?>" style="width: 50px;border-radius: 50%;">
         <br/>

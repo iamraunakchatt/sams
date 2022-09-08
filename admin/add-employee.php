@@ -46,6 +46,11 @@ if($empcnt==$maxemployee){
       $confirm_password=stripslashes(mysqli_real_escape_string($conn,$_POST['confirm_password']));
       $weekoff=stripslashes(mysqli_real_escape_string($conn,$_POST['weekoff']));
   
+      if(isset($_POST["sapp_enable"])){
+        $sapp_enable=1;
+      }else{
+        $sapp_enable=0;
+      }
       
       function upload_image2()
       {
@@ -117,7 +122,7 @@ if($empcnt==$maxemployee){
       
      // Performing insert query execution
           // here our table name is college
-          $sql = "INSERT INTO  13_employee(branch_id,employee_id,employee_name,employee_father_name,employee_address_one,employee_address_two,city,pincode,dob,mobile_no,email_address,department_id,designation_id,shift_id,attendance,weekoff,passwordd,confirm_password,emp_image) VALUES ('$branch','$employee_id','$employee_name','$employee_fateher_name','$employee_address_1','$employee_address_2','$city','$pincode','$dob','$mobile_no','$email_address','$department','$designation','$shift','$attendance_type','$weekoff','$password','$confirm_password','$image')";
+          $sql = "INSERT INTO  13_employee(branch_id,employee_id,employee_name,employee_father_name,employee_address_one,employee_address_two,city,pincode,dob,mobile_no,email_address,department_id,designation_id,shift_id,attendance,weekoff,passwordd,confirm_password,emp_image,sapp_login) VALUES ('$branch','$employee_id','$employee_name','$employee_fateher_name','$employee_address_1','$employee_address_2','$city','$pincode','$dob','$mobile_no','$email_address','$department','$designation','$shift','$attendance_type','$weekoff','$password','$confirm_password','$image',$sapp_enable)";
            
           if(mysqli_query($conn, $sql)){
             
@@ -401,6 +406,16 @@ if($empcnt==$maxemployee){
           <br>
           <input id="confirm_pass"class="form-control"type="password"name="confirm_password"required onkeyup="validate_password()">
           <span class="fa fa-eye-slash" id="toggle-password2"></span>
+        </div>
+        <div class="form-group position-relative">
+          <label>Enable Supervisor App Login</label>
+          <br>
+          <div class="onoffswitch" style="margin-left: 0px;">
+<input type="checkbox" name="sapp_enable" class="onoffswitch-checkbox" id="sapp_enable" value="no">
+<label class="onoffswitch-label" for="sapp_enable">
+<span class="onoffswitch-inner"></span>
+<span class="onoffswitch-switch"></span></label>
+</div>
         </div>
 
         <div class="form-group">
