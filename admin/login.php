@@ -27,13 +27,13 @@ require('../config/webconfig.php');
 			<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
     <style type="text/css">
-
-/* .style1 {color: #FF0000}
+<!--
+.style1 {color: #FF0000}
 .style2 {
 	font-size: 16px;
 	color: #003366;
-} */
-
+}
+-->
     </style>
 </head>
 

@@ -1,0 +1,663 @@
+[20-Sep-2022 13:48:01 UTC] PHP Warning:  Undefined array key "empid" in /home/ascsamsi/public_html/demo/empapi/list-live-tracking.php on line 4
+[21-Sep-2022 03:43:38 UTC] PHP Warning:  Undefined array key "emp_id" in /home/ascsamsi/public_html/demo/empapi/attendance-list-empid.php on line 4
+[21-Sep-2022 07:20:37 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMI 1' at line 1 in /home/ascsamsi/public_html/demo/empapi/list-live-tracking.php:5
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/list-live-tracking.php(5): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/list-live-tracking.php on line 5
+[21-Sep-2022 07:51:32 UTC] PHP Warning:  Undefined variable $emp_id in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 16
+[21-Sep-2022 07:51:48 UTC] PHP Warning:  Undefined variable $emp_id in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 16
+[21-Sep-2022 07:52:37 UTC] PHP Warning:  Undefined variable $emp_id in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 16
+[21-Sep-2022 07:54:58 UTC] PHP Warning:  Undefined variable $emp_id in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 16
+[21-Sep-2022 07:57:01 UTC] PHP Warning:  Undefined variable $date in /home/ascsamsi/public_html/demo/empapi/check.php on line 4
+[21-Sep-2022 07:57:24 UTC] PHP Warning:  Undefined variable $date in /home/ascsamsi/public_html/demo/empapi/check.php on line 4
+[21-Sep-2022 07:57:47 UTC] PHP Warning:  Undefined variable $date in /home/ascsamsi/public_html/demo/empapi/check.php on line 4
+[21-Sep-2022 07:57:47 UTC] PHP Warning:  Undefined variable $date in /home/ascsamsi/public_html/demo/empapi/check.php on line 5
+[21-Sep-2022 07:59:11 UTC] PHP Warning:  Undefined variable $emp_id in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 16
+[21-Sep-2022 07:59:35 UTC] PHP Warning:  Undefined variable $emp_id in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 16
+[21-Sep-2022 07:59:35 UTC] PHP Warning:  Undefined variable $emp_id in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 17
+[21-Sep-2022 08:04:32 UTC] PHP Warning:  Undefined variable $isfirst in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 20
+[21-Sep-2022 08:04:32 UTC] PHP Warning:  Undefined variable $islast in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 20
+[21-Sep-2022 08:04:32 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'isfirst' in 'field list' in /home/ascsamsi/public_html/demo/empapi/add-attendance.php:22
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/add-attendance.php(22): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 22
+[21-Sep-2022 08:04:35 UTC] PHP Warning:  Undefined variable $isfirst in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 20
+[21-Sep-2022 08:04:35 UTC] PHP Warning:  Undefined variable $islast in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 20
+[21-Sep-2022 08:04:35 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'isfirst' in 'field list' in /home/ascsamsi/public_html/demo/empapi/add-attendance.php:22
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/add-attendance.php(22): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 22
+[21-Sep-2022 08:09:15 UTC] PHP Warning:  Undefined array key "id" in /home/ascsamsi/public_html/demo/empapi/attendance-list-empid.php on line 12
+[21-Sep-2022 08:09:35 UTC] PHP Warning:  Undefined array key "id" in /home/ascsamsi/public_html/demo/empapi/attendance-list-empid.php on line 12
+[21-Sep-2022 08:10:10 UTC] PHP Warning:  Undefined array key "id" in /home/ascsamsi/public_html/demo/empapi/attendance-list-empid.php on line 10
+[21-Sep-2022 08:10:19 UTC] PHP Warning:  Undefined array key "id" in /home/ascsamsi/public_html/demo/empapi/attendance-list-empid.php on line 10
+[21-Sep-2022 08:10:44 UTC] PHP Warning:  Undefined array key "id" in /home/ascsamsi/public_html/demo/empapi/attendance-list-empid.php on line 10
+[21-Sep-2022 08:11:09 UTC] PHP Warning:  Array to string conversion in /home/ascsamsi/public_html/demo/empapi/attendance-list-empid.php on line 11
+[21-Sep-2022 08:11:34 UTC] PHP Warning:  Undefined array key "id" in /home/ascsamsi/public_html/demo/empapi/attendance-list-empid.php on line 11
+[21-Sep-2022 08:12:07 UTC] PHP Warning:  Undefined array key "id" in /home/ascsamsi/public_html/demo/empapi/attendance-list-empid.php on line 12
+[21-Sep-2022 08:12:24 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "id" in /home/ascsamsi/public_html/demo/empapi/attendance-list-empid.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/attendance-list-empid.php on line 12
+[21-Sep-2022 08:12:49 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "id" in /home/ascsamsi/public_html/demo/empapi/attendance-list-empid.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/attendance-list-empid.php on line 12
+[21-Sep-2022 08:17:39 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=='IN' AND date='20/9/2022'' at line 1 in /home/ascsamsi/public_html/demo/empapi/add-attendance.php:15
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/add-attendance.php(15): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 15
+[21-Sep-2022 08:18:35 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=='IN' AND date='20/9/2022'' at line 1 in /home/ascsamsi/public_html/demo/empapi/add-attendance.php:15
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/add-attendance.php(15): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 15
+[21-Sep-2022 08:18:56 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=='IN' AND date='20/9/2022'' at line 1 in /home/ascsamsi/public_html/demo/empapi/add-attendance.php:15
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/add-attendance.php(15): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 15
+[21-Sep-2022 08:19:07 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=='IN' AND date='20/9/2022'' at line 1 in /home/ascsamsi/public_html/demo/empapi/add-attendance.php:15
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/add-attendance.php(15): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 15
+[21-Sep-2022 08:19:24 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=='IN' AND date='20/9/2022'' at line 1 in /home/ascsamsi/public_html/demo/empapi/add-attendance.php:15
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/add-attendance.php(15): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 15
+[21-Sep-2022 11:50:14 UTC] PHP Warning:  Undefined array key "branch_id" in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 4
+[21-Sep-2022 11:50:14 UTC] PHP Warning:  Undefined array key "branch_id" in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 4
+[21-Sep-2022 11:50:14 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 11:50:14 UTC] PHP Warning:  Undefined array key "branch_id" in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 4
+[21-Sep-2022 11:50:14 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 11:50:14 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 12:24:44 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 12:26:19 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 12:28:06 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 12:29:39 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 12:39:53 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 12:40:23 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 12:51:02 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 12:53:13 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 12:54:37 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 12:55:54 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 12:56:20 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:00:44 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:00:44 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:15:26 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:16:07 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:18:46 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:19:16 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:23:14 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:23:26 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:24:35 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:24:44 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:26:57 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:30:56 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:31:27 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:31:35 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:32:54 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[21-Sep-2022 13:33:24 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[22-Sep-2022 04:36:56 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','77.45','IN',1,0)' at line 1 in /home/ascsamsi/public_html/demo/empapi/add-attendance.php:56
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/add-attendance.php(56): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 56
+[22-Sep-2022 04:38:16 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','77.45','IN',1,0)' at line 1 in /home/ascsamsi/public_html/demo/empapi/add-attendance.php:56
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/add-attendance.php(56): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 56
+[22-Sep-2022 05:59:41 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[22-Sep-2022 06:16:45 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[22-Sep-2022 06:18:24 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[22-Sep-2022 06:20:49 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[23-Sep-2022 03:21:43 UTC] PHP Warning:  Undefined variable $sql in /home/ascsamsi/public_html/demo/empapi/check.php on line 9
+[23-Sep-2022 03:21:43 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_all(): Argument #1 ($result) must be of type mysqli_result, null given in /home/ascsamsi/public_html/demo/empapi/check.php:9
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/check.php(9): mysqli_fetch_all()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/check.php on line 9
+[23-Sep-2022 03:22:14 UTC] PHP Warning:  Undefined variable $sql in /home/ascsamsi/public_html/demo/empapi/check.php on line 9
+[23-Sep-2022 03:22:14 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_all(): Argument #1 ($result) must be of type mysqli_result, null given in /home/ascsamsi/public_html/demo/empapi/check.php:9
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/check.php(9): mysqli_fetch_all()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/check.php on line 9
+[23-Sep-2022 03:24:54 UTC] PHP Warning:  Undefined array key "time_stamp" in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 11
+[23-Sep-2022 03:24:54 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 11
+[23-Sep-2022 03:24:54 UTC] PHP Warning:  Undefined variable $emp_id in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 17
+[23-Sep-2022 03:25:20 UTC] PHP Warning:  Undefined variable $emp_id in /home/ascsamsi/public_html/demo/empapi/add-attendance.php on line 17
+[23-Sep-2022 03:52:49 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'unique(21_attendance_type.employee_id),13_employee.employee_name,13_employee.emp' at line 1 in /home/ascsamsi/public_html/demo/empapi/attendance-list-date.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/attendance-list-date.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/attendance-list-date.php on line 10
+[23-Sep-2022 03:58:02 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '13_employee.id NOT IN (21_attendance_type.employee_id)' at line 5 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 10
+[23-Sep-2022 04:03:35 UTC] PHP Warning:  Undefined variable $conn in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 4
+[23-Sep-2022 04:03:35 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:5
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(5): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 5
+[23-Sep-2022 04:03:53 UTC] PHP Warning:  Undefined variable $conn in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 4
+[23-Sep-2022 04:03:53 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:5
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(5): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 5
+[23-Sep-2022 04:03:55 UTC] PHP Warning:  Undefined variable $conn in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 4
+[23-Sep-2022 04:03:55 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:5
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(5): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 5
+[23-Sep-2022 04:03:57 UTC] PHP Warning:  Undefined variable $conn in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 4
+[23-Sep-2022 04:03:57 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:5
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(5): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 5
+[23-Sep-2022 04:04:05 UTC] PHP Warning:  Undefined variable $conn in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 4
+[23-Sep-2022 04:04:05 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:5
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(5): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 5
+[23-Sep-2022 04:06:48 UTC] PHP Warning:  Undefined variable $conn in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 4
+[23-Sep-2022 04:06:48 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:5
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(5): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 5
+[23-Sep-2022 04:11:22 UTC] PHP Warning:  Array to string conversion in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 10
+[23-Sep-2022 04:11:22 UTC] PHP Warning:  Array to string conversion in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 10
+[23-Sep-2022 04:12:43 UTC] PHP Warning:  Array to string conversion in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 10
+[23-Sep-2022 04:13:05 UTC] PHP Warning:  Array to string conversion in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 10
+[23-Sep-2022 04:20:43 UTC] PHP Warning:  Undefined array key "branch" in /home/ascsamsi/public_html/demo/empapi/attendance-list-date.php on line 5
+[23-Sep-2022 05:27:18 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id=''' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[23-Sep-2022 06:41:46 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[24-Sep-2022 10:48:44 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[24-Sep-2022 10:48:46 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[24-Sep-2022 10:49:52 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[24-Sep-2022 10:49:53 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[24-Sep-2022 10:51:30 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[24-Sep-2022 10:51:31 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[24-Sep-2022 10:51:35 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[24-Sep-2022 10:51:36 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[24-Sep-2022 11:08:00 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='2'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[24-Sep-2022 11:08:01 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='2'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:26:22 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:26:23 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:26:44 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[25-Sep-2022 06:29:53 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[25-Sep-2022 06:30:52 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:30:53 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:31:51 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:31:52 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:32:30 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[25-Sep-2022 06:56:17 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[25-Sep-2022 06:56:21 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[25-Sep-2022 06:56:28 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:56:28 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:56:30 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:56:31 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:57:20 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:57:22 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:57:24 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 06:57:25 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 11:22:05 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[25-Sep-2022 11:22:25 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[25-Sep-2022 11:22:28 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 11:22:30 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 11:22:31 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 11:22:32 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 11:26:59 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 11:27:01 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[25-Sep-2022 11:34:43 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[25-Sep-2022 13:42:27 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[25-Sep-2022 14:11:05 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[25-Sep-2022 14:11:20 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[25-Sep-2022 14:11:32 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[25-Sep-2022 16:00:08 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[27-Sep-2022 04:52:32 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[27-Sep-2022 05:46:44 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[27-Sep-2022 07:59:57 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[27-Sep-2022 08:51:21 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[28-Sep-2022 05:28:30 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[28-Sep-2022 06:24:01 UTC] PHP Warning:  Undefined array key "employee_id" in /home/ascsamsi/public_html/demo/empapi/note-list.php on line 4
+[28-Sep-2022 06:26:30 UTC] PHP Warning:  Undefined array key "attendance_type" in /home/ascsamsi/public_html/demo/empapi/getnumberofday_inmonthemp.php on line 12
+[28-Sep-2022 06:27:52 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '{widget.empId}' at line 1 in /home/ascsamsi/public_html/demo/empapi/getnumberofday_inmonthemp.php:7
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/getnumberofday_inmonthemp.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/getnumberofday_inmonthemp.php on line 7
+[28-Sep-2022 06:34:46 UTC] PHP Warning:  A non-numeric value encountered in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 8
+[28-Sep-2022 06:34:46 UTC] PHP Warning:  A non-numeric value encountered in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 8
+[28-Sep-2022 06:35:51 UTC] PHP Warning:  A non-numeric value encountered in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 8
+[28-Sep-2022 06:35:51 UTC] PHP Warning:  A non-numeric value encountered in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 8
+[28-Sep-2022 06:36:17 UTC] PHP Warning:  A non-numeric value encountered in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 8
+[28-Sep-2022 06:36:17 UTC] PHP Warning:  A non-numeric value encountered in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 8
+[28-Sep-2022 06:39:26 UTC] PHP Fatal error:  Uncaught Exception: Failed to parse time string (23/9/2022) at position 0 (2): Unexpected character in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php:8
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php(8): DateTime->__construct()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 8
+[28-Sep-2022 06:39:37 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '{widget.empId}' at line 1 in /home/ascsamsi/public_html/demo/empapi/getnumberofday_inmonthemp.php:7
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/getnumberofday_inmonthemp.php(7): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/getnumberofday_inmonthemp.php on line 7
+[28-Sep-2022 06:39:43 UTC] PHP Fatal error:  Uncaught Exception: Failed to parse time string (23/9/2022) at position 0 (2): Unexpected character in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php:8
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php(8): DateTime->__construct()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 8
+[28-Sep-2022 06:39:52 UTC] PHP Fatal error:  Uncaught Exception: Failed to parse time string (23/9/2022) at position 0 (2): Unexpected character in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php:8
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php(8): DateTime->__construct()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 8
+[28-Sep-2022 06:40:17 UTC] PHP Fatal error:  Uncaught Exception: Failed to parse time string (23/9/2022) at position 0 (2): Unexpected character in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php:8
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php(8): DateTime->__construct()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 8
+[28-Sep-2022 06:41:06 UTC] PHP Fatal error:  Uncaught Exception: Failed to parse time string (23/9/2022) at position 0 (2): Unexpected character in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php:8
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php(8): DateTime->__construct()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 8
+[28-Sep-2022 06:41:09 UTC] PHP Fatal error:  Uncaught Exception: Failed to parse time string (23/9/2022) at position 0 (2): Unexpected character in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php:8
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php(8): DateTime->__construct()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 8
+[28-Sep-2022 06:41:10 UTC] PHP Fatal error:  Uncaught Exception: Failed to parse time string (23/9/2022) at position 0 (2): Unexpected character in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php:8
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php(8): DateTime->__construct()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 8
+[28-Sep-2022 06:47:22 UTC] PHP Fatal error:  Uncaught TypeError: date_format(): Argument #1 ($object) must be of type DateTimeInterface, bool given in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php:18
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php(18): date_format()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 18
+[28-Sep-2022 06:49:21 UTC] PHP Warning:  Undefined variable $date1 in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 25
+[28-Sep-2022 06:49:21 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 25
+[28-Sep-2022 06:49:21 UTC] PHP Warning:  Undefined variable $date2 in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 26
+[28-Sep-2022 06:49:21 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 26
+[28-Sep-2022 06:49:50 UTC] PHP Warning:  Undefined variable $date1 in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 26
+[28-Sep-2022 06:49:50 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 26
+[28-Sep-2022 06:49:50 UTC] PHP Warning:  Undefined variable $date2 in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 27
+[28-Sep-2022 06:49:50 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 27
+[28-Sep-2022 06:50:13 UTC] PHP Warning:  Undefined variable $date1 in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 26
+[28-Sep-2022 06:50:13 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 26
+[28-Sep-2022 06:50:13 UTC] PHP Warning:  Undefined variable $date2 in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 27
+[28-Sep-2022 06:50:13 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 27
+[28-Sep-2022 07:07:17 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '{widget.empId}' at line 1 in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php:11
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php(11): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/get_numberofday_employee.php on line 11
+[28-Sep-2022 12:45:49 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[28-Sep-2022 12:46:09 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[28-Sep-2022 14:19:34 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6 in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php:10
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10

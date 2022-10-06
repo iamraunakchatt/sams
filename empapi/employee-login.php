@@ -28,7 +28,7 @@ include('../config/webconfig.php');
 	else
 	{$valid_pwd=$pwd;}
 	
-	$sql=mysqli_query($conn,"SELECT  employee_name, branch_id ,id FROM  13_employee  WHERE  passwordd='$pwd' AND status='1' AND sapp_login='1' AND(email_address='$valid_user'OR  mobile_no='$valid_user') ")or die(mysqli_error($conn));
+	$sql=mysqli_query($conn,"SELECT  employee_name, branch_id ,id FROM  13_employee  WHERE  passwordd='$pwd' AND status='1'  AND(email_address='$valid_user'OR  mobile_no='$valid_user') ")or die(mysqli_error($conn));
 	$row=mysqli_fetch_assoc($sql);
 
   
@@ -49,8 +49,7 @@ include('../config/webconfig.php');
 	}
 	elseif(($valid_user!="")&&($valid_pwd!=""))
 	{
-	    $abc=array("message"=>"Username Password Not Match");
-		echo json_encode(array($abc));
+		echo json_encode(array('message'=>'Username Password Not Match'));
 	}
 
 // }

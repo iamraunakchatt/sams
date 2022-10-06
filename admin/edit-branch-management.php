@@ -19,6 +19,7 @@
   $vlatitude=$data['latitude'];
   $vlongtitude=$data['longtitude'];
   $vradius_meter=$data['radius_meter'];
+  $vattendance_by=$data['attendance_by'];
 
 if (isset($_POST['save']))
 {
@@ -34,6 +35,7 @@ if (isset($_POST['save']))
     $latitudes=stripslashes(mysqli_real_escape_string($conn,$_POST['latitudes']));
     $longitude=stripslashes(mysqli_real_escape_string($conn,$_POST['longitude']));
     $radius_meter=stripslashes(mysqli_real_escape_string($conn,$_POST['radius_meter']));
+    $attendance_by=stripslashes(mysqli_real_escape_string($conn,$_POST['attendance_by']));
     
     $sql = "select * from  12_branch_management  where id='".$id."'"; 
     $result = mysqli_query($conn,$sql); 
@@ -42,7 +44,7 @@ if (isset($_POST['save']))
    
     if($branch_name==$vshift)
     {
-      $sql ="UPDATE  12_branch_management SET branch_type='".$branch_type."',branch_name='".$branch_name."',address_1='".$address_1."',address_2='".$address_2."',city='".$city."',pincode='".$pincode."',contact_no='".$contact_number."',attendance_type='".$attendance_type."',user_type='".$user_type."',latitude='".$latitudes."',longtitude='".$longitude."',radius_meter='".$radius_meter."' where id='".$id."'"; 
+      $sql ="UPDATE  12_branch_management SET branch_type='".$branch_type."',branch_name='".$branch_name."',address_1='".$address_1."',address_2='".$address_2."',city='".$city."',pincode='".$pincode."',contact_no='".$contact_number."',attendance_type='".$attendance_type."',user_type='".$user_type."',latitude='".$latitudes."',longtitude='".$longitude."',radius_meter='".$radius_meter."',attendance_by='".$attendance_by."' where id='".$id."'"; 
    
       // mysqli_query($conn,$sql);
      
@@ -232,6 +234,19 @@ if (isset($_POST['save']))
 <?php
            }
            ?>
+                   <div class="form-group">
+          <label>Attendance By</label>
+          <br>
+          <select name="attendance_by"class="form-control"required>
+              <option value="">Choose Attendance By</option>
+              
+                        <option value="0" <?php if($vattendance_by==0){ echo "selected";} ?>>Admin</option>
+                        <option value="1" <?php if($vattendance_by==1){ echo "selected";} ?>>Employee</option>
+           
+              
+              
+        </select>
+        </div>
       <div class="form-group">
           <label>Latitudes</label>
           <br>
@@ -258,6 +273,7 @@ if (isset($_POST['save']))
           <br>
           <input type="text"name="radius_meter"value="<?php echo $vradius_meter ?>"class="form-control"required>
         </div>
+
       <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
        

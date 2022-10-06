@@ -57,8 +57,7 @@ include('../config/webconfig.php');
 	}
 	elseif(($valid_id!="")&&($oldvalid_pwd!="")&&($newvalid_pwd!=""))
 	{
-	    $abc=array("message"=>"Password Not Match");
-		echo json_encode(array($abc));
+		echo json_encode(array('message'=>'Username Password Not Match'));
 	}
 
 // }

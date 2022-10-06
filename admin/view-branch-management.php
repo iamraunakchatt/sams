@@ -20,6 +20,7 @@ $vattendance_type=$data['attendance_type'];
 $vlatitude=$data['latitude'];
 $vlongtitude=$data['longtitude'];
 $vradius_meter=$data['radius_meter'];
+$vattendance_by=$data['attendance_by'];
 ?>
 
 
@@ -128,6 +129,12 @@ $vradius_meter=$data['radius_meter'];
         <label>Radius in Meter</label>
         <div class="">
          <?php echo $vradius_meter; ?>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label>Attendance By</label>
+        <div class="">
+         <?php if($attendance_by==0){echo "Admin";}else{echo "Employee";} ?>
         </div>
     </div>
     <?php

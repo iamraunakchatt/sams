@@ -36,7 +36,7 @@ if (isset($_POST['save']))
     $longitude=stripslashes(mysqli_real_escape_string($conn,$_POST['longitude']));
     $radius_meter=stripslashes(mysqli_real_escape_string($conn,$_POST['radius_meter']));
 
-    
+    $attendance_by=stripslashes(mysqli_real_escape_string($conn,$_POST['attendance_by']));
     
    // Performing insert query execution
         // here our table name is college
@@ -66,7 +66,7 @@ if (isset($_POST['save']))
 
 
 
-        $sql = "INSERT INTO   12_branch_management(branch_type,branch_name,address_1,address_2,city,pincode,contact_no,user_type,attendance_type,latitude,longtitude,radius_meter) VALUES ('$branch_type','$branch_name','$address_1','$address_2','$city','$pincode','$contact_number','$user_type','$attendance_type','$latitudes','$longitude','$radius_meter')";
+        $sql = "INSERT INTO   12_branch_management(branch_type,branch_name,address_1,address_2,city,pincode,contact_no,user_type,attendance_type,latitude,longtitude,radius_meter,attendance_by) VALUES ('$branch_type','$branch_name','$address_1','$address_2','$city','$pincode','$contact_number','$user_type','$attendance_type','$latitudes','$longitude','$radius_meter','$attendance_by')";
          
         if(mysqli_query($conn, $sql)){
           header("location: branch-managment.php?status=success");
@@ -247,7 +247,8 @@ if (isset($_POST['save']))
                 <option selected="selected" value="manual">Manual</option>
                 <option selected="selected" value="selfie">Selfie</option>
                 <?php
-                } ?>
+                } 
+                ?>
 
 </select>
 </div>
@@ -265,6 +266,19 @@ if (isset($_POST['save']))
               
         </select>
       </div>
+              <div class="form-group">
+          <label>Attendance By</label>
+          <br>
+          <select name="attendance_by"class="form-control"required>
+              <option value="">Choose Attendance By</option>
+              
+                        <option value="0">Admin</option>
+                        <option value="1">Employee</option>
+           
+              
+              
+        </select>
+        </div>
       <div class="form-group">
           <label>Latitudes</label>
           <br>
@@ -280,6 +294,7 @@ if (isset($_POST['save']))
           <br>
           <input type="text"name="radius_meter"class="form-control"required>
         </div>
+
       <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
        
