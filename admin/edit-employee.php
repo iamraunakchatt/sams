@@ -483,3 +483,27 @@ value="no"
 
 
 <?php include('include/footer.php'); ?>
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        var txtPassword = document.getElementById("pass");
+        var txtConfirmPassword = document.getElementById("confirm_pass");
+        txtPassword.onchange = ConfirmPassword;
+        txtConfirmPassword.onkeyup = ConfirmPassword;
+        function ConfirmPassword() {
+            txtConfirmPassword.setCustomValidity("");
+            if (txtPassword.value != txtConfirmPassword.value) {
+                txtConfirmPassword.setCustomValidity("Passwords do not match.");
+            }
+        }
+    }
+</script>
+<script>
+    imgInp1.onchange = evt => {
+  const [file] = imgInp1.files
+  if (file) {
+    blah1.src = URL.createObjectURL(file)
+  }
+}
+</script>

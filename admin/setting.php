@@ -101,15 +101,15 @@ echo "<script type='text/javascript'> document.location = 'setting.php?status=su
 <div class="col-sm-6">
 <div class="form-group position-relative">
 <label>Admin Change Password</label>
-<input class="form-control" placeholder="Set This Password For Admin" type="password"  id="txtPassword" name="sppassword">
-<span class="fa fa-eye-slash" id="toggle-password3"></span>
+<input class="form-control" placeholder="Set This Password For Admin" type="password"  id="pass" name="sppassword">
+<span class="fa fa-eye-slash" id="toggle-password1"></span>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="form-group position-relative">
 <label>Admin Confirm Change Password</label>
-<input class="form-control" id="txtConfirmPassword" placeholder="Repeat Admin New Password" type="password" >
-<span class="fa fa-eye-slash" id="toggle-password4"></span>
+<input class="form-control"   id="confirm_pass" placeholder="Repeat Admin New Password" type="password" >
+<span class="fa fa-eye-slash" id="toggle-password2"></span>
 </div>
 </div>
 </div>
@@ -135,8 +135,8 @@ echo "<script type='text/javascript'> document.location = 'setting.php?status=su
 <?php include('include/footer.php'); ?>
 <script type="text/javascript">
     window.onload = function () {
-        var txtPassword = document.getElementById("txtPassword");
-        var txtConfirmPassword = document.getElementById("txtConfirmPassword");
+        var txtPassword = document.getElementById("pass");
+        var txtConfirmPassword = document.getElementById("confirm_pass");
         txtPassword.onchange = ConfirmPassword;
         txtConfirmPassword.onkeyup = ConfirmPassword;
         function ConfirmPassword() {

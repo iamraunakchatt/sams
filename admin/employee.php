@@ -140,14 +140,14 @@ if($empcnt==$maxemployee){
 <tbody>
 <?php
     $i=1;
-    $sql=mysqli_query($conn,"SELECT * FROM `13_employee`")or die(mysqli_error($conn));
+    $sql=mysqli_query($conn,"SELECT * FROM 13_employee ORDER BY employee_name;")or die(mysqli_error($conn));
     while($row=mysqli_fetch_array($sql))
     {
-      $eid=$row['id'];
-$bid=$row['branch_id'];
-$depid=$row['department_id'];
-$desid=$row['designation_id'];
-$status=$row['status'];
+        $eid=$row['id'];
+        $bid=$row['branch_id'];
+        $depid=$row['department_id'];
+        $desid=$row['designation_id'];
+        $status=$row['status'];
       $statement1 = $connection->prepare(
         "SELECT * FROM 12_branch_management where id=$bid"
          );

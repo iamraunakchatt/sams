@@ -91,7 +91,7 @@ if (isset($_POST['save']))
 <tbody>
 <?php
     $i=1;
-    $sql=mysqli_query($conn,"select * from  08_deative_reason_management")or die(mysqli_error($con));
+    $sql=mysqli_query($conn,"select * from  08_deative_reason_management ORDER BY deactive_reason;")or die(mysqli_error($con));
     while($row=mysqli_fetch_array($sql))
     {
       echo '<tr>

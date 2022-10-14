@@ -1,4 +1,47 @@
 <?php include('include/header.php'); ?>
+
+
+<?php 
+  include('../config/webconfig.php');
+  session_start();
+
+if (isset($_POST['approve']))
+{
+    $approve=stripslashes(mysqli_real_escape_string($conn,$_POST['approve']));
+    $status=stripslashes(mysqli_real_escape_string($conn,$_POST['status']));
+ 
+    $sql ="UPDATE 019_leave_request SET status='".$approve."' where id='".$status."'"; 
+    if(mysqli_query($conn, $sql)){
+       
+        header("Location: manage-leave.php?status=editsuccess");    
+               
+    } else{
+        echo "ERROR: Data! Not Update $sql. "
+            . mysqli_error($conn);
+    }
+}
+?>
+
+<?php 
+  include('../config/webconfig.php');
+ 
+
+if (isset($_POST['decline']))
+{
+    $decline=stripslashes(mysqli_real_escape_string($conn,$_POST['decline']));
+    $status=stripslashes(mysqli_real_escape_string($conn,$_POST['status']));
+ 
+    $sql ="UPDATE   019_leave_request SET status='".$decline."' where id='".$status."'"; 
+    if(mysqli_query($conn, $sql)){
+       
+        header("Location: manage-leave.php?status=editsuccess");    
+               
+    } else{
+        echo "ERROR: Data! Not Update $sql. "
+            . mysqli_error($conn);
+    }
+}
+?>
 <div class="page-wrapper">
 
     <div class="content container-fluid">
@@ -20,29 +63,75 @@
 
 
         <div class="row">
+            <a href="manage-leave.php?leaverequest=all">
             <div class="col-md-3">
                 <div class="stats-info">
                     <h6>Today Presents</h6>
-                    <h4>12 / 60</h4>
+                    <h4>
+                    <?php
+                    $sql="SELECT * from 019_leave_request";
+
+                    if ($result = mysqli_query($conn, $sql)) {
+                     $rowcount = mysqli_num_rows( $result );
+                     echo  $rowcount;
+                    }
+                    ?>
+                   
+                    </h4>
                 </div>
+                </a>
             </div>
             <div class="col-md-3">
+                <a href="manage-leave.php?leaverequest=1">
                 <div class="stats-info">
-                    <h6>Planned Leaves</h6>
-                    <h4>8 <span>Today</span></h4>
+                    <h6>Approve Leaves</h6>
+                    <h4>
+                    <?php
+                    $sql="SELECT * from 019_leave_request where status=1";
+
+                    if ($result = mysqli_query($conn, $sql)) {
+                     $rowcount = mysqli_num_rows( $result );
+                     echo  $rowcount;
+                    }
+                    ?>  
+                   
+                    </h4>
                 </div>
+                </a>
             </div>
             <div class="col-md-3">
+               <a href="manage-leave.php?leaverequest=2">
                 <div class="stats-info">
-                    <h6>Unplanned Leaves</h6>
-                    <h4>0 <span>Today</span></h4>
+                    <h6>Rejected Leaves</h6>
+                    <h4> 
+                    <?php
+                    $sql="SELECT * from 019_leave_request where status=2";
+
+                    if ($result = mysqli_query($conn, $sql)) {
+                     $rowcount = mysqli_num_rows( $result );
+                     echo  $rowcount;
+                    }
+                    ?> 
+                    </h4>
                 </div>
+                </a>
             </div>
             <div class="col-md-3">
+                <a href="manage-leave.php?leaverequest=0">
                 <div class="stats-info">
-                    <h6>Pending Requests</h6>
-                    <h4>12</h4>
+                    <h6>Pending Leaves</h6>
+                    <h4>
+                    <?php
+                    $sql="SELECT * from 019_leave_request where status=0";
+
+                    if ($result = mysqli_query($conn, $sql)) {
+                     $rowcount = mysqli_num_rows( $result );
+                     echo  $rowcount;
+                    }
+                    ?>
+                    </h4>
                 </div>
+                </a>
             </div>
         </div>
 
@@ -94,7 +183,7 @@
             </div>
             <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
                 <a href="#" class="btn btn-success w-100" style="background-color: #ff9b44;
-    background: linear-gradient(to right, #273596 0%, #0975C5 100%)!important;"> Search </a>
+                background: linear-gradient(to right, #273596 0%, #0975C5 100%)!important;"> Search </a>
             </div>
         </div>
 
@@ -115,31 +204,83 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                        <?php
+                            $i=1;
+                            
+                            if (isset($_GET['leaverequest']))
+                            {
+                                $leaverequest=$_GET['leaverequest'];
+
+                                if($leaverequest=='all')
+                                {
+                                $sql=mysqli_query($conn,"select * from 019_leave_request")or die(mysqli_error($con));
+                                }
+                                else
+                                {
+                                $sql=mysqli_query($conn,"select * from 019_leave_request where status='$leaverequest'")or die(mysqli_error($con));
+                                }
+                            }
+                            else
+                            {
+                               $sql=mysqli_query($conn,"select * from 019_leave_request")or die(mysqli_error($con));
+                            }
+
+                            while($row=mysqli_fetch_array($sql))
+                            {
+                        ?>
                             <tr>
                                 <td>
+                                <?php    
+                                    $sqll = "select * from 13_employee where id='".$row['emp_id']."'";
+                                    $result = mysqli_query($conn,$sqll); 
+                                    while($row5=mysqli_fetch_array($result))
+                                    {
+                                   ?>   
                                     <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/avatar-09.jpg"></a>
-                                        <a href="#">Richard Miles <span>Web Developer</span></a>
+                                        <a href="profile.html" class="avatar"><img alt=""src="userimg/<?php echo $row5['emp_image']; ?>"></a>
+                                        <a href="#"><?php echo $row5['employee_name']; ?></a>
                                     </h2>
+                                <?php 
+                                    }
+                                ?>
+                                
                                 </td>
                                 <td>Casual Leave</td>
-                                <td>8 Mar 2019</td>
-                                <td>9 Mar 2019</td>
-                                <td>2 days</td>
-                                <td>Going to Hospital</td>
+                                <td><?php echo $row['from_date']; ?></td>
+                                <td><?php echo $row['to_date']; ?></td>
+                                <td>  
+                                
+
+                               </td>
+                                <td><?php echo $row['reason'];?></td>
                                 <td class="text-center">
                                     <div class="dropdown action-label">
                                         <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-dot-circle-o text-purple"></i> New
+                                            <?php  
+                                            if($row['status']==0)
+                                            {
+                                               echo "Pending";
+                                            }
+                                            elseif($row['status']==1)
+                                            {
+                                                echo "Approved";
+                                            }
+                                            elseif($row['status']==2)
+                                            {
+                                                echo "Declined";
+                                            }
+                                            ?>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i> Approved</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a>
+                                           
+                                            <a class="dropdown-item" href="#" data-bs-toggle="modal"data-bs-target="#approve_leave<?php echo $row['id'];?>"><i class="fa fa-dot-circle-o text-success"></i>Approved</a>
+
+                                            <a class="dropdown-item" href="#" data-bs-toggle="modal"data-bs-target="#declined_leave<?php echo $row['id'];?>"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a>
                                         </div>
                                     </div>
                                 </td>
+
                                 <td class="text-end">
                                     <div class="dropdown dropdown-action">
                                         <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -150,391 +291,11 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
-                                        <a> John Doe <span>Web Designer</span></a>
-                                    </h2>
-                                </td>
-                                <td>Medical Leave</td>
-                                <td>27 Feb 2019</td>
-                                <td>27 Feb 2019</td>
-                                <td>1 day</td>
-                                <td>Going to Hospital</td>
-                                <td class="text-center">
-                                    <div class="dropdown action-label">
-                                        <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-dot-circle-o text-success"></i> Approved
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i> Approved</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/avatar-10.jpg"></a>
-                                        <a>John Smith <span>Android Developer</span></a>
-                                    </h2>
-                                </td>
-                                <td>LOP</td>
-                                <td>24 Feb 2019</td>
-                                <td>25 Feb 2019</td>
-                                <td>2 days</td>
-                                <td>Personnal</td>
-                                <td class="text-center">
-                                    <div class="dropdown action-label">
-                                        <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-dot-circle-o text-success"></i> Approved
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i> Approved</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/avatar-05.jpg"></a>
-                                        <a>Mike Litorus <span>IOS Developer</span></a>
-                                    </h2>
-                                </td>
-                                <td>Paternity Leave</td>
-                                <td>13 Feb 2019</td>
-                                <td>17 Feb 2019</td>
-                                <td>5 days</td>
-                                <td>Going to Hospital</td>
-                                <td class="text-center">
-                                    <div class="dropdown action-label">
-                                        <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-dot-circle-o text-danger"></i> Declined
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i> Approved</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/avatar-24.jpg"></a>
-                                        <a>Richard Parker <span>Web Developer</span></a>
-                                    </h2>
-                                </td>
-                                <td>Casual Leave</td>
-                                <td>30 Jan 2019</td>
-                                <td>31 Jan 2019</td>
-                                <td>2 days</td>
-                                <td>Going to Hospital</td>
-                                <td class="text-center">
-                                    <div class="dropdown action-label">
-                                        <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-dot-circle-o text-purple"></i> New
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i> Approved</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/avatar-08.jpg"></a>
-                                        <a>Catherine Manseau <span>Web Developer</span></a>
-                                    </h2>
-                                </td>
-                                <td>Maternity Leave</td>
-                                <td>5 Jan 2019</td>
-                                <td>15 Jan 2019</td>
-                                <td>10 days</td>
-                                <td>Going to Hospital</td>
-                                <td class="text-center">
-                                    <div class="dropdown action-label">
-                                        <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-dot-circle-o text-success"></i> Approved
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i> Approved</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/avatar-15.jpg"></a>
-                                        <a>Buster Wigton <span>Web Developer</span></a>
-                                    </h2>
-                                </td>
-                                <td>Hospitalisation</td>
-                                <td>15 Jan 2019</td>
-                                <td>25 Jan 2019</td>
-                                <td>10 days</td>
-                                <td>Going to Hospital</td>
-                                <td class="text-center">
-                                    <div class="dropdown action-label">
-                                        <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-dot-circle-o text-success"></i> Approved
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i> Approved</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/avatar-20.jpg"></a>
-                                        <a>Melita Faucher <span>Web Developer</span></a>
-                                    </h2>
-                                </td>
-                                <td>Casual Leave</td>
-                                <td>13 Jan 2019</td>
-                                <td>14 Jan 2019</td>
-                                <td>2 days</td>
-                                <td>Going to Hospital</td>
-                                <td class="text-center">
-                                    <div class="dropdown action-label">
-                                        <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-dot-circle-o text-danger"></i> Declined
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i> Approved</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/avatar-03.jpg"></a>
-                                        <a>Tarah Shropshire <span>Web Developer</span></a>
-                                    </h2>
-                                </td>
-                                <td>Casual Leave</td>
-                                <td>10 Jan 2019</td>
-                                <td>10 Jan 2019</td>
-                                <td>1 day</td>
-                                <td>Going to Hospital</td>
-                                <td class="text-center">
-                                    <div class="dropdown action-label">
-                                        <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-dot-circle-o text-purple"></i> New
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i> Approved</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/avatar-20.jpg"></a>
-                                        <a>Domenic Houston <span>Web Developer</span></a>
-                                    </h2>
-                                </td>
-                                <td>Casual Leave</td>
-                                <td>10 Jan 2019</td>
-                                <td>11 Jan 2019</td>
-                                <td>2 days</td>
-                                <td>Going to Hospital</td>
-                                <td class="text-center">
-                                    <div class="dropdown action-label">
-                                        <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-dot-circle-o text-success"></i> Approved
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i> Approved</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
-                                        <a>John Doe <span>Web Designer</span></a>
-                                    </h2>
-                                </td>
-                                <td>Casual Leave</td>
-                                <td>9 Jan 2019</td>
-                                <td>10 Jan 2019</td>
-                                <td>2 days</td>
-                                <td>Going to Hospital</td>
-                                <td class="text-center">
-                                    <div class="dropdown action-label">
-                                        <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-dot-circle-o text-success"></i> Approved
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i> Approved</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/avatar-25.jpg"></a>
-                                        <a>Rolland Webber <span>Web Developer</span></a>
-                                    </h2>
-                                </td>
-                                <td>Casual Leave</td>
-                                <td>7 Jan 2019</td>
-                                <td>8 Jan 2019</td>
-                                <td>2 days</td>
-                                <td>Going to Hospital</td>
-                                <td class="text-center">
-                                    <div class="dropdown action-label">
-                                        <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-dot-circle-o text-danger"></i> Declined
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i> Approved</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php
+                            }
+                            ?>
+                         
+
                         </tbody>
                     </table>
                 </div>
@@ -648,8 +409,16 @@
         </div>
     </div>
 
+                           <?php
+                            $i=1;
 
-    <div class="modal custom-modal fade" id="approve_leave" role="dialog">
+                            $sql=mysqli_query($conn,"select * from 019_leave_request")or die(mysqli_error($con));
+
+                            while($row=mysqli_fetch_array($sql))
+                            {
+                            
+                            ?>
+    <div class="modal custom-modal fade" id="approve_leave<?php echo $row['id']; ?>" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
@@ -660,10 +429,16 @@
                     <div class="modal-btn delete-action">
                         <div class="row">
                             <div class="col-6">
-                                <a href="javascript:void(0);" class="btn btn-primary continue-btn">Approve</a>
+                                <form method="POST">
+                                <input type="hidden"name="status"value="<?php echo $row['id'];?>">
+                                <input type="hidden"name="approve"value="1">
+                                <button type="submit" class="btn btn-primary continue-btn"style="padding:10px 70px;">Approve</button>
+                                </form>
                             </div>
                             <div class="col-6">
-                                <a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">Decline</a>
+
+                            <a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+                               
                             </div>
                         </div>
                     </div>
@@ -671,9 +446,50 @@
             </div>
         </div>
     </div>
+<?php }?>
 
 
-    <div class="modal custom-modal fade" id="delete_approve" role="dialog">
+
+<?php
+                            $i=1;
+                            $sql=mysqli_query($conn,"select * from 019_leave_request")or die(mysqli_error($con));
+                            while($row=mysqli_fetch_array($sql))
+                            {
+                            ?>
+    <div class="modal custom-modal fade" id="declined_leave<?php echo $row['id']; ?>" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-header">
+                        <h3>Leave Declined</h3>
+                        <p>Are you sure want to decline for this leave?</p>
+                    </div>
+                    <div class="modal-btn delete-action">
+                        <div class="row">
+                            <div class="col-6">
+                            <form method="POST">
+                                <input type="hidden"name="status"value="<?php echo $row['id'];?>">
+                                <input type="hidden"name="decline"value="2">
+                                <button type="submit" class="btn btn-primary continue-btn"style="padding:10px 70px;">Decline</button>
+                            </form>
+                            </div>
+                            <div class="col-6">
+
+                            <a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php }?>
+
+
+
+
+<div class="modal custom-modal fade" id="delete_approve" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
@@ -701,4 +517,4 @@
 </div>
 
 
-<?php include('include/footer.php'); ?>>
+<?php include('include/footer.php'); ?>
