@@ -175,14 +175,34 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
 
 <li class="submenu" >
 <a href="#"><i class="la la-clock-o"></i> <span>LEAVE MANAGEMNT</span> <span class="menu-arrow"></span></a>
-<ul class="subsubmenu" style="<?php if($activePage =='manage-leave'){echo'display:block';}else{echo'display:none';} ?>">
+<ul class="subsubmenu" style="<?php if(($activePage =='manage-leave')||($activePage=="leave-management")){echo'display:block';}else{echo'display:none';} ?>">
+<li class="<?php if($activePage == 'leave-management'){echo 'active';}else{ echo '';} ?>">
+<a href="leave-management.php"><i class="la la-user-secret"></i> <span>Leave Type Managemnt</span></a>
+</li>
 
 <li class="<?php if($activePage == 'manage-leave'){echo 'active';}else{ echo '';} ?>">
 <a href="manage-leave.php"><i class="la la-user-secret"></i> <span>Leave Request</span></a>
 </li>
 
+
+
 <li class="<?php if($activePage == 'approval-of-leave'){echo 'active';}else{ echo '';} ?>">
-<a href="#"><i class="la la-check-square-o"></i><span>Approval of Leave</span></a>
+<a href="manage-leave.php?leaverequest=1"><i class="la la-check-square-o"></i><span> 
+  <?php 
+    $sql=mysqli_query($conn,"select * from 019_leave_request where status=1")or die(mysqli_error($con));
+    while($row=mysqli_fetch_array($sql))
+    {
+    }
+  ?>
+  Approval of Leave</span></a>
+</li>
+
+<li class="<?php if($activePage == 'approval-of-leave'){echo 'active';}else{ echo '';} ?>">
+<a href="manage-leave.php?leaverequest=2"><i class="la la-check-square-o"></i><span>Rejected of Leave</span></a>
+</li>
+
+<li class="<?php if($activePage == 'approval-of-leave'){echo 'active';}else{ echo '';} ?>">
+<a href="manage-leave.php?leaverequest=0"><i class="la la-check-square-o"></i><span>Pending of Leave</span></a>
 </li>
 
 </ul>

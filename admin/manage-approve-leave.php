@@ -1,6 +1,5 @@
 <?php include('include/header.php'); ?>
 
-
 <?php 
   include('../config/webconfig.php');
   session_start();
@@ -51,7 +50,7 @@ if (isset($_POST['decline']))
                 <div class="col">
                     <h3 class="page-title">Leaves</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="index.php">Leave Request</a></li>
                         <li class="breadcrumb-item active">Leaves</li>
                     </ul>
                 </div>
@@ -62,82 +61,58 @@ if (isset($_POST['decline']))
         </div>
 
 
-        <div class="row">
-            <a href="manage-leave.php?leaverequest=all">
-            <div class="col-md-3">
-                <div class="stats-info">
-                    <h6>Today Presents</h6>
-                    <h4>
-                    <?php
-                    $sql="SELECT * from 019_leave_request";
 
-                    if ($result = mysqli_query($conn, $sql)) {
-                     $rowcount = mysqli_num_rows( $result );
-                     echo  $rowcount;
-                    }
-                    ?>
-                   
-                    </h4>
+        <div class="row filter-row">
+            <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
+                <div class="form-group form-focus">
+                    <input type="text" class="form-control floating">
+                    <label class="focus-label">Employee Name</label>
                 </div>
-                </a>
             </div>
-            <div class="col-md-3">
-                <a href="manage-leave.php?leaverequest=1">
-                <div class="stats-info">
-                    <h6>Approve Leaves</h6>
-                    <h4>
-                    <?php
-                    $sql="SELECT * from 019_leave_request where status=1";
-
-                    if ($result = mysqli_query($conn, $sql)) {
-                     $rowcount = mysqli_num_rows( $result );
-                     echo  $rowcount;
-                    }
-                    ?>  
-                   
-                    </h4>
+            <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
+                <div class="form-group form-focus select-focus">
+                    <select class="select floating" style="height: 50px;width: 100%;">
+                        <option> -- Select -- </option>
+                        <option>Casual Leave</option>
+                        <option>Medical Leave</option>
+                        <option>Loss of Pay</option>
+                    </select>
+                    <!-- <label class="focus-label">Leave Type</label> -->
                 </div>
-                </a>
             </div>
-            <div class="col-md-3">
-               <a href="manage-leave.php?leaverequest=2">
-                <div class="stats-info">
-                    <h6>Rejected Leaves</h6>
-                    <h4> 
-                    <?php
-                    $sql="SELECT * from 019_leave_request where status=2";
-
-                    if ($result = mysqli_query($conn, $sql)) {
-                     $rowcount = mysqli_num_rows( $result );
-                     echo  $rowcount;
-                    }
-                    ?> 
-                    </h4>
+            <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
+                <div class="form-group form-focus select-focus">
+                    <select class="select floating" style="height: 50px;width: 100%;">
+                        <option> -- Select -- </option>
+                        <option> Pending </option>
+                        <option> Approved </option>
+                        <option> Rejected </option>
+                    </select>
+                    <!-- <label class="focus-label">Leave Status</label> -->
                 </div>
-                </a>
             </div>
-            <div class="col-md-3">
-                <a href="manage-leave.php?leaverequest=0">
-                <div class="stats-info">
-                    <h6>Pending Leaves</h6>
-                    <h4>
-                    <?php
-                    $sql="SELECT * from 019_leave_request where status=0";
-
-                    if ($result = mysqli_query($conn, $sql)) {
-                     $rowcount = mysqli_num_rows( $result );
-                     echo  $rowcount;
-                    }
-                    ?>
-                    </h4>
+            <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
+                <div class="form-group form-focus">
+                    <div class="cal-icon">
+                        <input class="form-control floating datetimepicker" type="text">
+                    </div>
+                    <label class="focus-label">From</label>
                 </div>
-                </a>
+            </div>
+            <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
+                <div class="form-group form-focus">
+                    <div class="cal-icon">
+                        <input class="form-control floating datetimepicker" type="text">
+                    </div>
+                    <label class="focus-label">To</label>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
+                <a href="#" class="btn btn-success w-100" style="background-color: #ff9b44;
+                background: linear-gradient(to right, #273596 0%, #0975C5 100%)!important;"> Search </a>
             </div>
         </div>
 
-     
-
-        Pine Apple An
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
@@ -145,11 +120,11 @@ if (isset($_POST['decline']))
                         <thead>
                             <tr>
                                 <th>Employee</th>
-                               
+                                <th>Leave Type</th>
                                 <th>From</th>
                                 <th>To</th>
-                               
-                                <th>Leave Type</th>
+                                <th>No of Days</th>
+                                <th>Reason</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-end">Actions</th>
                             </tr>
@@ -157,10 +132,9 @@ if (isset($_POST['decline']))
                         <tbody>
 
                         <?php
-                           
-
                             $i=1;
-                             if (isset($_GET['leaverequest']))
+                            
+                            if (isset($_GET['leaverequest']))
                             {
                                 $leaverequest=$_GET['leaverequest'];
 
@@ -175,14 +149,12 @@ if (isset($_POST['decline']))
                             }
                             else
                             {
-                              
-                                
-                                    $sql=mysqli_query($conn,"select * from 019_leave_request")or die(mysqli_error($con));
-                                
+                               $sql=mysqli_query($conn,"select * from 019_leave_request")or die(mysqli_error($con));
                             }
+
                             while($row=mysqli_fetch_array($sql))
                             {
-                            ?>
+                        ?>
                             <tr>
                                 <td>
                                 <?php    
@@ -200,10 +172,13 @@ if (isset($_POST['decline']))
                                 ?>
                                 
                                 </td>
-                                
+                                <td>Casual Leave</td>
                                 <td><?php echo $row['from_date']; ?></td>
                                 <td><?php echo $row['to_date']; ?></td>
+                                <td>  
                                 
+
+                               </td>
                                 <td><?php echo $row['reason'];?></td>
                                 <td class="text-center">
                                     <div class="dropdown action-label">
@@ -278,7 +253,7 @@ if (isset($_POST['decline']))
                         <div class="form-group">
                             <label>From <span class="text-danger">*</span></label>
                             <div class="cal-icon">
-                                <input  class="form-control datetimepicker" type="text">
+                                <input class="form-control datetimepicker" type="text">
                             </div>
                         </div>
                         <div class="form-group">
@@ -330,7 +305,7 @@ if (isset($_POST['decline']))
                         <div class="form-group">
                             <label>From <span class="text-danger">*</span></label>
                             <div class="cal-icon">
-                                <input  class="form-control datetimepicker" value="01-01-2019" type="text">
+                                <input class="form-control datetimepicker" value="01-01-2019" type="text">
                             </div>
                         </div>
                         <div class="form-group">
@@ -469,4 +444,3 @@ if (isset($_POST['decline']))
 
 
 <?php include('include/footer.php'); ?>
-
