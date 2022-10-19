@@ -661,3 +661,32 @@ Stack trace:
 #0 /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php(10): mysqli_query()
 #1 {main}
   thrown in /home/ascsamsi/public_html/demo/empapi/leave-request-all-list.php on line 10
+[07-Oct-2022 02:29:00 UTC] PHP Warning:  Undefined array key "user" in /home/ascsamsi/public_html/demo/empapi/employee-login.php on line 11
+[07-Oct-2022 02:29:00 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/ascsamsi/public_html/demo/empapi/employee-login.php on line 11
+[07-Oct-2022 02:29:00 UTC] PHP Warning:  Undefined array key "password" in /home/ascsamsi/public_html/demo/empapi/employee-login.php on line 13
+[07-Oct-2022 02:29:00 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/ascsamsi/public_html/demo/empapi/employee-login.php on line 13
+[10-Oct-2022 13:50:54 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND 13_employee.branch_id='1'' at line 4 in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php:17
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php(17): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/not_attendance_list.php on line 17
+[11-Oct-2022 05:24:55 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5 in /home/ascsamsi/public_html/demo/empapi/employee-login.php:35
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/employee-login.php(35): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/employee-login.php on line 35
+[11-Oct-2022 05:25:05 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5 in /home/ascsamsi/public_html/demo/empapi/employee-login.php:35
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/employee-login.php(35): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/employee-login.php on line 35
+[11-Oct-2022 05:25:33 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5 in /home/ascsamsi/public_html/demo/empapi/employee-login.php:35
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/employee-login.php(35): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/employee-login.php on line 35
+[11-Oct-2022 05:25:44 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5 in /home/ascsamsi/public_html/demo/empapi/employee-login.php:35
+Stack trace:
+#0 /home/ascsamsi/public_html/demo/empapi/employee-login.php(35): mysqli_query()
+#1 {main}
+  thrown in /home/ascsamsi/public_html/demo/empapi/employee-login.php on line 35

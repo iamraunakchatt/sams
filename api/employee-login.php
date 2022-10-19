@@ -28,7 +28,12 @@ include('../config/webconfig.php');
 	else
 	{$valid_pwd=$pwd;}
 	
-	$sql=mysqli_query($conn,"SELECT  employee_name, branch_id ,id FROM  13_employee  WHERE  passwordd='$pwd' AND status='1' AND sapp_login='1' AND(email_address='$valid_user'OR  mobile_no='$valid_user') ")or die(mysqli_error($conn));
+	$sql=mysqli_query($conn,"SELECT  13_employee.employee_name, 13_employee.branch_id ,13_employee.id,12_branch_management.attendance_by FROM  13_employee   
+	INNER JOIN 12_branch_management
+ON 12_branch_management.id=13_employee.branch_id
+
+WHERE  13_employee.passwordd='$pwd' AND 13_employee.status='1' AND 13_employee.sapp_login='1' AND (13_employee.email_address='$valid_user' OR  13_employee.mobile_no='$valid_user')
+	")or die(mysqli_error($conn));
 	$row=mysqli_fetch_assoc($sql);
 
   

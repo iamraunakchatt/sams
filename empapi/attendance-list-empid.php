@@ -8,7 +8,7 @@ if(mysqli_num_rows($sql)>0){
 
     $output=mysqli_fetch_all($sql,MYSQLI_ASSOC);
     
-
+print_r($output);
     echo json_encode($output);
     
     
